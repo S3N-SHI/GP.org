@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galería | Acero Trail Running San Mateo 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+
+/* ============================================
+   ACERO TRAIL RUNNING - GLOBAL STYLES (EMBEDDED)
+   ============================================ */
+
+:root {
+  --rojo: #CC0000;
+  --rojo-vivo: #FF0000;
+  --rojo-oscuro: #8B0000;
+  --negro: #0A0A0A;
+  --negro-medio: #1A1A1A;
+  --negro-suave: #222222;
+  --gris: #333333;
+  --gris-claro: #888888;
+  --blanco: #FFFFFF;
+  --blanco-hueso: #F5F5F5;
+  --acento: #FF3333;
+  --sombra: rgba(204,0,0,0.3);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #0A0A0A; color: #FFFFFF; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #CC0000; border-radius: 3px; }
+
+/* NAVBAR */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid #CC0000;
+  padding: 0 2rem; height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.navbar-logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#FFFFFF; line-height:1; letter-spacing:2px; }
+.navbar-logo-text span { color:#CC0000; }
+.navbar-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+.navbar-links a {
+  color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.85rem;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:8px 14px; border-radius:4px; transition:all 0.2s ease; position:relative;
+}
+.navbar-links a::after {
+  content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%);
+  width:0; height:2px; background:#CC0000; transition:width 0.3s ease;
+}
+.navbar-links a:hover, .navbar-links a.active { color:#FFFFFF; }
+.navbar-links a:hover::after, .navbar-links a.active::after { width:60%; }
+.navbar-cta { background:#CC0000 !important; color:#FFFFFF !important; padding:8px 18px !important; border-radius:4px !important; font-weight:700 !important; }
+.navbar-cta::after { display:none !important; }
+.navbar-cta:hover { background:#FF0000 !important; }
+
+/* HAMBURGER */
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+.hamburger span { display:block; width:24px; height:2px; background:#FFFFFF; transition:all 0.3s; border-radius:2px; }
+.hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* MOBILE MENU */
+.mobile-menu {
+  display:none; position:fixed; top:70px; left:0; right:0;
+  background:rgba(10,10,10,0.99);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  padding:1.5rem; z-index:999;
+  border-bottom:2px solid #CC0000;
+  transform:translateY(-20px); opacity:0; transition:all 0.3s ease;
+}
+.mobile-menu.open { display:block; transform:translateY(0); opacity:1; }
+.mobile-menu ul { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+.mobile-menu a {
+  display:block; color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1.1rem;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:12px 16px; border-radius:6px; transition:all 0.2s;
+}
+.mobile-menu a:hover { color:#FFFFFF; background:rgba(204,0,0,0.15); }
+.mobile-menu .mobile-cta { background:#CC0000; color:#FFFFFF !important; text-align:center; margin-top:0.5rem; font-weight:700 !important; }
+
+/* COUNTDOWN BANNER */
+.countdown-banner {
+  background: linear-gradient(135deg,#8B0000,#CC0000,#8B0000);
+  background-size:200% 200%;
+  animation:gradientShift 4s ease infinite;
+  padding:12px 2rem; text-align:center;
+  position:fixed; top:70px; left:0; right:0; z-index:998;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+@keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+.countdown-inner { display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+.countdown-label { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.9); }
+.countdown-units { display:flex; gap:1rem; align-items:center; }
+.countdown-unit { text-align:center; min-width:52px; }
+.countdown-num { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1; color:#FFFFFF; text-shadow:0 0 20px rgba(255,255,255,0.5); display:block; }
+.countdown-txt { font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); }
+.countdown-sep { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:rgba(255,255,255,0.4); animation:blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* PAGE OFFSET */
+.page-content { padding-top:130px; }
+
+/* TYPOGRAPHY */
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,5rem); line-height:1; color:#FFFFFF; }
+.section-title span { color:#CC0000; }
+.section-subtitle { font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:4px; text-transform:uppercase; color:#CC0000; margin-bottom:0.8rem; }
+.section-body { font-size:1rem; line-height:1.7; color:#888888; max-width:650px; }
+
+/* BUTTONS */
+.btn { display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; text-decoration:none; padding:14px 32px; border-radius:4px; cursor:pointer; border:none; transition:all 0.25s ease; }
+.btn-primary { background:#CC0000; color:#FFFFFF; }
+.btn-primary:hover { background:#FF0000; transform:translateY(-2px); box-shadow:0 8px 24px rgba(204,0,0,0.3); }
+.btn-outline { background:transparent; color:#FFFFFF; border:2px solid #CC0000; }
+.btn-outline:hover { background:#CC0000; transform:translateY(-2px); }
+
+/* DIVIDER */
+.divider { width:60px; height:3px; background:#CC0000; margin:1rem 0 1.5rem; }
+
+/* FOOTER */
+footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5rem; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem; padding-bottom:2rem; border-bottom:1px solid #333333; }
+.footer-brand-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#FFFFFF; margin-bottom:0.5rem; }
+.footer-brand-name span { color:#CC0000; }
+.footer-desc { font-size:0.9rem; color:#888888; line-height:1.6; margin-bottom:1.5rem; }
+.footer-social { display:flex; gap:12px; }
+.footer-social a { width:40px; height:40px; border-radius:8px; background:#222222; border:1px solid #333333; display:flex; align-items:center; justify-content:center; color:#888888; text-decoration:none; font-size:1rem; transition:all 0.2s; }
+.footer-social a:hover { background:#CC0000; border-color:#CC0000; color:#FFFFFF; transform:translateY(-2px); }
+.footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:#CC0000; margin-bottom:1rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.6rem; }
+.footer-col ul li a { color:#888888; text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
+.footer-col ul li a:hover { color:#FFFFFF; }
+.footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:0.8rem; }
+.footer-contact-item .icon { color:#CC0000; font-size:1rem; margin-top:2px; flex-shrink:0; }
+.footer-contact-item p { font-size:0.9rem; color:#888888; line-height:1.4; }
+.footer-contact-item a { color:#888888; text-decoration:none; transition:color 0.2s; }
+.footer-contact-item a:hover { color:#CC0000; }
+.footer-bottom { max-width:1200px; margin:1.5rem auto 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { font-size:0.8rem; color:#888888; }
+
+/* CARDS & MISC */
+.card { background:#222222; border:1px solid #333333; border-radius:12px; overflow:hidden; transition:all 0.3s; }
+.card:hover { border-color:#CC0000; transform:translateY(-4px); box-shadow:0 16px 40px rgba(204,0,0,0.15); }
+.badge { display:inline-block; background:#CC0000; color:#FFFFFF; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px; }
+.organizer-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.tag { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#888888; font-family:'Barlow Condensed',sans-serif; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; transition:all 0.2s; }
+.tag:hover { border-color:#CC0000; color:#CC0000; }
+
+/* ANIMATE ON SCROLL */
+.animate-on-scroll { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.animate-on-scroll.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:1024px) { .footer-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:768px) {
+  .navbar-links { display:none; }
+  .hamburger { display:flex; }
+  .countdown-units { gap:0.6rem; }
+  .countdown-num { font-size:1.4rem; }
+  .countdown-unit { min-width:40px; }
+  .countdown-label { font-size:0.7rem; letter-spacing:2px; }
+  .footer-grid { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+}
+@media (max-width:480px) {
+  .navbar { padding:0 1rem; }
+  .countdown-banner { padding:10px 1rem; }
+  .countdown-sep { display:none; }
+}
+
+  </style>
+  <style>
+    .page-hero { min-height: 38vh; display: flex; align-items: flex-end; padding: 130px 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.97) 100%), url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1600&q=80') center/cover; }
+    .page-hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gris-claro); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--rojo); text-decoration: none; }
+    .breadcrumb span { color: rgba(255,255,255,0.3); }
+
+    .gallery-section { max-width: 1300px; margin: 0 auto; padding: 5rem 2rem; }
+    .gallery-header { text-align: center; margin-bottom: 3rem; }
+    .gallery-header p { color: var(--gris-claro); font-size: 1rem; max-width: 550px; margin: 1rem auto 0; line-height: 1.7; }
+
+    /* FILTER TABS */
+    .filter-tabs {
+      display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .filter-tab {
+      padding: 8px 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--gris-claro);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tab:hover, .filter-tab.active {
+      background: var(--rojo);
+      border-color: var(--rojo);
+      color: var(--blanco);
+    }
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      columns: 4;
+      column-gap: 1rem;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover { transform: scale(1.02); border-color: var(--rojo); }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--blanco);
+      font-weight: 600;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 10px; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: rgba(204,0,0,0.8); border: none; border-radius: 50%;
+      color: var(--blanco); font-size: 1.2rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: var(--rojo); }
+
+    /* PLACEHOLDER MSG */
+    .gallery-placeholder {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255,255,255,0.02);
+      border: 2px dashed rgba(255,255,255,0.1);
+      border-radius: 20px;
+    }
+    .gallery-placeholder .ph-icon { font-size: 4rem; margin-bottom: 1rem; color: rgba(255,255,255,0.1); }
+    .gallery-placeholder h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: rgba(255,255,255,0.2); margin-bottom: 0.5rem; }
+    .gallery-placeholder p { color: rgba(255,255,255,0.25); font-size: 0.9rem; }
+
+    .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 600px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 400px) { .gallery-grid { columns: 1; } }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand"><div class="navbar-logo-text"><span>ACERO</span> TRAIL</div></a>
+  <ul class="navbar-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li>
+    <li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="navbar-cta">Inscríbete</a></li>
+  </ul>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <ul>
+    <li><a href="index.html">Inicio</a></li><li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li><li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li><li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="mobile-cta">Inscríbete</a></li>
+  </ul>
+</div>
+<div class="countdown-banner">
+  <div class="countdown-inner">
+    <span class="countdown-label">⚡ La carrera comienza en</span>
+    <div class="countdown-units">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-txt">Días</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-txt">Horas</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-minutes">--</span><span class="countdown-txt">Min</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-seconds">--</span><span class="countdown-txt">Seg</span></div>
+    </div>
+    <span class="countdown-label">📅 25 · ABRIL · 2026</span>
+  </div>
+</div>
+
+<section class="page-hero page-content">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>/</span><span>Galería</span></div>
+    <p class="section-subtitle">Momentos que inspiran</p>
+    <h1 class="section-title">Galería <span>Fotográfica</span></h1>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-header animate-on-scroll">
+    <p class="section-subtitle">Naturaleza y deporte</p>
+    <h2 class="section-title">Fotos del <span>Evento</span></h2>
+    <div class="divider" style="margin:1rem auto 0"></div>
+    <p>Revive los mejores momentos de los entrenamientos, el entorno y la comunidad Acero Trail Running San Mateo.</p>
+  </div>
+
+  <div class="filter-tabs animate-on-scroll" style="transition-delay:0.1s">
+    <button class="filter-tab active" onclick="filterGallery('all', this)">Todos</button>
+    <button class="filter-tab" onclick="filterGallery('entrenamiento', this)">Entrenamientos</button>
+    <button class="filter-tab" onclick="filterGallery('naturaleza', this)">Naturaleza</button>
+    <button class="filter-tab" onclick="filterGallery('equipo', this)">Equipo</button>
+  </div>
+
+  <div class="gallery-grid animate-on-scroll" id="gallery-grid" style="transition-delay:0.2s">
+    <!-- Gallery items injected by JS -->
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name"><span>ACERO</span> TRAIL RUNNING</div>
+      <p class="footer-desc">1era Edición · San Mateo, Ecuador<br>25 de Abril, 2026 · 07:00 AM</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/trail_running_san_mateo_2026" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/593984848383" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Navegación</h4><ul>
+      <li><a href="index.html">Inicio</a></li><li><a href="evento.html">El Evento</a></li>
+      <li><a href="ruta.html">Ruta 10K</a></li><li><a href="race-pack.html">Race Pack</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Evento</h4><ul>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="auspiciantes.html">Auspiciantes</a></li>
+      <li><a href="evento.html#faq">FAQ</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contacto</h4>
+      <div class="footer-contact-item"><i class="fas fa-phone icon"></i><p><a href="tel:0984848383">0984848383</a></p></div>
+      <div class="footer-contact-item"><i class="fab fa-instagram icon"></i><p>@trail_running_san_mateo_2026</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Acero Trail Running San Mateo. Todos los derechos reservados.</p>
+    <p>Diseñado con ❤️ para la comunidad trail runner</p>
+  </div>
+</footer>
+
+<script>
+
+// ============================================
+// ACERO TRAIL - SHARED JAVASCRIPT
+// ============================================
+
+function initCountdown() {
+  const eventDate = new Date('2026-04-25T07:00:00');
+  function update() {
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff <= 0) { document.querySelectorAll('.countdown-num').forEach(el => el.textContent = '00'); return; }
+    const days    = Math.floor(diff / (1000*60*60*24));
+    const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+    const dEl=document.getElementById('cd-days');
+    const hEl=document.getElementById('cd-hours');
+    const mEl=document.getElementById('cd-minutes');
+    const sEl=document.getElementById('cd-seconds');
+    if(dEl) dEl.textContent=pad(days);
+    if(hEl) hEl.textContent=pad(hours);
+    if(mEl) mEl.textContent=pad(minutes);
+    if(sEl) sEl.textContent=pad(seconds);
+  }
+  update();
+  setInterval(update,1000);
+}
+
+function initHamburger() {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
+
+function initActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.navbar-links a, .mobile-menu a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) link.classList.add('active');
+  });
+}
+
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCountdown();
+  initHamburger();
+  initActiveNav();
+  initScrollAnimations();
+});
+
+</script>
+<script>
+const galleryImages = [
+  { src: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80', cat: 'entrenamiento', label: 'Trail Running' },
+  { src: 'https://images.unsplash.com/photo-1594882645126-14ac19a7a28a?w=800&q=80', cat: 'naturaleza', label: 'Senderos Naturales' },
+  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', cat: 'entrenamiento', label: 'Entrenamiento' },
+  { src: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80', cat: 'equipo', label: 'El Equipo' },
+  { src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80', cat: 'entrenamiento', label: 'Preparación' },
+  { src: 'https://images.unsplash.com/photo-1543459176-4426b37223ba?w=800&q=80', cat: 'naturaleza', label: 'Vista Natural' },
+  { src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80', cat: 'naturaleza', label: 'Montaña' },
+  { src: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&q=80', cat: 'entrenamiento', label: 'Carrera' },
+  { src: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80', cat: 'equipo', label: 'Comunidad' },
+  { src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&q=80', cat: 'naturaleza', label: 'Paisaje' },
+  { src: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80', cat: 'entrenamiento', label: 'Atleta' },
+  { src: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80', cat: 'equipo', label: 'Grupo' },
+];
+
+let currentFilter = 'all';
+
+function renderGallery(filter) {
+  const grid = document.getElementById('gallery-grid');
+  const filtered = filter === 'all' ? galleryImages : galleryImages.filter(img => img.cat === filter);
+  grid.innerHTML = filtered.map((img, i) => `
+    <div class="gallery-item" onclick="openLightbox('${img.src}')">
+      <img src="${img.src}" alt="${img.label}" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-text">${img.label}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterGallery(cat, el) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderGallery(cat);
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+
+renderGallery('all');
+</script>
+</body>
+</html>

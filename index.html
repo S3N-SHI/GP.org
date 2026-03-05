@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acero Trail Running San Mateo 2026 | 1era Edición</title>
+  <meta name="description" content="Acero Trail Running San Mateo 2026 – 1era Edición. Carrera de 10K el 25 de abril de 2026. Inscríbete ahora." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+
+/* ============================================
+   ACERO TRAIL RUNNING - GLOBAL STYLES (EMBEDDED)
+   ============================================ */
+
+:root {
+  --rojo: #CC0000;
+  --rojo-vivo: #FF0000;
+  --rojo-oscuro: #8B0000;
+  --negro: #0A0A0A;
+  --negro-medio: #1A1A1A;
+  --negro-suave: #222222;
+  --gris: #333333;
+  --gris-claro: #888888;
+  --blanco: #FFFFFF;
+  --blanco-hueso: #F5F5F5;
+  --acento: #FF3333;
+  --sombra: rgba(204,0,0,0.3);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #0A0A0A; color: #FFFFFF; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #CC0000; border-radius: 3px; }
+
+/* NAVBAR */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid #CC0000;
+  padding: 0 2rem; height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.navbar-logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#FFFFFF; line-height:1; letter-spacing:2px; }
+.navbar-logo-text span { color:#CC0000; }
+.navbar-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+.navbar-links a {
+  color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.85rem;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:8px 14px; border-radius:4px; transition:all 0.2s ease; position:relative;
+}
+.navbar-links a::after {
+  content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%);
+  width:0; height:2px; background:#CC0000; transition:width 0.3s ease;
+}
+.navbar-links a:hover, .navbar-links a.active { color:#FFFFFF; }
+.navbar-links a:hover::after, .navbar-links a.active::after { width:60%; }
+.navbar-cta { background:#CC0000 !important; color:#FFFFFF !important; padding:8px 18px !important; border-radius:4px !important; font-weight:700 !important; }
+.navbar-cta::after { display:none !important; }
+.navbar-cta:hover { background:#FF0000 !important; }
+
+/* HAMBURGER */
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+.hamburger span { display:block; width:24px; height:2px; background:#FFFFFF; transition:all 0.3s; border-radius:2px; }
+.hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* MOBILE MENU */
+.mobile-menu {
+  display:none; position:fixed; top:70px; left:0; right:0;
+  background:rgba(10,10,10,0.99);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  padding:1.5rem; z-index:999;
+  border-bottom:2px solid #CC0000;
+  transform:translateY(-20px); opacity:0; transition:all 0.3s ease;
+}
+.mobile-menu.open { display:block; transform:translateY(0); opacity:1; }
+.mobile-menu ul { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+.mobile-menu a {
+  display:block; color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1.1rem;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:12px 16px; border-radius:6px; transition:all 0.2s;
+}
+.mobile-menu a:hover { color:#FFFFFF; background:rgba(204,0,0,0.15); }
+.mobile-menu .mobile-cta { background:#CC0000; color:#FFFFFF !important; text-align:center; margin-top:0.5rem; font-weight:700 !important; }
+
+/* COUNTDOWN BANNER */
+.countdown-banner {
+  background: linear-gradient(135deg,#8B0000,#CC0000,#8B0000);
+  background-size:200% 200%;
+  animation:gradientShift 4s ease infinite;
+  padding:12px 2rem; text-align:center;
+  position:fixed; top:70px; left:0; right:0; z-index:998;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+@keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+.countdown-inner { display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+.countdown-label { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.9); }
+.countdown-units { display:flex; gap:1rem; align-items:center; }
+.countdown-unit { text-align:center; min-width:52px; }
+.countdown-num { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1; color:#FFFFFF; text-shadow:0 0 20px rgba(255,255,255,0.5); display:block; }
+.countdown-txt { font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); }
+.countdown-sep { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:rgba(255,255,255,0.4); animation:blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* PAGE OFFSET */
+.page-content { padding-top:130px; }
+
+/* TYPOGRAPHY */
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,5rem); line-height:1; color:#FFFFFF; }
+.section-title span { color:#CC0000; }
+.section-subtitle { font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:4px; text-transform:uppercase; color:#CC0000; margin-bottom:0.8rem; }
+.section-body { font-size:1rem; line-height:1.7; color:#888888; max-width:650px; }
+
+/* BUTTONS */
+.btn { display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; text-decoration:none; padding:14px 32px; border-radius:4px; cursor:pointer; border:none; transition:all 0.25s ease; }
+.btn-primary { background:#CC0000; color:#FFFFFF; }
+.btn-primary:hover { background:#FF0000; transform:translateY(-2px); box-shadow:0 8px 24px rgba(204,0,0,0.3); }
+.btn-outline { background:transparent; color:#FFFFFF; border:2px solid #CC0000; }
+.btn-outline:hover { background:#CC0000; transform:translateY(-2px); }
+
+/* DIVIDER */
+.divider { width:60px; height:3px; background:#CC0000; margin:1rem 0 1.5rem; }
+
+/* FOOTER */
+footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5rem; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem; padding-bottom:2rem; border-bottom:1px solid #333333; }
+.footer-brand-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#FFFFFF; margin-bottom:0.5rem; }
+.footer-brand-name span { color:#CC0000; }
+.footer-desc { font-size:0.9rem; color:#888888; line-height:1.6; margin-bottom:1.5rem; }
+.footer-social { display:flex; gap:12px; }
+.footer-social a { width:40px; height:40px; border-radius:8px; background:#222222; border:1px solid #333333; display:flex; align-items:center; justify-content:center; color:#888888; text-decoration:none; font-size:1rem; transition:all 0.2s; }
+.footer-social a:hover { background:#CC0000; border-color:#CC0000; color:#FFFFFF; transform:translateY(-2px); }
+.footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:#CC0000; margin-bottom:1rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.6rem; }
+.footer-col ul li a { color:#888888; text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
+.footer-col ul li a:hover { color:#FFFFFF; }
+.footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:0.8rem; }
+.footer-contact-item .icon { color:#CC0000; font-size:1rem; margin-top:2px; flex-shrink:0; }
+.footer-contact-item p { font-size:0.9rem; color:#888888; line-height:1.4; }
+.footer-contact-item a { color:#888888; text-decoration:none; transition:color 0.2s; }
+.footer-contact-item a:hover { color:#CC0000; }
+.footer-bottom { max-width:1200px; margin:1.5rem auto 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { font-size:0.8rem; color:#888888; }
+
+/* CARDS & MISC */
+.card { background:#222222; border:1px solid #333333; border-radius:12px; overflow:hidden; transition:all 0.3s; }
+.card:hover { border-color:#CC0000; transform:translateY(-4px); box-shadow:0 16px 40px rgba(204,0,0,0.15); }
+.badge { display:inline-block; background:#CC0000; color:#FFFFFF; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px; }
+.organizer-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.tag { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#888888; font-family:'Barlow Condensed',sans-serif; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; transition:all 0.2s; }
+.tag:hover { border-color:#CC0000; color:#CC0000; }
+
+/* ANIMATE ON SCROLL */
+.animate-on-scroll { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.animate-on-scroll.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:1024px) { .footer-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:768px) {
+  .navbar-links { display:none; }
+  .hamburger { display:flex; }
+  .countdown-units { gap:0.6rem; }
+  .countdown-num { font-size:1.4rem; }
+  .countdown-unit { min-width:40px; }
+  .countdown-label { font-size:0.7rem; letter-spacing:2px; }
+  .footer-grid { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+}
+@media (max-width:480px) {
+  .navbar { padding:0 1rem; }
+  .countdown-banner { padding:10px 1rem; }
+  .countdown-sep { display:none; }
+}
+
+  </style>
+  <style>
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 130px 2rem 4rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 50%, rgba(139,0,0,0.3) 100%),
+        url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 2px;
+      background: var(--rojo);
+    }
+
+    .hero-eyebrow span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .line1 { color: var(--blanco); }
+    .hero-title .line2 { color: var(--rojo); }
+    .hero-title .line3 { 
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    }
+
+    .hero-date {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid rgba(204,0,0,0.4);
+      padding: 12px 20px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+
+    .hero-date .icon { color: var(--rojo); font-size: 1rem; }
+
+    .hero-date-info p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .hero-date-info strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blanco);
+      letter-spacing: 1px;
+    }
+
+    .hero-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hero stats panel */
+    .hero-stats {
+      background: rgba(26,26,26,0.85);
+      border: 1px solid rgba(204,0,0,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-stats-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.2rem;
+      background: rgba(10,10,10,0.6);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.2s;
+    }
+
+    .stat-item:hover { border-color: var(--rojo); }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--rojo);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    .edition-badge {
+      background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo));
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .edition-badge p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .edition-badge strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blanco);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-section {
+      padding: 6rem 2rem;
+      background: var(--negro-medio);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-section::before {
+      content: 'TRAIL';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12rem;
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      height: 480px;
+      display: block;
+    }
+
+    .about-img-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(10,10,10,0.9);
+      border: 1px solid var(--rojo);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+    }
+
+    .about-img-overlay p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rojo);
+    }
+
+    .about-img-overlay strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--blanco);
+      display: block;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.2s;
+    }
+
+    .feature-item:hover { border-color: rgba(204,0,0,0.4); }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid rgba(204,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rojo);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: var(--blanco);
+      margin-bottom: 2px;
+    }
+
+    .feature-text p {
+      font-size: 0.85rem;
+      color: var(--gris-claro);
+      line-height: 1.5;
+    }
+
+    /* ===== ORGANIZER SECTION ===== */
+    .organizer-section {
+      padding: 6rem 2rem;
+      background: var(--negro);
+    }
+
+    .organizer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .organizer-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .organizer-card {
+      background: var(--negro-suave);
+      border: 1px solid var(--gris);
+      border-radius: 20px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .organizer-avatar {
+      text-align: center;
+    }
+
+    .avatar-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 4rem;
+      border: 4px solid rgba(204,0,0,0.4);
+    }
+
+    .organizer-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blanco);
+      margin-bottom: 0.3rem;
+    }
+
+    .organizer-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 700;
+    }
+
+    .organizer-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--blanco);
+      margin-bottom: 1rem;
+    }
+
+    .organizer-info p {
+      color: var(--gris-claro);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .organizer-mission {
+      background: rgba(204,0,0,0.08);
+      border-left: 3px solid var(--rojo);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .organizer-mission p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .organizer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--gris-claro);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .tag:hover { border-color: var(--rojo); color: var(--rojo); }
+
+    /* ===== SPONSORS PREVIEW ===== */
+    .sponsors-section {
+      padding: 4rem 2rem;
+      background: var(--negro-medio);
+      text-align: center;
+    }
+
+    .sponsors-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gris-claro);
+      margin-bottom: 2.5rem;
+    }
+
+    .sponsors-logos {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .sponsor-logo-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .sponsor-logo-item:hover {
+      border-color: var(--rojo);
+      background: rgba(204,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .sponsor-logo-icon {
+      font-size: 2rem;
+    }
+
+    .sponsor-logo-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--blanco);
+      letter-spacing: 2px;
+    }
+
+    /* ===== RACE PACK PREVIEW ===== */
+    .racepack-section {
+      padding: 6rem 2rem;
+      background: var(--negro);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .racepack-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .racepack-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .racepack-item {
+      background: var(--negro-suave);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .racepack-item:hover {
+      border-color: var(--rojo);
+      transform: translateY(-3px);
+    }
+
+    .racepack-item .ri-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .racepack-item h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: var(--blanco);
+    }
+
+    .racepack-item p {
+      font-size: 0.8rem;
+      color: var(--gris-claro);
+      margin-top: 4px;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo) 50%, var(--rojo-oscuro) 100%);
+      background-size: 200%;
+      animation: gradientShift 6s ease infinite;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      color: var(--blanco);
+      margin-bottom: 1rem;
+    }
+
+    .cta-desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--blanco);
+      color: var(--rojo);
+      font-weight: 800;
+    }
+
+    .btn-white:hover {
+      background: var(--blanco-hueso);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--blanco);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+
+    .btn-outline-white:hover {
+      border-color: var(--blanco);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ===== ANIMATE ON SCROLL ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-img-wrap { display: none; }
+      .organizer-card { grid-template-columns: 1fr; text-align: center; }
+      .organizer-avatar { display: flex; flex-direction: column; align-items: center; }
+      .racepack-inner { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding-top: 150px; }
+      .hero-title { font-size: 3.5rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .racepack-items { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="navbar-logo-text"><span>ACERO</span> TRAIL</div>
+  </a>
+  <ul class="navbar-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li>
+    <li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="navbar-cta">Inscríbete</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li>
+    <li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="mobile-cta">Inscríbete</a></li>
+  </ul>
+</div>
+
+<!-- ===== COUNTDOWN BANNER ===== -->
+<div class="countdown-banner">
+  <div class="countdown-inner">
+    <span class="countdown-label">⚡ La carrera comienza en</span>
+    <div class="countdown-units">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-days">--</span>
+        <span class="countdown-txt">Días</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-txt">Horas</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-minutes">--</span>
+        <span class="countdown-txt">Min</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-seconds">--</span>
+        <span class="countdown-txt">Seg</span>
+      </div>
+    </div>
+    <span class="countdown-label">📅 25 · ABRIL · 2026</span>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero page-content">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>1era Edición · San Mateo, Ecuador</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line1">ACERO</span><br>
+        <span class="line2">TRAIL</span><br>
+        <span class="line3">RUNNING</span>
+      </h1>
+      <div class="hero-date">
+        <i class="fas fa-calendar-alt icon"></i>
+        <div class="hero-date-info">
+          <p>Fecha del evento</p>
+          <strong>25 de Abril, 2026 · 07:00 AM</strong>
+        </div>
+      </div>
+      <p class="hero-desc">
+        La primera edición de la carrera más desafiante de San Mateo. 
+        10 kilómetros de naturaleza pura, adrenalina y superación personal 
+        entre los senderos más emblemáticos de la región.
+      </p>
+      <div class="hero-btns">
+        <a href="inscripciones.html" class="btn btn-primary">
+          <i class="fas fa-running"></i> Inscríbete Ahora
+        </a>
+        <a href="evento.html" class="btn btn-outline">
+          <i class="fas fa-info-circle"></i> Ver detalles
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <p class="hero-stats-title">⚡ Datos del Evento</p>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Kilómetros</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1RA</span>
+          <span class="stat-label">Edición</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">7AM</span>
+          <span class="stat-label">Hora Salida</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">SM</span>
+          <span class="stat-label">San Mateo</span>
+        </div>
+      </div>
+      <div class="edition-badge">
+        <p>Evento Oficial</p>
+        <strong>ACERO TRAIL RUNNING 2026</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-img-wrap animate-on-scroll">
+      <img 
+        src="https://images.unsplash.com/photo-1594882645126-14ac19a7a28a?w=800&q=80" 
+        alt="Trail Running San Mateo"
+        class="about-img"
+      />
+      <div class="about-img-overlay">
+        <p>Categoría Única</p>
+        <strong>10K Trail</strong>
+      </div>
+    </div>
+
+    <div class="about-text animate-on-scroll" style="transition-delay:0.2s">
+      <p class="section-subtitle">Sobre el evento</p>
+      <h2 class="section-title">¿De qué se <span>trata?</span></h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        Acero Trail Running San Mateo es una carrera a campo traviesa de 10 kilómetros que 
+        atraviesa los senderos naturales de San Mateo, combinando belleza paisajística con un 
+        verdadero reto físico y mental. Diseñada para corredores de todos los niveles que 
+        busquen la experiencia del trail running auténtico.
+      </p>
+
+      <div class="about-features">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-mountain"></i></div>
+          <div class="feature-text">
+            <h4>Terreno Natural</h4>
+            <p>Senderos con tierra, piedra y vegetación nativa de la costa ecuatoriana.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-medal"></i></div>
+          <div class="feature-text">
+            <h4>Premiación</h4>
+            <p>Medallas y premios para los primeros lugares en categorías masculina y femenina.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-water"></i></div>
+          <div class="feature-text">
+            <h4>Avituallamiento</h4>
+            <p>Puntos de hidratación con Güitig en el recorrido y en la meta.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <div class="feature-text">
+            <h4>Comunidad</h4>
+            <p>Forma parte de la comunidad trail runner más apasionada de la región.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORGANIZER ===== -->
+<section class="organizer-section">
+  <div class="organizer-inner">
+    <div class="organizer-header animate-on-scroll">
+      <p class="section-subtitle">Quién organiza</p>
+      <h2 class="section-title">El <span>Organizador</span></h2>
+      <div class="divider" style="margin:1rem auto 0"></div>
+    </div>
+
+    <div class="organizer-card animate-on-scroll" style="transition-delay:0.2s">
+      <div class="organizer-avatar">
+        <div class="avatar-circle">🏃</div>
+        <h3 class="organizer-name">Acero Trail<br>Running</h3>
+        <p class="organizer-role">Organizador Oficial</p>
+      </div>
+      <div class="organizer-info">
+        <h3>San Mateo, Ecuador</h3>
+        <p>
+          <strong style="color:var(--blanco)">Acero Trail Running San Mateo</strong> es un grupo de apasionados del 
+          deporte al aire libre comprometidos con promover el trail running en la costa 
+          ecuatoriana. Nuestra misión es llevar la cultura del deporte, el esfuerzo y 
+          la naturaleza a cada rincón de San Mateo.
+        </p>
+        <p>
+          Esta primera edición nace del sueño colectivo de una comunidad que corre junta, 
+          se entrena junta y ahora compite junta. Más que una carrera, es la celebración 
+          de un estilo de vida.
+        </p>
+        <div class="organizer-mission">
+          <p>"Forjados como el acero, corremos entre montañas. La fuerza no se impone — 
+          se construye kilómetro a kilómetro."</p>
+        </div>
+        <div class="organizer-tags">
+          <span class="tag">Trail Running</span>
+          <span class="tag">San Mateo</span>
+          <span class="tag">Ecuador</span>
+          <span class="tag">1era Edición</span>
+          <span class="tag">10K</span>
+          <span class="tag">Naturaleza</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPONSORS PREVIEW ===== -->
+<section class="sponsors-section animate-on-scroll">
+  <p class="sponsors-label">Auspiciantes Oficiales 2026</p>
+  <div class="sponsors-logos">
+    <a href="auspiciantes.html" class="sponsor-logo-item">
+      <span class="sponsor-logo-icon">🎓</span>
+      <span class="sponsor-logo-name">GLOCAP CENTER</span>
+    </a>
+    <a href="auspiciantes.html" class="sponsor-logo-item">
+      <span class="sponsor-logo-icon">💧</span>
+      <span class="sponsor-logo-name">GÜITIG</span>
+    </a>
+    <a href="auspiciantes.html" class="sponsor-logo-item" style="opacity:0.5; border-style:dashed;">
+      <span class="sponsor-logo-icon">➕</span>
+      <span class="sponsor-logo-name" style="font-size:1rem; color:var(--gris-claro)">Tu marca aquí</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== RACE PACK PREVIEW ===== -->
+<section class="racepack-section">
+  <div class="racepack-inner">
+    <div class="animate-on-scroll">
+      <p class="section-subtitle">Lo que recibes</p>
+      <h2 class="section-title">Race <span>Pack</span> 2026</h2>
+      <div class="divider"></div>
+      <p class="section-body" style="margin-bottom:2rem">
+        Cada corredor inscrito recibe un pack exclusivo diseñado especialmente 
+        para la primera edición de Acero Trail Running San Mateo.
+      </p>
+      <a href="race-pack.html" class="btn btn-primary">
+        <i class="fas fa-box-open"></i> Ver Race Pack Completo
+      </a>
+    </div>
+
+    <div class="racepack-items animate-on-scroll" style="transition-delay:0.2s">
+      <div class="racepack-item">
+        <span class="ri-icon">👕</span>
+        <h4>Camiseta Técnica</h4>
+        <p>Diseño exclusivo 1era Ed.</p>
+      </div>
+      <div class="racepack-item">
+        <span class="ri-icon">🏷️</span>
+        <h4>Dorsal Oficial</h4>
+        <p>Con chip de cronometraje</p>
+      </div>
+      <div class="racepack-item">
+        <span class="ri-icon">🏅</span>
+        <h4>Medalla Finisher</h4>
+        <p>Para todos los que lleguen a meta</p>
+      </div>
+      <div class="racepack-item">
+        <span class="ri-icon">🧣</span>
+        <h4>Buff Acero Trail</h4>
+        <p>Multiusos, diseño oficial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="cta-inner animate-on-scroll">
+    <h2 class="cta-title">¿Estás listo<br>para el reto?</h2>
+    <p class="cta-desc">
+      Cupos limitados. Inscríbete ahora y asegura tu lugar en la primera 
+      edición de Acero Trail Running San Mateo 2026.
+    </p>
+    <div class="cta-btns">
+      <a href="inscripciones.html" class="btn btn-white">
+        <i class="fas fa-running"></i> Inscríbete Ahora
+      </a>
+      <a href="tel:0984848383" class="btn btn-outline-white">
+        <i class="fas fa-phone"></i> 0984848383
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name"><span>ACERO</span> TRAIL RUNNING</div>
+      <p class="footer-desc">
+        1era Edición · San Mateo, Ecuador<br>
+        25 de Abril, 2026 · 07:00 AM<br>
+        Forjados como el acero, corremos entre montañas.
+      </p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/trail_running_san_mateo_2026" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/593984848383" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="evento.html">El Evento</a></li>
+        <li><a href="ruta.html">Ruta 10K</a></li>
+        <li><a href="race-pack.html">Race Pack</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Evento</h4>
+      <ul>
+        <li><a href="inscripciones.html">Inscripciones</a></li>
+        <li><a href="auspiciantes.html">Auspiciantes</a></li>
+        <li><a href="evento.html#faq">FAQ</a></li>
+        <li><a href="evento.html#cronograma">Cronograma</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone icon"></i>
+        <p><a href="tel:0984848383">0984848383</a></p>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fab fa-facebook icon"></i>
+        <p><a href="https://facebook.com" target="_blank">Acero Trail Running San Mateo 2026</a></p>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fab fa-instagram icon"></i>
+        <p><a href="https://instagram.com/trail_running_san_mateo_2026" target="_blank">@trail_running_san_mateo_2026</a></p>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt icon"></i>
+        <p>San Mateo, Manabí, Ecuador</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Acero Trail Running San Mateo. Todos los derechos reservados.</p>
+    <p>Diseñado con ❤️ para la comunidad trail runner</p>
+  </div>
+</footer>
+
+<script>
+
+// ============================================
+// ACERO TRAIL - SHARED JAVASCRIPT
+// ============================================
+
+function initCountdown() {
+  const eventDate = new Date('2026-04-25T07:00:00');
+  function update() {
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff <= 0) { document.querySelectorAll('.countdown-num').forEach(el => el.textContent = '00'); return; }
+    const days    = Math.floor(diff / (1000*60*60*24));
+    const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+    const dEl=document.getElementById('cd-days');
+    const hEl=document.getElementById('cd-hours');
+    const mEl=document.getElementById('cd-minutes');
+    const sEl=document.getElementById('cd-seconds');
+    if(dEl) dEl.textContent=pad(days);
+    if(hEl) hEl.textContent=pad(hours);
+    if(mEl) mEl.textContent=pad(minutes);
+    if(sEl) sEl.textContent=pad(seconds);
+  }
+  update();
+  setInterval(update,1000);
+}
+
+function initHamburger() {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
+
+function initActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.navbar-links a, .mobile-menu a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) link.classList.add('active');
+  });
+}
+
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCountdown();
+  initHamburger();
+  initActiveNav();
+  initScrollAnimations();
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruta 10K | Acero Trail Running San Mateo 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+
+/* ============================================
+   ACERO TRAIL RUNNING - GLOBAL STYLES (EMBEDDED)
+   ============================================ */
+
+:root {
+  --rojo: #CC0000;
+  --rojo-vivo: #FF0000;
+  --rojo-oscuro: #8B0000;
+  --negro: #0A0A0A;
+  --negro-medio: #1A1A1A;
+  --negro-suave: #222222;
+  --gris: #333333;
+  --gris-claro: #888888;
+  --blanco: #FFFFFF;
+  --blanco-hueso: #F5F5F5;
+  --acento: #FF3333;
+  --sombra: rgba(204,0,0,0.3);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: #0A0A0A; color: #FFFFFF; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #CC0000; border-radius: 3px; }
+
+/* NAVBAR */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid #CC0000;
+  padding: 0 2rem; height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.navbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.navbar-logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:#FFFFFF; line-height:1; letter-spacing:2px; }
+.navbar-logo-text span { color:#CC0000; }
+.navbar-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+.navbar-links a {
+  color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.85rem;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:8px 14px; border-radius:4px; transition:all 0.2s ease; position:relative;
+}
+.navbar-links a::after {
+  content:''; position:absolute; bottom:4px; left:50%; transform:translateX(-50%);
+  width:0; height:2px; background:#CC0000; transition:width 0.3s ease;
+}
+.navbar-links a:hover, .navbar-links a.active { color:#FFFFFF; }
+.navbar-links a:hover::after, .navbar-links a.active::after { width:60%; }
+.navbar-cta { background:#CC0000 !important; color:#FFFFFF !important; padding:8px 18px !important; border-radius:4px !important; font-weight:700 !important; }
+.navbar-cta::after { display:none !important; }
+.navbar-cta:hover { background:#FF0000 !important; }
+
+/* HAMBURGER */
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+.hamburger span { display:block; width:24px; height:2px; background:#FFFFFF; transition:all 0.3s; border-radius:2px; }
+.hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+/* MOBILE MENU */
+.mobile-menu {
+  display:none; position:fixed; top:70px; left:0; right:0;
+  background:rgba(10,10,10,0.99);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  padding:1.5rem; z-index:999;
+  border-bottom:2px solid #CC0000;
+  transform:translateY(-20px); opacity:0; transition:all 0.3s ease;
+}
+.mobile-menu.open { display:block; transform:translateY(0); opacity:1; }
+.mobile-menu ul { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+.mobile-menu a {
+  display:block; color:#888888; text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1.1rem;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:12px 16px; border-radius:6px; transition:all 0.2s;
+}
+.mobile-menu a:hover { color:#FFFFFF; background:rgba(204,0,0,0.15); }
+.mobile-menu .mobile-cta { background:#CC0000; color:#FFFFFF !important; text-align:center; margin-top:0.5rem; font-weight:700 !important; }
+
+/* COUNTDOWN BANNER */
+.countdown-banner {
+  background: linear-gradient(135deg,#8B0000,#CC0000,#8B0000);
+  background-size:200% 200%;
+  animation:gradientShift 4s ease infinite;
+  padding:12px 2rem; text-align:center;
+  position:fixed; top:70px; left:0; right:0; z-index:998;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+@keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+.countdown-inner { display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+.countdown-label { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.9); }
+.countdown-units { display:flex; gap:1rem; align-items:center; }
+.countdown-unit { text-align:center; min-width:52px; }
+.countdown-num { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1; color:#FFFFFF; text-shadow:0 0 20px rgba(255,255,255,0.5); display:block; }
+.countdown-txt { font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); }
+.countdown-sep { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:rgba(255,255,255,0.4); animation:blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* PAGE OFFSET */
+.page-content { padding-top:130px; }
+
+/* TYPOGRAPHY */
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,5rem); line-height:1; color:#FFFFFF; }
+.section-title span { color:#CC0000; }
+.section-subtitle { font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:4px; text-transform:uppercase; color:#CC0000; margin-bottom:0.8rem; }
+.section-body { font-size:1rem; line-height:1.7; color:#888888; max-width:650px; }
+
+/* BUTTONS */
+.btn { display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; text-decoration:none; padding:14px 32px; border-radius:4px; cursor:pointer; border:none; transition:all 0.25s ease; }
+.btn-primary { background:#CC0000; color:#FFFFFF; }
+.btn-primary:hover { background:#FF0000; transform:translateY(-2px); box-shadow:0 8px 24px rgba(204,0,0,0.3); }
+.btn-outline { background:transparent; color:#FFFFFF; border:2px solid #CC0000; }
+.btn-outline:hover { background:#CC0000; transform:translateY(-2px); }
+
+/* DIVIDER */
+.divider { width:60px; height:3px; background:#CC0000; margin:1rem 0 1.5rem; }
+
+/* FOOTER */
+footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5rem; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem; padding-bottom:2rem; border-bottom:1px solid #333333; }
+.footer-brand-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#FFFFFF; margin-bottom:0.5rem; }
+.footer-brand-name span { color:#CC0000; }
+.footer-desc { font-size:0.9rem; color:#888888; line-height:1.6; margin-bottom:1.5rem; }
+.footer-social { display:flex; gap:12px; }
+.footer-social a { width:40px; height:40px; border-radius:8px; background:#222222; border:1px solid #333333; display:flex; align-items:center; justify-content:center; color:#888888; text-decoration:none; font-size:1rem; transition:all 0.2s; }
+.footer-social a:hover { background:#CC0000; border-color:#CC0000; color:#FFFFFF; transform:translateY(-2px); }
+.footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; color:#CC0000; margin-bottom:1rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.6rem; }
+.footer-col ul li a { color:#888888; text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
+.footer-col ul li a:hover { color:#FFFFFF; }
+.footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:0.8rem; }
+.footer-contact-item .icon { color:#CC0000; font-size:1rem; margin-top:2px; flex-shrink:0; }
+.footer-contact-item p { font-size:0.9rem; color:#888888; line-height:1.4; }
+.footer-contact-item a { color:#888888; text-decoration:none; transition:color 0.2s; }
+.footer-contact-item a:hover { color:#CC0000; }
+.footer-bottom { max-width:1200px; margin:1.5rem auto 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { font-size:0.8rem; color:#888888; }
+
+/* CARDS & MISC */
+.card { background:#222222; border:1px solid #333333; border-radius:12px; overflow:hidden; transition:all 0.3s; }
+.card:hover { border-color:#CC0000; transform:translateY(-4px); box-shadow:0 16px 40px rgba(204,0,0,0.15); }
+.badge { display:inline-block; background:#CC0000; color:#FFFFFF; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:20px; }
+.organizer-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.tag { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#888888; font-family:'Barlow Condensed',sans-serif; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; transition:all 0.2s; }
+.tag:hover { border-color:#CC0000; color:#CC0000; }
+
+/* ANIMATE ON SCROLL */
+.animate-on-scroll { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.animate-on-scroll.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:1024px) { .footer-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:768px) {
+  .navbar-links { display:none; }
+  .hamburger { display:flex; }
+  .countdown-units { gap:0.6rem; }
+  .countdown-num { font-size:1.4rem; }
+  .countdown-unit { min-width:40px; }
+  .countdown-label { font-size:0.7rem; letter-spacing:2px; }
+  .footer-grid { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+}
+@media (max-width:480px) {
+  .navbar { padding:0 1rem; }
+  .countdown-banner { padding:10px 1rem; }
+  .countdown-sep { display:none; }
+}
+
+  </style>
+  <style>
+    .page-hero {
+      min-height: 38vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 130px 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.95) 100%),
+        url('https://images.unsplash.com/photo-1543459176-4426b37223ba?w=1600&q=80') center/cover;
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gris-claro);
+      margin-bottom: 1rem;
+    }
+
+    .breadcrumb a { color: var(--rojo); text-decoration: none; }
+    .breadcrumb span { color: rgba(255,255,255,0.3); }
+
+    /* MAP SECTION */
+    .map-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .map-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* CONTROLS PANEL */
+    .controls-panel {
+      background: var(--negro-suave);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      position: sticky;
+      top: 150px;
+    }
+
+    .controls-header {
+      background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo));
+      padding: 1.5rem;
+    }
+
+    .controls-header h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--blanco);
+      letter-spacing: 2px;
+    }
+
+    .controls-header p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+
+    .controls-body { padding: 1.5rem; }
+
+    .mode-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--gris-claro);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      width: 100%;
+    }
+
+    .mode-btn:hover, .mode-btn.active {
+      background: rgba(204,0,0,0.15);
+      border-color: rgba(204,0,0,0.5);
+      color: var(--blanco);
+    }
+
+    .mode-btn.active { border-color: var(--rojo); }
+
+    .mode-btn .mb-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: rgba(204,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--rojo);
+    }
+
+    .mode-btn .mb-text h4 { font-size: 0.85rem; color: inherit; }
+    .mode-btn .mb-text p { font-size: 0.7rem; color: var(--gris-claro); font-family: 'Barlow', sans-serif; font-weight: 400; letter-spacing: 0; }
+
+    .controls-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 1.2rem 0;
+    }
+
+    .stats-display {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background: rgba(10,10,10,0.5);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-row .sr-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gris-claro);
+    }
+
+    .stat-row .sr-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--rojo);
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .action-btn {
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .action-btn-primary { background: var(--rojo); color: var(--blanco); }
+    .action-btn-primary:hover { background: var(--rojo-vivo); }
+
+    .action-btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: var(--gris-claro);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .action-btn-secondary:hover { background: rgba(255,255,255,0.1); color: var(--blanco); }
+
+    .action-btn-danger {
+      background: rgba(200,0,0,0.1);
+      color: #ff6666;
+      border: 1px solid rgba(200,0,0,0.3);
+    }
+    .action-btn-danger:hover { background: rgba(200,0,0,0.2); }
+
+    /* SAVED ROUTES */
+    .saved-routes {
+      margin-top: 1.5rem;
+    }
+
+    .saved-routes h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rojo);
+      margin-bottom: 0.8rem;
+    }
+
+    .saved-route-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background: rgba(204,0,0,0.08);
+      border: 1px solid rgba(204,0,0,0.2);
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+    }
+
+    .saved-route-item .sri-info p { font-size: 0.8rem; color: var(--blanco); font-weight: 600; }
+    .saved-route-item .sri-info span { font-size: 0.72rem; color: var(--gris-claro); }
+
+    .sri-actions { display: flex; gap: 6px; }
+    .sri-btn {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 0.72rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sri-btn-load { background: var(--rojo); color: var(--blanco); }
+    .sri-btn-del { background: rgba(255,255,255,0.08); color: var(--gris-claro); }
+
+    /* MAP CONTAINER */
+    .map-container-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.07);
+      background: #1a1a2e;
+    }
+
+    .map-toolbar {
+      background: var(--negro-suave);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .map-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-toolbar-left .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-green { background: #2ecc71; animation: pulse-green 2s infinite; }
+    .dot-red { background: var(--rojo); }
+    .dot-yellow { background: #f39c12; }
+
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .map-toolbar-left span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gris-claro);
+    }
+
+    .map-instruction {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--gris-claro);
+      background: rgba(204,0,0,0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(204,0,0,0.3);
+    }
+
+    #map {
+      width: 100%;
+      height: 600px;
+    }
+
+    /* Legend */
+    .map-legend {
+      background: var(--negro-suave);
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--gris-claro);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .legend-line {
+      width: 24px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    /* Save modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--negro-suave);
+      border: 1px solid rgba(204,0,0,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 90%;
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.open .modal { transform: scale(1); }
+
+    .modal h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--blanco);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal p { color: var(--gris-claro); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    .modal input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--blanco);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      padding: 12px 16px;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal input:focus { border-color: var(--rojo); }
+
+    .modal-btns { display: flex; gap: 0.8rem; }
+    .modal-btns button { flex: 1; padding: 12px; border-radius: 8px; border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 1.5px; cursor: pointer; transition: all 0.2s; }
+    .modal-save { background: var(--rojo); color: var(--blanco); }
+    .modal-save:hover { background: var(--rojo-vivo); }
+    .modal-cancel { background: rgba(255,255,255,0.07); color: var(--gris-claro); }
+    .modal-cancel:hover { background: rgba(255,255,255,0.12); color: var(--blanco); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--negro-suave);
+      border: 1px solid var(--rojo);
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast .t-icon { color: var(--rojo); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .map-layout { grid-template-columns: 1fr; }
+      .controls-panel { position: static; }
+      #map { height: 450px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="navbar-logo-text"><span>ACERO</span> TRAIL</div>
+  </a>
+  <ul class="navbar-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li>
+    <li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="navbar-cta">Inscríbete</a></li>
+  </ul>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="evento.html">El Evento</a></li>
+    <li><a href="ruta.html">Ruta 10K</a></li>
+    <li><a href="race-pack.html">Race Pack</a></li>
+    <li><a href="auspiciantes.html">Auspiciantes</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+    <li><a href="inscripciones.html" class="mobile-cta">Inscríbete</a></li>
+  </ul>
+</div>
+
+<div class="countdown-banner">
+  <div class="countdown-inner">
+    <span class="countdown-label">⚡ La carrera comienza en</span>
+    <div class="countdown-units">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-txt">Días</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-txt">Horas</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-minutes">--</span><span class="countdown-txt">Min</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-seconds">--</span><span class="countdown-txt">Seg</span></div>
+    </div>
+    <span class="countdown-label">📅 25 · ABRIL · 2026</span>
+  </div>
+</div>
+
+<section class="page-hero page-content">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <span>Ruta 10K</span>
+    </div>
+    <p class="section-subtitle">Traza tu recorrido</p>
+    <h1 class="section-title">Ruta <span>10K</span></h1>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="map-layout">
+
+    <!-- CONTROLS -->
+    <div class="controls-panel">
+      <div class="controls-header">
+        <h3>🗺️ EDITOR DE RUTA</h3>
+        <p>Traza el recorrido oficial del evento</p>
+      </div>
+      <div class="controls-body">
+        <div class="mode-buttons">
+          <button class="mode-btn active" id="btn-draw" onclick="setMode('draw')">
+            <div class="mb-icon"><i class="fas fa-pencil-alt"></i></div>
+            <div class="mb-text">
+              <h4>DIBUJAR RUTA</h4>
+              <p>Haz clic en el mapa para agregar puntos</p>
+            </div>
+          </button>
+          <button class="mode-btn" id="btn-start" onclick="setMode('start')">
+            <div class="mb-icon" style="background:rgba(0,180,0,0.2);color:#2ecc71"><i class="fas fa-flag"></i></div>
+            <div class="mb-text">
+              <h4>MARCAR SALIDA</h4>
+              <p>Coloca el punto de largada</p>
+            </div>
+          </button>
+          <button class="mode-btn" id="btn-finish" onclick="setMode('finish')">
+            <div class="mb-icon" style="background:rgba(204,0,0,0.2);color:#ff6666"><i class="fas fa-flag-checkered"></i></div>
+            <div class="mb-text">
+              <h4>MARCAR META</h4>
+              <p>Coloca el punto de llegada</p>
+            </div>
+          </button>
+          <button class="mode-btn" id="btn-water" onclick="setMode('water')">
+            <div class="mb-icon" style="background:rgba(0,100,255,0.2);color:#4da6ff"><i class="fas fa-tint"></i></div>
+            <div class="mb-text">
+              <h4>AVITUALLAMIENTO</h4>
+              <p>Marca puntos de hidratación</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="controls-divider"></div>
+
+        <div class="stats-display">
+          <div class="stat-row">
+            <span class="sr-label">Distancia aprox.</span>
+            <span class="sr-val" id="stat-distance">0.0 km</span>
+          </div>
+          <div class="stat-row">
+            <span class="sr-label">Puntos de ruta</span>
+            <span class="sr-val" id="stat-points">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="sr-label">Avituallamiento</span>
+            <span class="sr-val" id="stat-water">0</span>
+          </div>
+        </div>
+
+        <div class="controls-divider"></div>
+
+        <div class="action-buttons">
+          <button class="action-btn action-btn-primary" onclick="openSaveModal()">
+            <i class="fas fa-save"></i> GUARDAR RUTA
+          </button>
+          <button class="action-btn action-btn-secondary" onclick="undoLastPoint()">
+            <i class="fas fa-undo"></i> DESHACER ÚLTIMO
+          </button>
+          <button class="action-btn action-btn-danger" onclick="clearAll()">
+            <i class="fas fa-trash"></i> LIMPIAR TODO
+          </button>
+        </div>
+
+        <div class="controls-divider"></div>
+
+        <div class="saved-routes" id="saved-routes-section">
+          <h4>Rutas guardadas</h4>
+          <div id="saved-routes-list">
+            <p style="font-size:0.8rem;color:var(--gris-claro)">No hay rutas guardadas aún.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="map-container-wrap">
+      <div class="map-toolbar">
+        <div class="map-toolbar-left">
+          <div class="dot dot-green"></div>
+          <span>Google Maps · Modo edición activo</span>
+        </div>
+        <span class="map-instruction" id="map-instruction">
+          <i class="fas fa-mouse-pointer"></i> Haz clic en el mapa para trazar la ruta
+        </span>
+      </div>
+      <div id="map"></div>
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#2ecc71"></div>
+          <span>Salida</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#cc0000"></div>
+          <span>Meta</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#4da6ff"></div>
+          <span>Avituallamiento</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-line" style="background:#cc0000"></div>
+          <span>Ruta trazada</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Save Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>💾 GUARDAR RUTA</h3>
+    <p>Ingresa un nombre para identificar esta ruta del recorrido.</p>
+    <input type="text" id="route-name-input" placeholder="Ej: Ruta Oficial 10K — San Mateo" maxlength="60" />
+    <div class="modal-btns">
+      <button class="modal-save" onclick="saveRoute()">GUARDAR</button>
+      <button class="modal-cancel" onclick="closeModal()">CANCELAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle t-icon"></i>
+  <span id="toast-msg">Acción completada</span>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name"><span>ACERO</span> TRAIL RUNNING</div>
+      <p class="footer-desc">1era Edición · San Mateo, Ecuador<br>25 de Abril, 2026 · 07:00 AM</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/trail_running_san_mateo_2026" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/593984848383" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="evento.html">El Evento</a></li>
+        <li><a href="ruta.html">Ruta 10K</a></li>
+        <li><a href="race-pack.html">Race Pack</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone icon"></i>
+        <p><a href="tel:0984848383">0984848383</a></p>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fab fa-instagram icon"></i>
+        <p>@trail_running_san_mateo_2026</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Redes</h4>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://instagram.com/trail_running_san_mateo_2026" target="_blank">Instagram</a></li>
+        <li><a href="https://wa.me/593984848383" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Acero Trail Running San Mateo. Todos los derechos reservados.</p>
+    <p>Diseñado con ❤️ para la comunidad trail runner</p>
+  </div>
+</footer>
+
+<script>
+
+// ============================================
+// ACERO TRAIL - SHARED JAVASCRIPT
+// ============================================
+
+function initCountdown() {
+  const eventDate = new Date('2026-04-25T07:00:00');
+  function update() {
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff <= 0) { document.querySelectorAll('.countdown-num').forEach(el => el.textContent = '00'); return; }
+    const days    = Math.floor(diff / (1000*60*60*24));
+    const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+    const dEl=document.getElementById('cd-days');
+    const hEl=document.getElementById('cd-hours');
+    const mEl=document.getElementById('cd-minutes');
+    const sEl=document.getElementById('cd-seconds');
+    if(dEl) dEl.textContent=pad(days);
+    if(hEl) hEl.textContent=pad(hours);
+    if(mEl) mEl.textContent=pad(minutes);
+    if(sEl) sEl.textContent=pad(seconds);
+  }
+  update();
+  setInterval(update,1000);
+}
+
+function initHamburger() {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
+
+function initActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.navbar-links a, .mobile-menu a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) link.classList.add('active');
+  });
+}
+
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCountdown();
+  initHamburger();
+  initActiveNav();
+  initScrollAnimations();
+});
+
+</script>
+<script>
+// ==========================================
+// MAP & ROUTE EDITOR
+// ==========================================
+
+let map;
+let polyline;
+let routePoints = [];
+let startMarker = null;
+let finishMarker = null;
+let waterMarkers = [];
+let currentMode = 'draw';
+let savedRoutes = JSON.parse(localStorage.getItem('acerotrail_routes') || '[]');
+
+const SAN_MATEO_CENTER = { lat: -0.9478, lng: -80.7264 };
+
+const INSTRUCTIONS = {
+  draw: '🖊️ Haz clic en el mapa para agregar puntos a la ruta',
+  start: '🟢 Haz clic para marcar el punto de SALIDA',
+  finish: '🔴 Haz clic para marcar el punto de META',
+  water: '💧 Haz clic para agregar un punto de AVITUALLAMIENTO'
+};
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: SAN_MATEO_CENTER,
+    zoom: 14,
+    mapTypeId: 'terrain',
+    styles: [
+      { elementType: 'geometry', stylers: [{ color: '#1a1a2e' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#aaaaaa' }] },
+      { elementType: 'labels.text.stroke', stylers: [{ color: '#1a1a2e' }] },
+      { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#2d2d4a' }] },
+      { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#212135' }] },
+      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#3c3c6e' }] },
+      { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#0e1626' }] },
+      { featureType: 'landscape', elementType: 'geometry', stylers: [{ color: '#111122' }] },
+      { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#1a1a2e' }] },
+    ],
+    disableDefaultUI: false,
+    zoomControl: true,
+    mapTypeControl: true,
+    streetViewControl: false,
+    fullscreenControl: true,
+  });
+
+  polyline = new google.maps.Polyline({
+    path: routePoints,
+    geodesic: true,
+    strokeColor: '#CC0000',
+    strokeOpacity: 0.95,
+    strokeWeight: 4,
+    map: map,
+  });
+
+  map.addListener('click', (e) => {
+    handleMapClick(e.latLng);
+  });
+
+  renderSavedRoutes();
+}
+
+function handleMapClick(latLng) {
+  if (currentMode === 'draw') {
+    routePoints.push(latLng);
+    polyline.setPath(routePoints);
+    updateStats();
+  } else if (currentMode === 'start') {
+    placeMarker('start', latLng);
+  } else if (currentMode === 'finish') {
+    placeMarker('finish', latLng);
+  } else if (currentMode === 'water') {
+    placeWaterMarker(latLng);
+  }
+}
+
+function placeMarker(type, latLng) {
+  const isStart = type === 'start';
+  const color = isStart ? '#2ecc71' : '#CC0000';
+  const label = isStart ? 'S' : 'M';
+
+  const marker = new google.maps.Marker({
+    position: latLng,
+    map,
+    label: { text: label, color: '#fff', fontWeight: 'bold', fontSize: '12px' },
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 16,
+      fillColor: color,
+      fillOpacity: 1,
+      strokeColor: '#fff',
+      strokeWeight: 2,
+    },
+    title: isStart ? 'Punto de Salida' : 'Punto de Meta',
+  });
+
+  if (isStart) {
+    if (startMarker) startMarker.setMap(null);
+    startMarker = marker;
+  } else {
+    if (finishMarker) finishMarker.setMap(null);
+    finishMarker = marker;
+  }
+
+  showToast(`${isStart ? '🟢 Salida' : '🔴 Meta'} marcada en el mapa`);
+  setMode('draw');
+}
+
+function placeWaterMarker(latLng) {
+  const marker = new google.maps.Marker({
+    position: latLng,
+    map,
+    label: { text: '💧', fontSize: '16px' },
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 14,
+      fillColor: '#4da6ff',
+      fillOpacity: 1,
+      strokeColor: '#fff',
+      strokeWeight: 2,
+    },
+    title: 'Punto de Avituallamiento',
+  });
+  waterMarkers.push(marker);
+  updateStats();
+  showToast('💧 Punto de avituallamiento agregado');
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`btn-${mode}`).classList.add('active');
+  document.getElementById('map-instruction').innerHTML =
+    `<i class="fas fa-mouse-pointer"></i> ${INSTRUCTIONS[mode]}`;
+}
+
+function undoLastPoint() {
+  if (routePoints.length > 0) {
+    routePoints.pop();
+    polyline.setPath(routePoints);
+    updateStats();
+    showToast('↩️ Último punto eliminado');
+  }
+}
+
+function clearAll() {
+  if (!confirm('¿Estás seguro de que quieres borrar toda la ruta?')) return;
+  routePoints = [];
+  polyline.setPath([]);
+  if (startMarker) { startMarker.setMap(null); startMarker = null; }
+  if (finishMarker) { finishMarker.setMap(null); finishMarker = null; }
+  waterMarkers.forEach(m => m.setMap(null));
+  waterMarkers = [];
+  updateStats();
+  showToast('🗑️ Mapa limpiado');
+}
+
+function updateStats() {
+  document.getElementById('stat-points').textContent = routePoints.length;
+  document.getElementById('stat-water').textContent = waterMarkers.length;
+
+  if (routePoints.length < 2) {
+    document.getElementById('stat-distance').textContent = '0.0 km';
+    return;
+  }
+
+  let dist = 0;
+  for (let i = 1; i < routePoints.length; i++) {
+    dist += google.maps.geometry.spherical.computeDistanceBetween(
+      routePoints[i - 1], routePoints[i]
+    );
+  }
+  document.getElementById('stat-distance').textContent = (dist / 1000).toFixed(2) + ' km';
+}
+
+// ---- SAVE / LOAD ----
+function openSaveModal() {
+  if (routePoints.length < 2) {
+    showToast('⚠️ Necesitas al menos 2 puntos para guardar');
+    return;
+  }
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('route-name-input').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+function saveRoute() {
+  const name = document.getElementById('route-name-input').value.trim() || 'Ruta sin nombre';
+  const distEl = document.getElementById('stat-distance').textContent;
+
+  const route = {
+    id: Date.now(),
+    name,
+    distance: distEl,
+    points: routePoints.map(p => ({ lat: p.lat(), lng: p.lng() })),
+    start: startMarker ? { lat: startMarker.getPosition().lat(), lng: startMarker.getPosition().lng() } : null,
+    finish: finishMarker ? { lat: finishMarker.getPosition().lat(), lng: finishMarker.getPosition().lng() } : null,
+    water: waterMarkers.map(m => ({ lat: m.getPosition().lat(), lng: m.getPosition().lng() })),
+  };
+
+  savedRoutes.unshift(route);
+  if (savedRoutes.length > 10) savedRoutes = savedRoutes.slice(0, 10);
+  localStorage.setItem('acerotrail_routes', JSON.stringify(savedRoutes));
+
+  renderSavedRoutes();
+  closeModal();
+  document.getElementById('route-name-input').value = '';
+  showToast('✅ Ruta guardada correctamente');
+}
+
+function loadRoute(id) {
+  const route = savedRoutes.find(r => r.id === id);
+  if (!route) return;
+
+  clearAll();
+
+  routePoints = route.points.map(p => new google.maps.LatLng(p.lat, p.lng));
+  polyline.setPath(routePoints);
+
+  if (route.start) placeMarker('start', new google.maps.LatLng(route.start.lat, route.start.lng));
+  if (route.finish) placeMarker('finish', new google.maps.LatLng(route.finish.lat, route.finish.lng));
+  if (route.water) route.water.forEach(w => placeWaterMarker(new google.maps.LatLng(w.lat, w.lng)));
+
+  updateStats();
+
+  if (routePoints.length > 0) {
+    const bounds = new google.maps.LatLngBounds();
+    routePoints.forEach(p => bounds.extend(p));
+    map.fitBounds(bounds);
+  }
+
+  showToast(`📂 Ruta "${route.name}" cargada`);
+}
+
+function deleteRoute(id) {
+  savedRoutes = savedRoutes.filter(r => r.id !== id);
+  localStorage.setItem('acerotrail_routes', JSON.stringify(savedRoutes));
+  renderSavedRoutes();
+  showToast('🗑️ Ruta eliminada');
+}
+
+function renderSavedRoutes() {
+  const container = document.getElementById('saved-routes-list');
+  if (savedRoutes.length === 0) {
+    container.innerHTML = '<p style="font-size:0.8rem;color:var(--gris-claro)">No hay rutas guardadas aún.</p>';
+    return;
+  }
+  container.innerHTML = savedRoutes.map(r => `
+    <div class="saved-route-item">
+      <div class="sri-info">
+        <p>${r.name}</p>
+        <span>${r.distance} · ${r.points.length} puntos</span>
+      </div>
+      <div class="sri-actions">
+        <button class="sri-btn sri-btn-load" onclick="loadRoute(${r.id})">CARGAR</button>
+        <button class="sri-btn sri-btn-del" onclick="deleteRoute(${r.id})">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- TOAST ----
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ---- MODAL ENTER KEY ----
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Enter' && document.getElementById('modal').classList.contains('open')) saveRoute();
+});
+</script>
+
+<!-- Google Maps API — reemplaza TU_API_KEY con tu clave real -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&libraries=geometry&callback=initMap"
+  async defer>
+</script>
+
+</body>
+</html>
