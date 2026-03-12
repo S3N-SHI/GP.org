@@ -633,6 +633,11 @@
     @media (max-width:768px) {
       .navbar-links {
         display: none;
+
+        .sponsor-logo-item {
+          width: 110px;
+          height: 65px;
+        }
       }
 
       .hamburger {
@@ -670,6 +675,11 @@
     @media (max-width:480px) {
       .navbar {
         padding: 0 1rem;
+          .sponsor-logo-item {
+    width: 90px;
+    height: 55px;
+  }
+
       }
 
       .countdown-banner {
@@ -1151,40 +1161,58 @@
     }
 
     .sponsors-logos {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
     .sponsor-logo-item {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem 2.5rem;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
       display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
+      width: 160px;
+      height: 90px;
       transition: all 0.3s ease;
-      cursor: pointer;
+      cursor: default;
+      text-decoration: none;
+    }
+
+    .sponsor-logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .sponsor-logo-item:hover img {
+      opacity: 1;
+      filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(204, 0, 0, 0.5));
     }
 
     .sponsor-logo-item:hover {
-      border-color: var(--rojo);
-      background: rgba(204, 0, 0, 0.08);
-      transform: translateY(-3px);
+      border-color: rgba(204, 0, 0, 0.4);
+      background: rgba(204, 0, 0, 0.06);
     }
 
     .sponsor-logo-icon {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     .sponsor-logo-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: var(--blanco);
       letter-spacing: 2px;
     }
@@ -1618,18 +1646,52 @@
   <section class="sponsors-section animate-on-scroll">
     <p class="sponsors-label">Auspiciantes Oficiales 2026</p>
     <div class="sponsors-logos">
-      <a href="auspiciantes.html" class="sponsor-logo-item">
-        <span class="sponsor-logo-icon">🎓</span>
-        <span class="sponsor-logo-name">GLOCAP CENTER</span>
-      </a>
-      <a href="auspiciantes.html" class="sponsor-logo-item">
-        <span class="sponsor-logo-icon">💧</span>
-        <span class="sponsor-logo-name">GÜITIG</span>
-      </a>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1luyuqRL53yw3WUOr4vfjjmW4XgZatDK2" alt="Glocap Center" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1o_iepItr41v0G16rIzuob1gLYVAnxyEC" alt="Güitig" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=19TxAu88qfDaVg8N_iYcevueJTJBjj6fT" alt="Plaza Mia" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1yDcpz8xXJ6sfw5jWe0mKdJjrxsrOpsly" alt="Jumper Fitness" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1B5dZaku82RJpaOjVKxLjU9kaZcfB9F78" alt="LDU-A Uleam" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1lcdwIFM067F65ea6eiLuFv_eC61oygfR" alt="Nuvë Yogurt" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1xSViC_pJ3fXy1Z2HOVpBONNyNE9T7qkv" alt="CONAR" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1HCDu8XR3g5vi4EN_HO8dHqhhDwBnii_P" alt="Smart Fit" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=11tOKXCD5FGg4KQn9VpUntjMMBOWJf1Iu" alt="Ministerio de Salud" />
+      </div>
+
+      <div class="sponsor-logo-item">
+        <img src="https://drive.google.com/thumbnail?id=1sQgCHsL6v6_2pRH--zO_lA45pvebYNeQ" alt="ALCALDIA DE MANTA" />
+      </div>
+
       <a href="auspiciantes.html" class="sponsor-logo-item" style="opacity:0.5; border-style:dashed;">
         <span class="sponsor-logo-icon">➕</span>
         <span class="sponsor-logo-name" style="font-size:1rem; color:var(--gris-claro)">Tu marca aquí</span>
       </a>
+
     </div>
   </section>
 
