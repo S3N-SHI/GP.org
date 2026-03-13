@@ -236,16 +236,17 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
     }
 
     .pack-item-card {
-      background: var(--negro-suave);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 20px;
-      padding: 2.5rem;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
       display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      transition: all 0.3s ease;
+      align-items: stretch;
+      transition: all 0.35s ease;
       position: relative;
       overflow: hidden;
+      padding: 0;
+      min-height: 180px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
     .pack-item-card::before {
@@ -253,32 +254,82 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
       position: absolute;
       top: 0;
       left: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #CC0000 0%, #FF4444 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+
+    /* Bottom accent line */
+    .pack-item-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 160px;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--rojo), transparent);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(204,0,0,0.4), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
     .pack-item-card:hover {
-      border-color: rgba(204,0,0,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border-color: rgba(204,0,0,0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(204,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.07);
     }
 
     .pack-item-card:hover::before { opacity: 1; }
+    .pack-item-card:hover::after { opacity: 1; }
 
+    /* IMAGE PANEL — full-height left column */
     .pack-item-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 16px;
-      background: rgba(204,0,0,0.12);
-      border: 1px solid rgba(204,0,0,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
+      width: 160px;
       flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      position: relative;
+      margin: 10px 0 10px 10px;
+      /* Clip ~12cm top and bottom (~14% each side) */
+      clip-path: inset(14% 0 14% 0 round 14px);
+      border: 1.5px solid rgba(204,0,0,0.55);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 4px 20px rgba(0,0,0,0.5),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    /* Subtle gradient blend on the right edge only */
+    .pack-item-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, transparent 60%, rgba(30,30,30,0.75) 100%),
+        linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, transparent 15%, transparent 85%, rgba(10,10,10,0.15) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pack-item-icon img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    /* TEXT AREA */
+    .pack-item-info {
+      padding: 2rem 2rem 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .pack-item-info h3 {
@@ -395,7 +446,22 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
     @media (max-width: 768px) {
       .pack-items-grid { grid-template-columns: 1fr; }
       .pack-highlight { grid-template-columns: 1fr; }
-      .pack-item-card { flex-direction: column; }
+      .pack-item-card {
+        flex-direction: row;
+        min-height: 150px;
+      }
+      .pack-item-icon {
+        width: 110px;
+        border-radius: 14px;
+        clip-path: inset(14% 0 14% 0 round 14px);
+        margin: 8px 0 8px 8px;
+      }
+      .pack-item-info {
+        padding: 1.4rem 1.4rem 1.4rem 1.2rem;
+      }
+      .pack-item-info h3 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -469,8 +535,15 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
   </div>
 
   <div class="pack-items-grid" style="margin-top: 3rem">
+
+    <!-- Camiseta -->
     <div class="pack-item-card animate-on-scroll">
-      <div class="pack-item-icon">👕</div>
+      <div class="pack-item-icon">
+        <img
+          src="https://drive.google.com/thumbnail?id=1mlCik1Hg3KKdUsXZbKDW0nFEvCzOgbtJ"
+          alt="Camiseta Técnica"
+        />
+      </div>
       <div class="pack-item-info">
         <h3>Camiseta Técnica</h3>
         <p>Camiseta deportiva-diseño oficial y exclusivo del evento. 
@@ -479,8 +552,14 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
       </div>
     </div>
 
+    <!-- Dorsal -->
     <div class="pack-item-card animate-on-scroll" style="transition-delay:0.1s">
-      <div class="pack-item-icon">🏷️</div>
+      <div class="pack-item-icon">
+        <img
+          src="https://drive.google.com/thumbnail?id=1JW333sNWcgRsSeaKn64pIaI6qJJq9W1C"
+          alt="Dorsal Oficial"
+        />
+      </div>
       <div class="pack-item-info">
         <h3>Dorsal Oficial</h3>
         <p>Dorsal numerado con diseño oficial de Acero Trail Running. 
@@ -489,8 +568,14 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
       </div>
     </div>
 
+    <!-- Medalla -->
     <div class="pack-item-card animate-on-scroll" style="transition-delay:0.2s">
-      <div class="pack-item-icon">🏅</div>
+      <div class="pack-item-icon">
+        <img
+          src="https://drive.google.com/thumbnail?id=1k9NfK_W4R1QDJ8ACMTxPFx661YWmKODq"
+          alt="Medalla Finisher"
+        />
+      </div>
       <div class="pack-item-info">
         <h3>Medalla Finisher</h3>
         <p>Medalla conmemorativa entregada a cada corredor que complete el recorrido de 10K. 
@@ -499,8 +584,14 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
       </div>
     </div>
 
+    <!-- Buff -->
     <div class="pack-item-card animate-on-scroll" style="transition-delay:0.3s">
-      <div class="pack-item-icon">🧣</div>
+      <div class="pack-item-icon">
+        <img
+          src="https://drive.google.com/thumbnail?id=1iNxnqCVTt6mJJef8f1TsQDON1L-_L1dF"
+          alt="Buff Acero Trail"
+        />
+      </div>
       <div class="pack-item-info">
         <h3>Buff Acero Trail</h3>
         <p>Buff multiusos con el logo oficial de Acero Trail Running San Mateo. 
@@ -508,6 +599,7 @@ footer { background:#1A1A1A; border-top:2px solid #CC0000; padding:3rem 2rem 1.5
         <span class="pack-item-tag">Multiusos Oficial</span>
       </div>
     </div>
+
   </div>
 
   <!-- HIGHLIGHT -->
