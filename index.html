@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acero Trail Running San Mateo 2026 |</title>
+  <title>Acero Trail Running - San Mateo 2026 |</title>
   <meta name="description"
     content="Acero Trail Running San Mateo 2026 –Carrera de 10K el 25 de abril de 2026. Inscríbete ahora." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -941,30 +941,39 @@
       display: block;
     }
 
-    .about-img-overlay {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: rgba(10, 10, 10, 0.9);
-      border: 1px solid var(--rojo);
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-    }
+.about-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--rojo);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
 
-    .about-img-overlay p {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--rojo);
-    }
+.about-img-overlay p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--rojo);
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
 
-    .about-img-overlay strong {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      color: var(--blanco);
-      display: block;
-    }
+.about-img-overlay strong {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--blanco);
+  display: block;
+  line-height: 1.05;
+  text-align: center;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 20px rgba(204, 0, 0, 0.4);
+}
 
     .about-features {
       display: flex;
@@ -1254,12 +1263,6 @@
       transform: translateY(-3px);
     }
 
-    .racepack-item .ri-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
     .racepack-item h4 {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
@@ -1408,6 +1411,21 @@
         grid-template-columns: 1fr 1fr;
       }
     }
+/*---DIV SPONSOR-------*/
+
+
+.sponsors-separator{
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7f8b96;
+  margin: 20px 0 10px 0;
+}
+
+
+
   </style>
 </head>
 
@@ -1539,7 +1557,7 @@
   <section class="about-section">
     <div class="about-inner">
       <div class="about-img-wrap animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1594882645126-14ac19a7a28a?w=800&q=80" alt="Trail Running San Mateo"
+        <img src="https://drive.google.com/thumbnail?id=1bOJeqhcBFeS_BISAenrZDblMMlGlYaR-" alt="Trail Running San Mateo"
           class="about-img" />
         <div class="about-img-overlay">
           <p>Categoría</p>
@@ -1553,7 +1571,7 @@
         <h2 class="section-title">¿De qué se <span>trata?</span></h2>
         <div class="divider"></div>
         <p class="section-body">
-          Acero Trail Running San Mateo es una carrera a campo con una ruta dividida en 2 secciones de 11 y 6 kilómetros
+          Acero Trail Running-San Mateo es una carrera a campo con una ruta dividida en 2 secciones de 11 y 6 kilómetros
           que
           atraviesa los senderos naturales de San Mateo, combinando belleza paisajística con un
           verdadero reto físico y mental. Diseñada para corredores de todos los niveles que
@@ -1579,7 +1597,7 @@
             <div class="feature-icon"><i class="fas fa-water"></i></div>
             <div class="feature-text">
               <h4>Avituallamiento</h4>
-              <p>Puntos de hidratación con Güitig en el recorrido y en la meta.</p>
+              <p>Puntos de hidratación con en el recorrido y en la meta.</p>
             </div>
           </div>
           <div class="feature-item">
@@ -1616,13 +1634,13 @@
         <div class="organizer-info">
           <h3>San Mateo, Ecuador</h3>
           <p>
-            <strong style="color:var(--blanco)">Acero Trail Running San Mateo</strong> es un grupo de apasionados del
+            <strong style="color:var(--blanco)">Acero Trail Running</strong> es un grupo de apasionados del
             deporte al aire libre comprometidos con promover el trail running en la costa
             ecuatoriana. Nuestra misión es llevar la cultura del deporte, el esfuerzo y
             la naturaleza a cada rincón de San Mateo.
           </p>
           <p>
-            Esta primera edición nace del sueño colectivo de una comunidad que corre junta,
+            Esta edición nace del sueño colectivo de una comunidad que corre junta,
             se entrena junta y ahora compite junta. Más que una carrera, es la celebración
             de un estilo de vida.
           </p>
@@ -1642,59 +1660,56 @@
     </div>
   </section>
 
-  <!-- ===== SPONSORS PREVIEW ===== -->
-  <section class="sponsors-section animate-on-scroll">
-    <p class="sponsors-label">Auspiciantes Oficiales 2026</p>
-    <div class="sponsors-logos">
+ <!-- ===== SPONSORS PREVIEW ===== -->
+<section class="sponsors-section animate-on-scroll">
 
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1luyuqRL53yw3WUOr4vfjjmW4XgZatDK2" alt="Glocap Center" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1o_iepItr41v0G16rIzuob1gLYVAnxyEC" alt="Güitig" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=19TxAu88qfDaVg8N_iYcevueJTJBjj6fT" alt="Plaza Mia" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1yDcpz8xXJ6sfw5jWe0mKdJjrxsrOpsly" alt="Jumper Fitness" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1B5dZaku82RJpaOjVKxLjU9kaZcfB9F78" alt="LDU-A Uleam" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1lcdwIFM067F65ea6eiLuFv_eC61oygfR" alt="Nuvë Yogurt" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1xSViC_pJ3fXy1Z2HOVpBONNyNE9T7qkv" alt="CONAR" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1HCDu8XR3g5vi4EN_HO8dHqhhDwBnii_P" alt="Smart Fit" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=11tOKXCD5FGg4KQn9VpUntjMMBOWJf1Iu" alt="Ministerio de Salud" />
-      </div>
-
-      <div class="sponsor-logo-item">
-        <img src="https://drive.google.com/thumbnail?id=1sQgCHsL6v6_2pRH--zO_lA45pvebYNeQ" alt="ALCALDIA DE MANTA" />
-      </div>
-
-      <a href="auspiciantes.html" class="sponsor-logo-item" style="opacity:0.5; border-style:dashed;">
-        <span class="sponsor-logo-icon">➕</span>
-        <span class="sponsor-logo-name" style="font-size:1rem; color:var(--gris-claro)">Tu marca aquí</span>
-      </a>
-
+  <!-- GRUPO 1: Auspiciantes Oficiales -->
+  <p class="sponsors-label">Auspiciantes Oficiales 2026</p>
+  <div class="sponsors-logos">
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1luyuqRL53yw3WUOr4vfjjmW4XgZatDK2" alt="Glocap Center" />
     </div>
-  </section>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1o_iepItr41v0G16rIzuob1gLYVAnxyEC" alt="Güitig" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=19TxAu88qfDaVg8N_iYcevueJTJBjj6fT" alt="Plaza Mia" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1yDcpz8xXJ6sfw5jWe0mKdJjrxsrOpsly" alt="Jumper Fitness" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1B5dZaku82RJpaOjVKxLjU9kaZcfB9F78" alt="LDU-A Uleam" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1lcdwIFM067F65ea6eiLuFv_eC61oygfR" alt="Nuvë Yogurt" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1xSViC_pJ3fXy1Z2HOVpBONNyNE9T7qkv" alt="CONAR" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1HCDu8XR3g5vi4EN_HO8dHqhhDwBnii_P" alt="Smart Fit" />
+    </div>
+    <a href="auspiciantes.html" class="sponsor-logo-item" style="opacity:0.5; border-style:dashed;">
+      <span class="sponsor-logo-icon">➕</span>
+      <span class="sponsor-logo-name" style="font-size:1rem; color:var(--gris-claro)">Tu marca aquí</span>
+    </a>
+  </div>
 
+  <!-- GRUPO 2: Patrocinadores Institucionales -->
+  <p class="sponsors-label" style="margin-top: 3rem;">Con el apoyo de</p>
+  <div class="sponsors-logos">
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=10vpb4CBOMgVL_yTiwL98mSUnjXIBwVIG" alt="Misión juventud" />
+    </div>
+    <div class="sponsor-logo-item">
+      <img src="https://drive.google.com/thumbnail?id=1sQgCHsL6v6_2pRH--zO_lA45pvebYNeQ" alt="Alcaldía de Manta" />
+    </div>
+  </div>
+
+</section>
+
+  
   <!-- ===== RACE PACK PREVIEW ===== -->
   <section class="racepack-section">
     <div class="racepack-inner">
@@ -1713,22 +1728,18 @@
 
       <div class="racepack-items animate-on-scroll" style="transition-delay:0.2s">
         <div class="racepack-item">
-          <span class="ri-icon">👕</span>
           <h4>Camiseta Técnica</h4>
           <p>Diseño exclusivo.</p>
         </div>
         <div class="racepack-item">
-          <span class="ri-icon">🏷️</span>
           <h4>Dorsal Oficial</h4>
           <p>Con chip de cronometraje</p>
         </div>
         <div class="racepack-item">
-          <span class="ri-icon">🏅</span>
           <h4>Medalla Finisher</h4>
           <p>Para todos los que lleguen a meta</p>
         </div>
         <div class="racepack-item">
-          <span class="ri-icon">🧣</span>
           <h4>Buff Acero Trail</h4>
           <p>Multiusos, diseño oficial</p>
         </div>
