@@ -62,7 +62,7 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 
 /* HERO */
 .page-hero{min-height:38vh;display:flex;align-items:flex-end;padding:130px 2rem 3rem;position:relative;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.5) 0%,rgba(10,10,10,.97) 100%),url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1600&q=80') center/cover;}
+.page-hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.5) 0%,rgba(10,10,10,.97) 100%),url('https://drive.google.com/thumbnail?id=1jBeQeK7fG6LVeURKhZkoHHbaSnFZtBhQ&sz=s2000') center/cover;}
 .page-hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;}
 .breadcrumb{display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:1rem;}
 .breadcrumb a{color:#CC0000;text-decoration:none;}
@@ -86,13 +86,15 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .form-input{width:100%;background:#111;border:1px solid #222;color:#FFF;font-family:'Barlow',sans-serif;font-size:.92rem;padding:11px 14px;border-radius:7px;outline:none;transition:border-color .2s,background .2s;}
 .form-input:focus{border-color:#CC0000;background:#141414;}
 .form-input::placeholder{color:#2E2E2E;}
+.form-input.input-error{border-color:#e05555!important;background:rgba(220,50,50,.04)!important;}
 select.form-input option{background:#1A1A1A;color:#FFF;}
 textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.field-error{font-size:.71rem;color:#e05555;margin-top:3px;display:none;}
+.field-error.show{display:block;}
 
 /* SECTION DIVIDERS */
 .fsec{display:flex;align-items:center;gap:11px;margin:2rem 0 1.1rem;}
-.fsec-icon{width:30px;height:30px;background:#161616;border:1px solid #222;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;}
 .fsec-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:#444;font-weight:700;white-space:nowrap;}
 .fsec-line{flex:1;height:1px;background:#1A1A1A;}
 
@@ -124,20 +126,12 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .cat-option input:checked + .cat-label .cat-name{color:#FFF;}
 .cat-option input:checked + .cat-label .cat-sub{color:#777;}
 .cat-label:hover{border-color:#3A3A3A;}
-/* Full Body ocupa fila completa */
 .cat-fullbody-wrap{grid-column:1/-1;}
 .cat-label.fb{flex-direction:row;align-items:center;gap:10px;}
-.cat-label.fb .fb-icon{font-size:1.1rem;}
 .cat-label.fb .cat-name{font-size:.9rem;}
 
-/* ACOMPAÑANTE SECTION */
-.acomp-section{
-  border-left:2px solid #1E1E1E;
-  padding-left:1.2rem;
-  margin-top:.6rem;
-  display:none;
-  animation:slideDown .3s ease;
-}
+/* ACOMPAÑANTE */
+.acomp-section{border-left:2px solid #1E1E1E;padding-left:1.2rem;margin-top:.6rem;display:none;animation:slideDown .3s ease;}
 .acomp-section.visible{display:block;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .acomp-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:1rem;}
@@ -194,6 +188,25 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .decl-box li{font-size:.79rem;color:#444;line-height:1.65;margin-bottom:.3rem;margin-left:1rem;}
 .decl-box li::marker{color:#CC0000;}
 
+/* MODAL TÉRMINOS */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#111;border:1px solid #222;border-radius:14px;max-width:620px;width:100%;max-height:82vh;overflow:hidden;display:flex;flex-direction:column;}
+.modal-head{background:#CC0000;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.modal-head h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#FFF;letter-spacing:2px;margin:0;}
+.modal-close{background:none;border:none;color:#FFF;font-size:1.1rem;cursor:pointer;opacity:.8;transition:opacity .2s;}
+.modal-close:hover{opacity:1;}
+.modal-body{padding:1.5rem;overflow-y:auto;flex:1;}
+.modal-body h4{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:#CC0000;font-weight:700;margin:1.2rem 0 .4rem;}
+.modal-body h4:first-child{margin-top:0;}
+.modal-body p{font-size:.82rem;color:#666;line-height:1.7;margin-bottom:.4rem;}
+.modal-body ul{padding-left:1rem;margin-bottom:.4rem;}
+.modal-body ul li{font-size:.82rem;color:#666;line-height:1.7;margin-bottom:.15rem;}
+.modal-body ul li::marker{color:#CC0000;}
+.modal-foot{padding:1rem 1.5rem;border-top:1px solid #1E1E1E;text-align:right;}
+.modal-accept{background:#CC0000;color:#FFF;border:none;border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;padding:10px 24px;cursor:pointer;transition:background .2s;}
+.modal-accept:hover{background:#FF0000;}
+
 /* CHECKBOX */
 .checkbox-wrap{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
 .checkbox-wrap input{display:none;}
@@ -202,6 +215,7 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .checkbox-wrap input:checked ~ .chk-box::after{content:'✓';color:#FFF;font-size:.7rem;font-weight:700;}
 .chk-text{font-size:.82rem;color:#555;line-height:1.55;}
 .chk-text a{color:#CC0000;text-decoration:none;}
+.chk-text a:hover{text-decoration:underline;}
 
 /* SUBMIT */
 .submit-btn{width:100%;padding:14px;background:#CC0000;color:#FFF;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.93rem;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:1.3rem;display:flex;align-items:center;justify-content:center;gap:10px;}
@@ -217,14 +231,16 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .error-msg.show{display:block;}
 
 /* SUCCESS */
-.success-wrap{display:none;padding:3rem 1rem;text-align:center;}
+.success-wrap{display:none;padding:4rem 1rem;text-align:center;max-width:520px;margin:0 auto;}
 .success-wrap.show{display:block;}
-.sw-icon{font-size:3.5rem;display:block;margin-bottom:1rem;}
-.success-wrap h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:#FFF;margin-bottom:.5rem;}
+.success-wrap h2{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;color:#FFF;margin-bottom:.6rem;line-height:1.1;}
 .success-wrap h2 span{color:#CC0000;}
-.success-wrap p{color:#555;font-size:.88rem;line-height:1.75;max-width:460px;margin:0 auto .3rem;}
-.wa-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);color:#2ecc71;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:1px;padding:9px 18px;border-radius:30px;margin-top:1.2rem;text-decoration:none;transition:all .2s;}
-.wa-chip:hover{background:rgba(46,204,113,.12);}
+.success-divider{width:48px;height:2px;background:#CC0000;margin:0 auto 1.5rem;}
+.success-wrap .sw-body{color:#555;font-size:.9rem;line-height:1.8;margin-bottom:1.6rem;}
+.success-contact{background:#111;border:1px solid #1E1E1E;border-radius:10px;padding:1.3rem 1.5rem;text-align:left;}
+.success-contact p{font-size:.82rem;color:#444;line-height:1.7;}
+.success-contact a{color:#CC0000;text-decoration:none;font-weight:700;}
+.success-contact a:hover{text-decoration:underline;}
 
 /* SIDEBAR */
 .inscripcion-sidebar{position:sticky;top:150px;display:flex;flex-direction:column;gap:1.1rem;}
@@ -292,6 +308,48 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 </head>
 <body>
 
+<!-- ══ MODAL TÉRMINOS Y CONDICIONES ══ -->
+<div class="modal-overlay" id="modal-terminos">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Términos y Condiciones</h3>
+      <button class="modal-close" onclick="cerrarModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <h4>1. Participación voluntaria</h4>
+      <p>La inscripción en Acero Trail Running San Mateo 2026 es completamente voluntaria. Al inscribirse, el participante declara conocer y aceptar las condiciones del evento.</p>
+      <h4>2. Requisitos de participación</h4>
+      <ul>
+        <li>Categoría Juvenil: participantes de 14 a 17 años requieren autorización escrita de su representante legal presentada el día del evento.</li>
+        <li>Todas las categorías requieren que el participante se encuentre en condiciones físicas aptas para correr en terreno de montaña.</li>
+        <li>El organizador se reserva el derecho de rechazar inscripciones que no cumplan los requisitos establecidos.</li>
+      </ul>
+      <h4>3. Exoneración de responsabilidad</h4>
+      <p>Los organizadores, patrocinadores y autoridades locales quedan exonerados de toda responsabilidad ante accidentes, lesiones, enfermedades o pérdida de objetos personales que ocurran durante el evento, incluyendo el traslado hacia y desde el lugar de la competencia.</p>
+      <h4>4. Riesgos inherentes al trail running</h4>
+      <p>El trail running se desarrolla en entornos naturales con terreno irregular, exposición a condiciones climáticas variables y posible presencia de fauna silvestre. El participante declara conocer y aceptar estos riesgos de forma voluntaria.</p>
+      <h4>5. Uso de imagen</h4>
+      <p>Los organizadores podrán capturar fotografías y videos durante el evento. El participante que lo autorice expresamente permite el uso de su imagen con fines promocionales del evento, sin compensación económica.</p>
+      <h4>6. Tarifas y política de pago</h4>
+      <ul>
+        <li>El pago se realiza mediante transferencia o depósito bancario a los datos indicados en el formulario.</li>
+        <li>La inscripción se confirma únicamente una vez que el equipo organizador verifique el comprobante de pago.</li>
+        <li>No se realizan devoluciones una vez confirmada la inscripción.</li>
+        <li>La tarifa de preventa ($21,25) aplica hasta el 1 de abril de 2026 y no aplica para la categoría Full Body.</li>
+        <li>Corredor Individual: $25,00 — Full Body Pareja Mixta: $40,00.</li>
+      </ul>
+      <h4>7. Cancelación del evento</h4>
+      <p>En caso de cancelación por causas de fuerza mayor (condiciones climáticas extremas, disposiciones de autoridades u otras), el organizador comunicará oportunamente las medidas a adoptar.</p>
+      <h4>8. Protección de datos</h4>
+      <p>Los datos personales recopilados serán utilizados exclusivamente para la gestión de la inscripción y comunicaciones relacionadas con el evento, conforme a la normativa vigente de protección de datos en Ecuador.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="modal-accept" onclick="aceptarTerminos()">Entendido, acepto</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <a href="index.html" class="navbar-brand">
     <div class="navbar-logo-text"><span>ACERO</span> TRAIL</div>
@@ -320,6 +378,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
   </ul>
 </div>
 
+<!-- ══ COUNTDOWN ══ -->
 <div class="countdown-banner">
   <div class="countdown-inner">
     <span class="countdown-label">⚡ La carrera comienza en</span>
@@ -336,6 +395,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
   </div>
 </div>
 
+<!-- ══ HERO ══ -->
 <section class="page-hero page-content">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
@@ -345,10 +405,10 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
   </div>
 </section>
 
+<!-- ══ MAIN ══ -->
 <section class="inscripciones-main">
   <div class="inscripciones-grid">
 
-    <!-- ══════ FORMULARIO ══════ -->
     <div class="form-section animate-on-scroll">
       <h2>Formulario de <span>Registro</span></h2>
       <p class="form-intro">Completa todos los campos. Los marcados con <em>*</em> son obligatorios.</p>
@@ -356,98 +416,101 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
       <form id="registro-form" novalidate>
 
         <!-- 1. DATOS PERSONALES -->
-        <div class="fsec"><span class="fsec-icon">👤</span><span class="fsec-label">Datos Personales</span><span class="fsec-line"></span></div>
+        <div class="fsec"><span class="fsec-label">Datos Personales</span><span class="fsec-line"></span></div>
 
         <div class="form-row">
           <div class="form-group">
             <label>Nombres <span class="req">*</span></label>
-            <input id="f-nombres" type="text" class="form-input" placeholder="Juan Carlos" required/>
+            <input id="f-nombres" type="text" class="form-input" placeholder="Juan Carlos" autocomplete="given-name"/>
+            <span class="field-error" id="err-nombres">Ingresa solo letras y espacios.</span>
           </div>
           <div class="form-group">
             <label>Apellidos <span class="req">*</span></label>
-            <input id="f-apellidos" type="text" class="form-input" placeholder="García López" required/>
+            <input id="f-apellidos" type="text" class="form-input" placeholder="García López" autocomplete="family-name"/>
+            <span class="field-error" id="err-apellidos">Ingresa solo letras y espacios.</span>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label>Cédula / Pasaporte <span class="req">*</span></label>
-            <input id="f-cedula" type="text" class="form-input" placeholder="1234567890" required/>
+            <label>Cédula de Identidad <span class="req">*</span></label>
+            <input id="f-cedula" type="text" class="form-input" placeholder="10 dígitos" maxlength="10" inputmode="numeric"/>
+            <span class="field-error" id="err-cedula">Cédula ecuatoriana inválida.</span>
           </div>
           <div class="form-group">
             <label>Fecha de Nacimiento <span class="req">*</span></label>
-            <input id="f-nacimiento" type="date" class="form-input" required onchange="calcEdad('f-nacimiento','f-edad')"/>
+            <input id="f-nacimiento" type="date" class="form-input"/>
+            <span class="field-error" id="err-nacimiento">Selecciona una fecha válida.</span>
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Edad <span class="req">*</span></label>
-            <input id="f-edad" type="number" class="form-input" placeholder="Se calcula al ingresar fecha" min="1" max="120" required/>
-          </div>
-          <div class="form-group">
-            <label>Género <span class="req">*</span></label>
-            <select id="f-genero" class="form-input" required>
-              <option value="">Selecciona...</option>
-              <option>Masculino</option>
-              <option>Femenino</option>
-              <option>Prefiero no decir</option>
-            </select>
-          </div>
-        </div>
-
+        <!-- GÉNERO — sin campo edad visible, se calcula automático -->
         <div class="form-group">
-          <label>Ciudad de origen <span class="req">*</span></label>
-          <input id="f-ciudad" type="text" class="form-input" placeholder="Ej: Manta" required/>
+          <label>Género <span class="req">*</span></label>
+          <select id="f-genero" class="form-input">
+            <option value="">Selecciona...</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Prefiero no decir</option>
+          </select>
+          <span class="field-error" id="err-genero">Selecciona una opción.</span>
         </div>
 
         <!-- 2. CONTACTO -->
-        <div class="fsec"><span class="fsec-icon">📞</span><span class="fsec-label">Contacto</span><span class="fsec-line"></span></div>
+        <div class="fsec"><span class="fsec-label">Contacto</span><span class="fsec-line"></span></div>
 
         <div class="form-row">
           <div class="form-group">
             <label>Correo Electrónico <span class="req">*</span></label>
-            <input id="f-correo" type="email" class="form-input" placeholder="correo@ejemplo.com" required/>
+            <input id="f-correo" type="email" class="form-input" placeholder="correo@ejemplo.com" inputmode="email"/>
+            <span class="field-error" id="err-correo">Ingresa un correo electrónico válido.</span>
           </div>
           <div class="form-group">
-            <label>WhatsApp / Teléfono <span class="req">*</span></label>
-            <input id="f-telefono" type="tel" class="form-input" placeholder="0987654321" required/>
+            <label>Número de Teléfono <span class="req">*</span></label>
+            <input id="f-telefono" type="tel" class="form-input" placeholder="0987654321" maxlength="13" inputmode="tel"/>
+            <span class="field-error" id="err-telefono">Ingresa un número válido (ej: 0987654321).</span>
           </div>
         </div>
+
+        <!-- 3. CONTACTO DE EMERGENCIA (OPCIONAL) -->
+        <div class="fsec"><span class="fsec-label">Contacto de Emergencia (Opcional)</span><span class="fsec-line"></span></div>
 
         <div class="form-row">
           <div class="form-group">
-            <label>Emergencia — Nombre <span class="req">*</span></label>
-            <input id="f-emerg-nombre" type="text" class="form-input" placeholder="Nombre completo" required/>
+            <label>Nombre</label>
+            <input id="f-emerg-nombre" type="text" class="form-input" placeholder="Nombre completo"/>
+            <span class="field-error" id="err-emerg-nombre">Solo letras y espacios.</span>
           </div>
           <div class="form-group">
-            <label>Emergencia — Teléfono <span class="req">*</span></label>
-            <input id="f-emerg-tel" type="tel" class="form-input" placeholder="0987654321" required/>
+            <label>Número de teléfono</label>
+            <input id="f-emerg-tel" type="tel" class="form-input" placeholder="0987654321" maxlength="13" inputmode="tel"/>
+            <span class="field-error" id="err-emerg-tel">Ingresa un número válido.</span>
           </div>
         </div>
 
-        <!-- 3. TALLA (primero, antes de categoría) -->
-        <div class="fsec"><span class="fsec-icon">👕</span><span class="fsec-label">Tu talla de camiseta</span><span class="fsec-line"></span></div>
+        <!-- 4. TALLA -->
+        <div class="fsec"><span class="fsec-label">Tu talla de camiseta</span><span class="fsec-line"></span></div>
 
         <div class="form-group">
           <label>Talla <span class="req">*</span></label>
+          <!-- XS eliminado -->
           <div class="talla-grid">
-            <label class="talla-option"><input type="radio" name="talla" value="XS" required/><span class="talla-label">XS</span></label>
             <label class="talla-option"><input type="radio" name="talla" value="S"/><span class="talla-label">S</span></label>
             <label class="talla-option"><input type="radio" name="talla" value="M"/><span class="talla-label">M</span></label>
             <label class="talla-option"><input type="radio" name="talla" value="L"/><span class="talla-label">L</span></label>
             <label class="talla-option"><input type="radio" name="talla" value="XL"/><span class="talla-label">XL</span></label>
           </div>
+          <span class="field-error" id="err-talla">Selecciona una talla.</span>
         </div>
 
-        <!-- 4. CARRERA -->
-        <div class="fsec"><span class="fsec-icon">🏃</span><span class="fsec-label">Carrera</span><span class="fsec-line"></span></div>
+        <!-- 5. CARRERA -->
+        <div class="fsec"><span class="fsec-label">Carrera</span><span class="fsec-line"></span></div>
 
         <div class="form-group">
           <label>Distancia <span class="req">*</span></label>
           <div class="distancia-grid">
             <label class="distancia-option">
-              <input type="radio" name="distancia" value="11K" required/>
+              <input type="radio" name="distancia" value="11K"/>
               <span class="distancia-label"><span class="dist-km">11K</span><span class="dist-txt">Trail</span></span>
             </label>
             <label class="distancia-option">
@@ -455,61 +518,32 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
               <span class="distancia-label"><span class="dist-km">6K</span><span class="dist-txt">Trail</span></span>
             </label>
           </div>
+          <span class="field-error" id="err-distancia">Selecciona una distancia.</span>
         </div>
 
         <div class="form-group">
           <label>Categoría <span class="req">*</span></label>
           <div class="categoria-grid">
-
             <div class="cat-fullbody-wrap">
               <label class="cat-option">
                 <input type="radio" name="categoria" value="Full Body" onchange="toggleFullBody(true)"/>
                 <span class="cat-label fb">
-                  <span class="fb-icon">🤝</span>
                   <span>
                     <span class="cat-name">Full Body — Pareja Mixta</span>
-                    <span class="cat-sub">Hombre + Mujer · $40 por pareja</span>
+                    <span class="cat-sub">Hombre + Mujer</span>
                   </span>
                 </span>
               </label>
             </div>
-
-            <label class="cat-option">
-              <input type="radio" name="categoria" value="Juvenil" onchange="toggleFullBody(false)"/>
-              <span class="cat-label">
-                <span class="cat-name">Juvenil</span>
-                <span class="cat-sub">14 a 17 años</span>
-              </span>
-            </label>
-
-            <label class="cat-option">
-              <input type="radio" name="categoria" value="Senior" onchange="toggleFullBody(false)"/>
-              <span class="cat-label">
-                <span class="cat-name">Sénior</span>
-                <span class="cat-sub">18 a 29 años</span>
-              </span>
-            </label>
-
-            <label class="cat-option">
-              <input type="radio" name="categoria" value="Master" onchange="toggleFullBody(false)"/>
-              <span class="cat-label">
-                <span class="cat-name">Máster</span>
-                <span class="cat-sub">30 a 39 años</span>
-              </span>
-            </label>
-
-            <label class="cat-option">
-              <input type="radio" name="categoria" value="Comandante" onchange="toggleFullBody(false)"/>
-              <span class="cat-label">
-                <span class="cat-name">Comandante</span>
-                <span class="cat-sub">40 años en adelante</span>
-              </span>
-            </label>
-
+            <label class="cat-option"><input type="radio" name="categoria" value="Juvenil" onchange="toggleFullBody(false)"/><span class="cat-label"><span class="cat-name">Juvenil</span><span class="cat-sub">14 a 17 años</span></span></label>
+            <label class="cat-option"><input type="radio" name="categoria" value="Senior" onchange="toggleFullBody(false)"/><span class="cat-label"><span class="cat-name">Sénior</span><span class="cat-sub">18 a 29 años</span></span></label>
+            <label class="cat-option"><input type="radio" name="categoria" value="Master" onchange="toggleFullBody(false)"/><span class="cat-label"><span class="cat-name">Máster</span><span class="cat-sub">30 a 39 años</span></span></label>
+            <label class="cat-option"><input type="radio" name="categoria" value="Comandante" onchange="toggleFullBody(false)"/><span class="cat-label"><span class="cat-name">Comandante</span><span class="cat-sub">40 años en adelante</span></span></label>
           </div>
+          <span class="field-error" id="err-categoria">Selecciona una categoría.</span>
         </div>
 
-        <!-- DATOS ACOMPAÑANTE — solo Full Body -->
+        <!-- ACOMPAÑANTE FULL BODY -->
         <div id="acomp-section" class="acomp-section">
           <div class="acomp-label">Datos del competidor/a acompañante (pareja)</div>
 
@@ -517,53 +551,51 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             <div class="form-group">
               <label>Nombres <span class="req">*</span></label>
               <input id="ac-nombres" type="text" class="form-input" placeholder="Nombres del acompañante"/>
+              <span class="field-error" id="err-ac-nombres">Solo letras y espacios.</span>
             </div>
             <div class="form-group">
               <label>Apellidos <span class="req">*</span></label>
               <input id="ac-apellidos" type="text" class="form-input" placeholder="Apellidos del acompañante"/>
+              <span class="field-error" id="err-ac-apellidos">Solo letras y espacios.</span>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label>Cédula / Pasaporte <span class="req">*</span></label>
-              <input id="ac-cedula" type="text" class="form-input" placeholder="1234567890"/>
+              <label>Cédula de Identidad <span class="req">*</span></label>
+              <input id="ac-cedula" type="text" class="form-input" placeholder="10 dígitos" maxlength="10" inputmode="numeric"/>
+              <span class="field-error" id="err-ac-cedula">Cédula ecuatoriana inválida.</span>
             </div>
             <div class="form-group">
               <label>Fecha de Nacimiento <span class="req">*</span></label>
-              <input id="ac-nacimiento" type="date" class="form-input" onchange="calcEdad('ac-nacimiento','ac-edad')"/>
+              <input id="ac-nacimiento" type="date" class="form-input"/>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="form-group">
-              <label>Edad <span class="req">*</span></label>
-              <input id="ac-edad" type="number" class="form-input" placeholder="Se calcula automáticamente" min="1" max="120"/>
-            </div>
             <div class="form-group">
               <label>Género <span class="req">*</span></label>
               <select id="ac-genero" class="form-input">
                 <option value="">Selecciona...</option>
-                <option>Masculino</option>
-                <option>Femenino</option>
-                <option>Prefiero no decir</option>
+                <option>Masculino</option><option>Femenino</option><option>Prefiero no decir</option>
               </select>
+            </div>
+            <div class="form-group">
+              <label>Número de teléfono <span class="req">*</span></label>
+              <input id="ac-telefono" type="tel" class="form-input" placeholder="0987654321" maxlength="13" inputmode="tel"/>
+              <span class="field-error" id="err-ac-telefono">Ingresa un número válido.</span>
             </div>
           </div>
 
           <div class="form-group">
-            <label>WhatsApp / Teléfono <span class="req">*</span></label>
-            <input id="ac-telefono" type="tel" class="form-input" placeholder="0987654321"/>
-          </div>
-
-          <div class="form-group">
-            <label>Talla de camiseta del acompañante <span class="req">*</span></label>
+            <label>Talla de camiseta <span class="req">*</span></label>
             <div class="talla-grid">
               <label class="talla-option"><input type="radio" name="talla-comp" value="S"/><span class="talla-label">S</span></label>
               <label class="talla-option"><input type="radio" name="talla-comp" value="M"/><span class="talla-label">M</span></label>
               <label class="talla-option"><input type="radio" name="talla-comp" value="L"/><span class="talla-label">L</span></label>
               <label class="talla-option"><input type="radio" name="talla-comp" value="XL"/><span class="talla-label">XL</span></label>
             </div>
+            <span class="field-error" id="err-ac-talla">Selecciona una talla.</span>
           </div>
 
           <div class="form-group">
@@ -572,20 +604,19 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- 5. SALUD -->
-        <div class="fsec"><span class="fsec-icon">💊</span><span class="fsec-label">Salud y Seguridad</span><span class="fsec-line"></span></div>
+        <!-- 6. SALUD -->
+        <div class="fsec"><span class="fsec-label">Salud y Seguridad</span><span class="fsec-line"></span></div>
 
         <div class="form-group">
           <label>Condición médica relevante (opcional)</label>
           <textarea id="f-medico" class="form-input" rows="2" placeholder="Alergias, condiciones cardíacas, lesiones recientes..."></textarea>
         </div>
 
-        <!-- 6. PAGO -->
-        <div class="fsec"><span class="fsec-icon"></span><span class="fsec-label">Pago</span><span class="fsec-line"></span></div>
+        <!-- 7. PAGO -->
+        <div class="fsec"><span class="fsec-label">Pago</span><span class="fsec-line"></span></div>
 
-        <!-- Preventa countdown -->
         <div class="preventa-banner" id="preventa-banner">
-          <div class="preventa-badge">PREVENTA!!</div>
+          <div class="preventa-badge">PREVENTA</div>
           <div class="preventa-info">
             <strong>15% de descuento — Cierra el 1 de Abril</strong>
             <p>Aprovecha antes de que expire el descuento</p>
@@ -601,7 +632,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- Tarifas -->
         <div class="price-cards">
           <div class="price-card">
             <div class="pc-tag">Corredor Individual</div>
@@ -622,7 +652,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- Datos bancarios -->
         <div class="payment-block">
           <h5>Datos para transferencia o depósito</h5>
           <div class="pay-row"><span class="pk">Banco</span><span class="pv">Pichincha</span></div>
@@ -646,10 +675,11 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             <span class="fo-name" id="file-name-display"></span>
             <button type="button" class="fo-rm" onclick="removeFile()"><i class="fas fa-times"></i> Quitar</button>
           </div>
+          <span class="field-error" id="err-comprobante">Adjunta el comprobante de pago.</span>
         </div>
 
-        <!-- 7. DECLARACIÓN -->
-        <div class="fsec"><span class="fsec-icon">📜</span><span class="fsec-label">Declaración de participación</span><span class="fsec-line"></span></div>
+        <!-- 8. DECLARACIÓN -->
+        <div class="fsec"><span class="fsec-label">Declaración de participación</span><span class="fsec-line"></span></div>
 
         <div class="decl-box">
           <ul>
@@ -660,15 +690,16 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </ul>
         </div>
 
-        <!-- 8. CONFIRMACIÓN -->
-        <div class="fsec"><span class="fsec-icon">✅</span><span class="fsec-label">Confirmación</span><span class="fsec-line"></span></div>
+        <!-- 9. CONFIRMACIÓN -->
+        <div class="fsec"><span class="fsec-label">Confirmación</span><span class="fsec-line"></span></div>
 
         <div class="form-group">
           <label class="checkbox-wrap">
-            <input type="checkbox" id="f-terminos" required/>
+            <input type="checkbox" id="f-terminos"/>
             <span class="chk-box"></span>
-            <span class="chk-text">He leído y acepto los <a href="#">términos y condiciones</a> de participación. Declaro voluntariamente todo lo indicado en la sección anterior. <span style="color:#CC0000">*</span></span>
+            <span class="chk-text">He leído y acepto los <a href="#" onclick="abrirModal(event)">términos y condiciones</a> de participación. Declaro voluntariamente todo lo indicado en la sección anterior. <span style="color:#CC0000">*</span></span>
           </label>
+          <span class="field-error" id="err-terminos">Debes aceptar los términos y condiciones.</span>
         </div>
 
         <div class="form-group">
@@ -688,20 +719,22 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 
       </form>
 
-      <!-- SUCCESS -->
+      <!-- SUCCESS — sin emojis, mensaje serio, link WA correcto -->
       <div class="success-wrap" id="success-wrap">
-        <span class="sw-icon">🎉</span>
-        <h2>¡¡Felicidades!! Ya eres un corredor de <span>Acero Trail</span></h2>
-        <p>Tu inscripción fue recibida correctamente.</p>
-        <p>Nuestro equipo revisará tu comprobante de pago y te enviará la confirmación oficial por WhatsApp al número que proporcionaste.</p>
-        <p>Mientras tanto, únete al grupo oficial de corredores:</p>
-        <a href="https://chat.whatsapp.com/FrcSxDvhpuu4fSwBYAVrQn" target="_blank" class="wa-chip">
-          <i class="fab fa-whatsapp"></i> Unirme al grupo de corredores
-        </a>
+        <h2>Inscripción <span>Recibida</span></h2>
+        <div class="success-divider"></div>
+        <div class="sw-body">
+          <p>Tu inscripción ha sido registrada exitosamente.</p>
+          <p>En breve recibirás un correo electrónico con la confirmación oficial de tu participación, una vez que nuestro equipo verifique tu comprobante de pago.</p>
+        </div>
+        <div class="success-contact">
+          <p>Para consultas o dudas, comunícate con el organizador directamente:<br><br>
+          <a href="https://api.whatsapp.com/send/?phone=593984848383&text&type=phone_number&app_absent=0" target="_blank">Contactar por WhatsApp — 0984848383</a></p>
+        </div>
       </div>
     </div>
 
-    <!-- ══════ SIDEBAR ══════ -->
+    <!-- ══ SIDEBAR ══ -->
     <aside class="inscripcion-sidebar animate-on-scroll" style="transition-delay:.15s">
       <div class="sib-card">
         <div class="sib-head">
@@ -713,11 +746,11 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <div class="sib-row"><span class="sk">Hora largada</span><span class="sv">07:00 AM</span></div>
           <div class="sib-row"><span class="sk">Distancias</span><span class="sv red">11 KM · 6 KM</span></div>
           <div class="sib-row"><span class="sk">Lugar</span><span class="sv">San Mateo, Manabí</span></div>
-          <div class="sib-row"><span class="sk">Race Pack</span><span class="sv">Incluido ✓</span></div>
-          <div class="sib-row"><span class="sk">Medalla Finisher</span><span class="sv">Incluida ✓</span></div>
+          <div class="sib-row"><span class="sk">Race Pack</span><span class="sv">Incluido</span></div>
+          <div class="sib-row"><span class="sk">Medalla Finisher</span><span class="sv">Incluida</span></div>
         </div>
         <div class="sib-contact">
-          <h4>¿Dudas? Contáctanos</h4>
+          <h4>Contacto</h4>
           <div class="citem"><i class="fab fa-whatsapp ci"></i><a href="https://wa.me/593984848383" target="_blank">0984848383</a></div>
           <div class="citem"><i class="fab fa-facebook ci"></i><span>Acero Trail Running San Mateo 2026</span></div>
           <div class="citem"><i class="fab fa-instagram ci"></i><span>@trail_running_san_mateo_2026</span></div>
@@ -758,7 +791,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
   </div>
   <div class="footer-bottom">
     <p>© 2026 Acero Trail Running San Mateo. Todos los derechos reservados.</p>
-    <p>Diseñado con ❤️ para la comunidad trail runner</p>
+    <p>Diseñado con amor para la comunidad trail runner</p>
   </div>
 </footer>
 
@@ -766,28 +799,28 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 const PREVENTA_END = new Date('2026-04-01T00:00:00');
 const RACE_DATE    = new Date('2026-04-25T07:00:00');
 
-/* ── COUNTDOWN CARRERA ───────────── */
+/* COUNTDOWN CARRERA */
 function initCountdown(){
   function upd(){
-    const d=RACE_DATE-new Date(), pad=n=>String(Math.floor(n)).padStart(2,'0');
+    const d=RACE_DATE-new Date(),pad=n=>String(Math.floor(n)).padStart(2,'0');
     if(d<=0){document.querySelectorAll('.countdown-num').forEach(e=>e.textContent='00');return;}
     document.getElementById('cd-days').textContent    = pad(d/86400000);
     document.getElementById('cd-hours').textContent   = pad((d%86400000)/3600000);
     document.getElementById('cd-minutes').textContent = pad((d%3600000)/60000);
     document.getElementById('cd-seconds').textContent = pad((d%60000)/1000);
   }
-  upd(); setInterval(upd,1000);
+  upd();setInterval(upd,1000);
 }
 
-/* ── COUNTDOWN PREVENTA ──────────── */
+/* COUNTDOWN PREVENTA */
 function initPreventa(){
   const banner=document.getElementById('preventa-banner');
   const card=document.getElementById('pc-preventa');
   function upd(){
-    const d=PREVENTA_END-new Date(), pad=n=>String(Math.floor(n)).padStart(2,'0');
+    const d=PREVENTA_END-new Date(),pad=n=>String(Math.floor(n)).padStart(2,'0');
     if(d<=0){
-      if(banner) banner.classList.add('expired');
-      if(card)   card.classList.add('expired-card');
+      if(banner)banner.classList.add('expired');
+      if(card)card.classList.add('expired-card');
       return;
     }
     document.getElementById('pt-days').textContent  = pad(d/86400000);
@@ -795,24 +828,67 @@ function initPreventa(){
     document.getElementById('pt-mins').textContent  = pad((d%3600000)/60000);
     document.getElementById('pt-secs').textContent  = pad((d%60000)/1000);
   }
-  upd(); setInterval(upd,1000);
+  upd();setInterval(upd,1000);
 }
 
-/* ── EDAD AUTOMÁTICA ─────────────── */
-function calcEdad(srcId, destId){
-  const val=document.getElementById(srcId).value;
-  if(!val) return;
-  const born=new Date(val), today=new Date();
+/* EDAD CALCULADA DESDE FECHA (invisible, va al sheet) */
+function edadDesdeFecha(fechaStr){
+  if(!fechaStr) return '';
+  const born=new Date(fechaStr),today=new Date();
   let age=today.getFullYear()-born.getFullYear();
   const m=today.getMonth()-born.getMonth();
   if(m<0||(m===0&&today.getDate()<born.getDate())) age--;
-  document.getElementById(destId).value = age>0?age:'';
+  return age>0?String(age):'';
 }
 
-/* ── FULL BODY TOGGLE ────────────── */
+/* VALIDACIÓN CÉDULA ECUATORIANA — algoritmo oficial Registro Civil */
+function validarCedula(ced){
+  if(!/^\d{10}$/.test(ced)) return false;
+  const prov=parseInt(ced.substring(0,2));
+  if(prov<1||prov>24) return false;
+  const d=ced.split('').map(Number);
+  const coef=[2,1,2,1,2,1,2,1,2];
+  let suma=0;
+  for(let i=0;i<9;i++){let v=d[i]*coef[i];if(v>=10)v-=9;suma+=v;}
+  const esperado=suma%10===0?0:10-(suma%10);
+  return esperado===d[9];
+}
+
+/* VALIDACIONES */
+function soloLetras(s){return/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(s.trim());}
+function validarEmail(s){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());}
+function validarTelefono(s){const l=s.replace(/[\s\-]/g,'');return/^(\+?593|0)[0-9]{8,9}$/.test(l);}
+
+function marcarError(inputId,errId,show){
+  const inp=document.getElementById(inputId);
+  const err=document.getElementById(errId);
+  if(!inp||!err) return;
+  if(show){inp.classList.add('input-error');err.classList.add('show');}
+  else{inp.classList.remove('input-error');err.classList.remove('show');}
+}
+
+/* MODAL TÉRMINOS */
+function abrirModal(e){
+  if(e) e.preventDefault();
+  document.getElementById('modal-terminos').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function cerrarModal(){
+  document.getElementById('modal-terminos').classList.remove('open');
+  document.body.style.overflow='';
+}
+function aceptarTerminos(){
+  document.getElementById('f-terminos').checked=true;
+  cerrarModal();
+}
+document.getElementById('modal-terminos').addEventListener('click',function(e){
+  if(e.target===this) cerrarModal();
+});
+
+/* FULL BODY TOGGLE */
 function toggleFullBody(show){
   const sec=document.getElementById('acomp-section');
-  const ids=['ac-nombres','ac-apellidos','ac-cedula','ac-nacimiento','ac-edad','ac-genero','ac-telefono'];
+  const ids=['ac-nombres','ac-apellidos','ac-cedula','ac-nacimiento','ac-genero','ac-telefono'];
   if(show){
     sec.classList.add('visible');
     ids.forEach(id=>{const el=document.getElementById(id);if(el)el.required=true;});
@@ -821,12 +897,14 @@ function toggleFullBody(show){
     sec.classList.remove('visible');
     ids.forEach(id=>{const el=document.getElementById(id);if(el){el.required=false;el.value='';}});
     document.querySelectorAll('input[name="talla-comp"]').forEach(r=>{r.required=false;r.checked=false;});
-    const mg=document.getElementById('ac-medico');if(mg)mg.value='';
-    const gg=document.getElementById('ac-genero');if(gg)gg.value='';
+    ['ac-medico'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.getElementById('ac-genero').value='';
+    ['ac-nombres','ac-apellidos','ac-cedula','ac-telefono'].forEach(id=>marcarError(id,'err-'+id,false));
+    document.getElementById('err-ac-talla').classList.remove('show');
   }
 }
 
-/* ── FILE UPLOAD ─────────────────── */
+/* FILE UPLOAD */
 function handleFile(input){
   if(!input.files||!input.files[0]) return;
   const file=input.files[0];
@@ -834,6 +912,7 @@ function handleFile(input){
   document.getElementById('file-name-display').textContent=file.name;
   document.getElementById('file-ok').classList.add('show');
   document.getElementById('upload-zone').style.borderColor='rgba(46,204,113,.4)';
+  document.getElementById('err-comprobante').classList.remove('show');
 }
 function removeFile(){
   document.getElementById('f-comprobante').value='';
@@ -851,68 +930,97 @@ if(uz){
   });
 }
 
-/* ── HELPERS ─────────────────────── */
+/* HELPERS */
 function getRadio(name){const el=document.querySelector(`input[name="${name}"]:checked`);return el?el.value:'';}
 function showErr(msg){const el=document.getElementById('error-msg');el.textContent=msg;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'center'});}
 function hideErr(){document.getElementById('error-msg').classList.remove('show');}
 function toBase64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
+function val(id){const el=document.getElementById(id);return el?el.value.trim():'';}
 
-/* ── SUBMIT ──────────────────────── */
+/* SUBMIT */
 async function handleSubmit(){
   hideErr();
-  const isFullBody = getRadio('categoria')==='Full Body';
+  let hayError=false;
+  document.querySelectorAll('.input-error').forEach(el=>el.classList.remove('input-error'));
+  document.querySelectorAll('.field-error.show').forEach(el=>el.classList.remove('show'));
 
+  const isFullBody=getRadio('categoria')==='Full Body';
+
+  // Validaciones principales
+  if(!val('f-nombres')||!soloLetras(val('f-nombres'))){marcarError('f-nombres','err-nombres',true);hayError=true;}
+  if(!val('f-apellidos')||!soloLetras(val('f-apellidos'))){marcarError('f-apellidos','err-apellidos',true);hayError=true;}
+  if(!validarCedula(val('f-cedula'))){marcarError('f-cedula','err-cedula',true);hayError=true;}
+  if(!val('f-nacimiento')){marcarError('f-nacimiento','err-nacimiento',true);hayError=true;}
+  if(!val('f-genero')){marcarError('f-genero','err-genero',true);hayError=true;}
+  if(!validarEmail(val('f-correo'))){marcarError('f-correo','err-correo',true);hayError=true;}
+  if(!validarTelefono(val('f-telefono'))){marcarError('f-telefono','err-telefono',true);hayError=true;}
+
+  // Emergencia: solo si hay algo escrito
+  const eNombre=val('f-emerg-nombre'),eTel=val('f-emerg-tel');
+  if(eNombre&&!soloLetras(eNombre)){marcarError('f-emerg-nombre','err-emerg-nombre',true);hayError=true;}
+  if(eTel&&!validarTelefono(eTel)){marcarError('f-emerg-tel','err-emerg-tel',true);hayError=true;}
+
+  if(!getRadio('talla')){document.getElementById('err-talla').classList.add('show');hayError=true;}
+  if(!getRadio('distancia')){document.getElementById('err-distancia').classList.add('show');hayError=true;}
+  if(!getRadio('categoria')){document.getElementById('err-categoria').classList.add('show');hayError=true;}
+
+  // Full Body
+  if(isFullBody){
+    if(!val('ac-nombres')||!soloLetras(val('ac-nombres'))){marcarError('ac-nombres','err-ac-nombres',true);hayError=true;}
+    if(!val('ac-apellidos')||!soloLetras(val('ac-apellidos'))){marcarError('ac-apellidos','err-ac-apellidos',true);hayError=true;}
+    if(!validarCedula(val('ac-cedula'))){marcarError('ac-cedula','err-ac-cedula',true);hayError=true;}
+    if(!validarTelefono(val('ac-telefono'))){marcarError('ac-telefono','err-ac-telefono',true);hayError=true;}
+    if(!val('ac-genero')||!val('ac-nacimiento')){hayError=true;}
+    if(!getRadio('talla-comp')){document.getElementById('err-ac-talla').classList.add('show');hayError=true;}
+  }
+
+  if(!document.getElementById('f-terminos').checked){document.getElementById('err-terminos').classList.add('show');hayError=true;}
+
+  const fi=document.getElementById('f-comprobante');
+  if(!fi.files||!fi.files[0]){document.getElementById('err-comprobante').classList.add('show');hayError=true;}
+
+  if(hayError){
+    showErr('Por favor corrige los campos marcados en rojo antes de continuar.');
+    const primero=document.querySelector('.input-error');
+    if(primero) primero.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+
+  // Construir objeto de datos — edad calculada automáticamente
   const d={
-    nombres:     document.getElementById('f-nombres').value.trim(),
-    apellidos:   document.getElementById('f-apellidos').value.trim(),
-    cedula:      document.getElementById('f-cedula').value.trim(),
-    nacimiento:  document.getElementById('f-nacimiento').value,
-    edad:        document.getElementById('f-edad').value.trim(),
-    genero:      document.getElementById('f-genero').value,
-    ciudad:      document.getElementById('f-ciudad').value.trim(),
-    correo:      document.getElementById('f-correo').value.trim(),
-    telefono:    document.getElementById('f-telefono').value.trim(),
-    emergNombre: document.getElementById('f-emerg-nombre').value.trim(),
-    emergTel:    document.getElementById('f-emerg-tel').value.trim(),
-    talla:       getRadio('talla'),
-    distancia:   getRadio('distancia'),
-    categoria:   getRadio('categoria'),
-    medico:      document.getElementById('f-medico').value.trim(),
-    fotoAutoriza:document.getElementById('f-fotos').checked?'Sí':'No',
-    // Acompañante
-    acNombres:   document.getElementById('ac-nombres').value.trim(),
-    acApellidos: document.getElementById('ac-apellidos').value.trim(),
-    acCedula:    document.getElementById('ac-cedula').value.trim(),
-    acNacimiento:document.getElementById('ac-nacimiento').value,
-    acEdad:      document.getElementById('ac-edad').value.trim(),
-    acGenero:    document.getElementById('ac-genero').value,
-    acTelefono:  document.getElementById('ac-telefono').value.trim(),
-    acTalla:     getRadio('talla-comp'),
-    acMedico:    document.getElementById('ac-medico').value.trim(),
+    nombres:      val('f-nombres'),
+    apellidos:    val('f-apellidos'),
+    cedula:       val('f-cedula'),
+    nacimiento:   val('f-nacimiento'),
+    edad:         edadDesdeFecha(val('f-nacimiento')),   // calculada, invisible
+    genero:       val('f-genero'),
+    correo:       val('f-correo'),
+    telefono:     val('f-telefono'),
+    emergNombre:  eNombre,
+    emergTel:     eTel,
+    talla:        getRadio('talla'),
+    distancia:    getRadio('distancia'),
+    categoria:    getRadio('categoria'),
+    medico:       val('f-medico'),
+    fotoAutoriza: document.getElementById('f-fotos').checked?'Sí':'No',
+    acNombres:    val('ac-nombres'),
+    acApellidos:  val('ac-apellidos'),
+    acCedula:     val('ac-cedula'),
+    acNacimiento: val('ac-nacimiento'),
+    acEdad:       edadDesdeFecha(val('ac-nacimiento')),  // calculada
+    acGenero:     val('ac-genero'),
+    acTelefono:   val('ac-telefono'),
+    acTalla:      getRadio('talla-comp'),
+    acMedico:     val('ac-medico'),
     fechaRegistro:new Date().toLocaleString('es-EC',{timeZone:'America/Guayaquil'})
   };
 
-  // Validación
-  const req=['nombres','apellidos','cedula','nacimiento','edad','genero','ciudad','correo','telefono','emergNombre','emergTel','talla','distancia','categoria'];
-  for(const k of req){if(!d[k]){showErr('Por favor completa todos los campos obligatorios.');return;}}
-
-  if(isFullBody){
-    const acReq=['acNombres','acApellidos','acCedula','acNacimiento','acEdad','acGenero','acTelefono','acTalla'];
-    for(const k of acReq){if(!d[k]){showErr('Completa todos los datos del acompañante (Full Body).');return;}}
-  }
-
-  if(!document.getElementById('f-terminos').checked){showErr('Debes aceptar los términos y condiciones.');return;}
-
-  const fi=document.getElementById('f-comprobante');
-  if(!fi.files||!fi.files[0]){showErr('Por favor adjunta el comprobante de pago.');return;}
-
   const file=fi.files[0];
   const base64=await toBase64(file);
-
   const btn=document.getElementById('submit-btn');
-  btn.disabled=true; btn.classList.add('loading');
+  btn.disabled=true;btn.classList.add('loading');
 
-  const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyT8QlEEVdhdJyj1h4fRsO1QKSk4sJg3_U__AYIdYGjsLyqAZZIl4b-FLnqPq1fC3s/exec';
+  const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyh_U93eHKvxwkTWQICL1IViuXpeYvjSAeuyneIz6sWy4dKHBhmhxITZ7980OPg7_dS/exec';
 
   try{
     const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({...d,fileName:file.name,fileType:file.type,fileBase64:base64})});
@@ -922,34 +1030,58 @@ async function handleSubmit(){
       document.getElementById('success-wrap').classList.add('show');
       window.scrollTo({top:0,behavior:'smooth'});
     } else {throw new Error(json.message||'Error del servidor');}
-  } catch(err){
-    showErr('Hubo un problema al enviar. Inténtalo de nuevo o escríbenos al 0984848383 por WhatsApp.');
+  }catch(err){
+    showErr('Hubo un problema al enviar. Inténtalo de nuevo o contáctanos al 0984848383.');
     console.error(err);
-  } finally{
-    btn.disabled=false; btn.classList.remove('loading');
+  }finally{
+    btn.disabled=false;btn.classList.remove('loading');
   }
 }
 
-/* ── NAV ─────────────────────────── */
+/* NAV */
 function initNav(){
-  const hb=document.querySelector('.hamburger');
-  const mm=document.querySelector('.mobile-menu');
-  if(!hb) return;
+  const hb=document.querySelector('.hamburger'),mm=document.querySelector('.mobile-menu');
+  if(!hb)return;
   hb.addEventListener('click',()=>{hb.classList.toggle('active');mm.classList.toggle('open');});
   mm.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hb.classList.remove('active');mm.classList.remove('open');}));
 }
 
-/* ── SCROLL ──────────────────────── */
+/* SCROLL ANIMATIONS */
 function initScroll(){
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.animate-on-scroll').forEach(el=>obs.observe(el));
 }
 
+/* FILTROS EN VIVO — bloquea caracteres inválidos mientras se escribe */
 document.addEventListener('DOMContentLoaded',()=>{
   initCountdown();
   initPreventa();
   initNav();
   initScroll();
+
+  // Solo letras y acentos
+  ['f-nombres','f-apellidos','f-emerg-nombre','ac-nombres','ac-apellidos'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.addEventListener('input',function(){
+      this.value=this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/g,'');
+    });
+  });
+
+  // Solo dígitos en cédulas
+  ['f-cedula','ac-cedula'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.addEventListener('input',function(){
+      this.value=this.value.replace(/\D/g,'').substring(0,10);
+    });
+  });
+
+  // Solo números, +, - y espacios en teléfonos
+  ['f-telefono','f-emerg-tel','ac-telefono'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.addEventListener('input',function(){
+      this.value=this.value.replace(/[^\d+\-\s]/g,'');
+    });
+  });
 });
 </script>
 </body>
