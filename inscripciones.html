@@ -919,10 +919,10 @@ function esPreventa(){ return new Date() < PREVENTA_END; }
 function calcularPrecio(){
   const cat = getRadio('categoria');
   if(!cat) return null;
-  if(cat === 'Full Body') return { monto: PRECIO_MIXTA, tipo: 'Pareja Mixta' };
-  if(codigoAplicado) return { monto: PRECIO_CLUB, tipo: 'Descuento Club Running' };
-  if(esPreventa())   return { monto: PRECIO_PREV, tipo: 'Preventa — 15% desc.' };
-  return { monto: PRECIO_STD, tipo: 'Precio estándar' };
+  if(cat === 'Full Body')  return { monto: PRECIO_MIXTA, tipo: 'Pareja Mixta' };
+  if(codigoAplicado)       return { monto: PRECIO_CLUB,  tipo: 'Descuento Club Running' };
+  if(esPreventa())         return { monto: PRECIO_PREV,  tipo: 'Preventa' };
+  return { monto: PRECIO_STD, tipo: 'Precio estandar' };
 }
 
 function actualizarPrecio(){
@@ -1299,19 +1299,43 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  /* Cédulas — solo dígitos, preservar 0 inicial guardando como texto */
+  /* Cédulas — solo dígitos, preservar 0 inicial + validación en vivo */
   ['f-cedula','ac-cedula'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
+    const errId = id==='f-cedula'?'err-cedula':'err-ac-cedula';
     el.addEventListener('input',function(){
       this.value=this.value.replace(/\D/g,'').substring(0,10);
+      if(this.value.length===10){
+        const ok=validarCedula(this.value);
+        this.classList.toggle('input-error',!ok);
+        const errEl=document.getElementById(errId);
+        if(errEl){if(!ok){errEl.classList.add('show');}else{errEl.classList.remove('show');}}
+      } else {
+        this.classList.remove('input-error');
+        const errEl=document.getElementById(errId);
+        if(errEl) errEl.classList.remove('show');
+      }
     });
   });
 
-  /* Teléfonos — solo dígitos, preservar 0 inicial */
+  /* Teléfonos — solo dígitos, preservar 0 inicial + validación en vivo */
   ['f-telefono','f-emerg-tel','ac-telefono'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
+    const errMap={'f-telefono':'err-telefono','f-emerg-tel':'err-emerg-tel','ac-telefono':'err-ac-telefono'};
+    const errId=errMap[id];
     el.addEventListener('input',function(){
       this.value=this.value.replace(/[^\d]/g,'').substring(0,13);
+      /* Validar solo si ya tiene longitud mínima para no molestar mientras escribe */
+      if(this.value.length>=10){
+        const ok=validarTelefono(this.value);
+        this.classList.toggle('input-error',!ok);
+        const errEl=document.getElementById(errId);
+        if(errEl){if(!ok){errEl.classList.add('show');}else{errEl.classList.remove('show');}}
+      } else {
+        this.classList.remove('input-error');
+        const errEl=document.getElementById(errId);
+        if(errEl) errEl.classList.remove('show');
+      }
     });
   });
 });
