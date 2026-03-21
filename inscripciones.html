@@ -21,8 +21,6 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:#0A0A0A;}
 ::-webkit-scrollbar-thumb{background:#CC0000;border-radius:3px;}
-
-/* NAVBAR */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,.97);backdrop-filter:blur(12px);border-bottom:2px solid #CC0000;padding:0 2rem;height:70px;display:flex;align-items:center;justify-content:space-between;}
 .navbar-brand{display:flex;align-items:center;text-decoration:none;}
 .navbar-logo-text{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#FFF;letter-spacing:2px;}
@@ -46,8 +44,6 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .mobile-menu a{display:block;color:#888;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;padding:12px 16px;border-radius:6px;transition:all .2s;}
 .mobile-menu a:hover{color:#FFF;background:rgba(204,0,0,.15);}
 .mobile-menu .mobile-cta{background:#CC0000;color:#FFF!important;text-align:center;margin-top:.5rem;font-weight:700!important;}
-
-/* COUNTDOWN BANNER */
 .countdown-banner{background:linear-gradient(135deg,#8B0000,#CC0000,#8B0000);background-size:200% 200%;animation:gradientShift 4s ease infinite;padding:12px 2rem;text-align:center;position:fixed;top:70px;left:0;right:0;z-index:998;border-bottom:1px solid rgba(255,255,255,.1);}
 @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .countdown-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
@@ -59,8 +55,6 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(255,255,255,.4);animation:blink 1s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .page-content{padding-top:130px;}
-
-/* HERO */
 .page-hero{min-height:38vh;display:flex;align-items:flex-end;padding:130px 2rem 3rem;position:relative;overflow:hidden;}
 .page-hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.5) 0%,rgba(10,10,10,.97) 100%),url('https://drive.google.com/thumbnail?id=1jBeQeK7fG6LVeURKhZkoHHbaSnFZtBhQ&sz=s2000') center/cover;}
 .page-hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;}
@@ -70,12 +64,8 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);line-height:1;color:#FFF;}
 .section-title span{color:#CC0000;}
 .section-subtitle{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:4px;text-transform:uppercase;color:#CC0000;margin-bottom:.8rem;}
-
-/* MAIN LAYOUT */
 .inscripciones-main{max-width:1200px;margin:0 auto;padding:4rem 2rem 6rem;}
 .inscripciones-grid{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;}
-
-/* FORM */
 .form-section h2{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;color:#FFF;margin-bottom:.4rem;}
 .form-section h2 span{color:#CC0000;}
 .form-intro{color:#555;font-size:.88rem;margin-bottom:2.5rem;line-height:1.7;}
@@ -92,20 +82,14 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .field-error{font-size:.71rem;color:#e05555;margin-top:3px;display:none;}
 .field-error.show{display:block;}
-
-/* SECTION DIVIDERS */
 .fsec{display:flex;align-items:center;gap:11px;margin:2rem 0 1.1rem;}
 .fsec-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:#444;font-weight:700;white-space:nowrap;}
 .fsec-line{flex:1;height:1px;background:#1A1A1A;}
-
-/* TALLA */
 .talla-grid{display:flex;gap:.55rem;flex-wrap:wrap;}
 .talla-option input{display:none;}
 .talla-label{display:block;text-align:center;padding:9px 0;width:54px;border-radius:6px;border:1px solid #222;background:#111;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;color:#444;cursor:pointer;transition:all .2s;}
 .talla-option input:checked + .talla-label{background:#CC0000;border-color:#CC0000;color:#FFF;}
 .talla-label:hover{border-color:#444;color:#AAA;}
-
-/* DISTANCIA */
 .distancia-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
 .distancia-option input{display:none;}
 .distancia-label{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;border-radius:9px;border:1px solid #222;background:#111;cursor:pointer;transition:all .2s;text-align:center;}
@@ -115,8 +99,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .distancia-option input:checked + .distancia-label .dist-km{color:#CC0000;}
 .distancia-option input:checked + .distancia-label .dist-txt{color:#777;}
 .distancia-label:hover{border-color:#3A3A3A;}
-
-/* CATEGORÍAS */
 .categoria-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
 .cat-option input{display:none;}
 .cat-label{display:flex;flex-direction:column;padding:10px 13px;border-radius:7px;border:1px solid #1E1E1E;background:#0E0E0E;cursor:pointer;transition:all .18s;}
@@ -129,14 +111,10 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .cat-fullbody-wrap{grid-column:1/-1;}
 .cat-label.fb{flex-direction:row;align-items:center;gap:10px;}
 .cat-label.fb .cat-name{font-size:.9rem;}
-
-/* ACOMPAÑANTE */
 .acomp-section{border-left:2px solid #1E1E1E;padding-left:1.2rem;margin-top:.6rem;display:none;animation:slideDown .3s ease;}
 .acomp-section.visible{display:block;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .acomp-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:1rem;}
-
-/* PREVENTA */
 .preventa-banner{background:#111;border:1px solid #222;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
 .preventa-banner.expired{display:none;}
 .preventa-badge{background:#CC0000;color:#FFF;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;padding:5px 12px;border-radius:5px;flex-shrink:0;}
@@ -148,8 +126,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .pt-num{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#CC0000;display:block;line-height:1;}
 .pt-txt{font-size:.5rem;letter-spacing:1.5px;text-transform:uppercase;color:#3A3A3A;}
 .pt-sep{color:#2A2A2A;font-size:.9rem;font-weight:700;}
-
-/* TARIFAS */
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:1.3rem;}
 .price-card{background:#0E0E0E;border:1px solid #1E1E1E;border-radius:8px;padding:.9rem 1.1rem;}
 .price-card .pc-tag{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.25rem;}
@@ -157,8 +133,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .price-card .pc-note{font-size:.72rem;color:#3A3A3A;margin-top:.25rem;}
 .price-card.full-row{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
 .price-card.full-row .pc-amount{font-size:1.4rem;}
-
-/* PRECIO DINÁMICO */
 .precio-dinamico{display:none;background:#0E0E0E;border:1px solid #1E1E1E;border-radius:10px;padding:1.3rem 1.5rem;margin-bottom:1.3rem;}
 .precio-dinamico.visible{display:block;}
 .precio-dinamico .pd-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:.7rem;}
@@ -167,14 +141,11 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .precio-dinamico .pd-amount{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:#CC0000;line-height:1;}
 .precio-dinamico .pd-note{font-size:.75rem;color:#555;margin-top:.5rem;line-height:1.6;}
 .precio-dinamico .pd-note strong{color:#888;font-weight:600;}
-
-/* CLUB / CÓDIGO */
 .club-opciones{display:flex;gap:.6rem;margin-top:.5rem;}
 .club-opt input{display:none;}
 .club-opt-label{display:block;padding:10px 22px;border-radius:7px;border:1px solid #222;background:#111;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;color:#444;cursor:pointer;transition:all .2s;letter-spacing:1px;}
 .club-opt input:checked + .club-opt-label{background:#CC0000;border-color:#CC0000;color:#FFF;}
 .club-opt-label:hover{border-color:#444;color:#AAA;}
-
 .codigo-section{border-left:2px solid #1E1E1E;padding-left:1.2rem;margin-top:.9rem;display:none;animation:slideDown .3s ease;}
 .codigo-section.visible{display:block;}
 .codigo-input-wrap{display:flex;gap:.6rem;align-items:flex-start;}
@@ -188,8 +159,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .codigo-ok-txt{font-size:.8rem;color:#2ecc71;font-family:'Barlow Condensed',sans-serif;font-weight:700;flex:1;}
 .codigo-ok-rm{background:none;border:none;color:#333;cursor:pointer;font-size:.72rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
 .codigo-ok-rm:hover{color:#CC0000;}
-
-/* PAGO */
 .payment-block{background:#0E0E0E;border:1px solid #1A1A1A;border-radius:8px;padding:1.1rem 1.3rem;margin-bottom:1.3rem;}
 .payment-block h5{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:3.5px;text-transform:uppercase;color:#3A3A3A;margin-bottom:.8rem;}
 .pay-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #161616;font-size:.83rem;}
@@ -197,8 +166,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .pay-row .pk{color:#444;}
 .pay-row .pv{color:#BBB;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;}
 .pay-row .pv.hi{color:#CC0000;}
-
-/* FILE UPLOAD */
 .upload-zone{border:1.5px dashed #222;border-radius:9px;padding:1.6rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;background:#0A0A0A;}
 .upload-zone:hover,.upload-zone.over{border-color:#CC0000;background:#0E0000;}
 .upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
@@ -212,13 +179,9 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .fo-name{font-size:.8rem;color:#BBB;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .fo-rm{background:none;border:none;color:#333;cursor:pointer;font-size:.72rem;transition:color .2s;}
 .fo-rm:hover{color:#CC0000;}
-
-/* DECLARACIÓN */
 .decl-box{background:#0A0A0A;border:1px solid #161616;border-radius:7px;padding:1rem 1.2rem;margin-bottom:1rem;}
 .decl-box li{font-size:.79rem;color:#444;line-height:1.65;margin-bottom:.3rem;margin-left:1rem;}
 .decl-box li::marker{color:#CC0000;}
-
-/* MODAL TÉRMINOS */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:1rem;}
 .modal-overlay.open{display:flex;}
 .modal-box{background:#111;border:1px solid #222;border-radius:14px;max-width:620px;width:100%;max-height:82vh;overflow:hidden;display:flex;flex-direction:column;}
@@ -236,8 +199,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .modal-foot{padding:1rem 1.5rem;border-top:1px solid #1E1E1E;text-align:right;}
 .modal-accept{background:#CC0000;color:#FFF;border:none;border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;padding:10px 24px;cursor:pointer;transition:background .2s;}
 .modal-accept:hover{background:#FF0000;}
-
-/* CHECKBOX */
 .checkbox-wrap{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
 .checkbox-wrap input{display:none;}
 .chk-box{width:18px;height:18px;border:1px solid #2A2A2A;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:all .2s;background:#111;}
@@ -246,8 +207,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .chk-text{font-size:.82rem;color:#555;line-height:1.55;}
 .chk-text a{color:#CC0000;text-decoration:none;}
 .chk-text a:hover{text-decoration:underline;}
-
-/* SUBMIT */
 .submit-btn{width:100%;padding:14px;background:#CC0000;color:#FFF;border:none;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.93rem;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-top:1.3rem;display:flex;align-items:center;justify-content:center;gap:10px;}
 .submit-btn:hover:not(:disabled){background:#FF0000;transform:translateY(-2px);box-shadow:0 8px 28px var(--sombra);}
 .submit-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
@@ -255,12 +214,8 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .submit-btn.loading .spinner{display:block;}
 .submit-btn.loading .btn-text{display:none;}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* ERROR */
 .error-msg{display:none;background:rgba(220,50,50,.07);border:1px solid rgba(220,50,50,.25);border-radius:7px;padding:.8rem 1rem;font-size:.81rem;color:#d44;margin-top:.7rem;text-align:center;}
 .error-msg.show{display:block;}
-
-/* SUCCESS */
 .success-wrap{display:none;padding:4rem 1rem;text-align:center;max-width:520px;margin:0 auto;}
 .success-wrap.show{display:block;}
 .success-wrap h2{font-family:'Bebas Neue',sans-serif;font-size:2.3rem;color:#FFF;margin-bottom:.6rem;line-height:1.1;}
@@ -271,8 +226,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .success-contact p{font-size:.82rem;color:#444;line-height:1.7;}
 .success-contact a{color:#CC0000;text-decoration:none;font-weight:700;}
 .success-contact a:hover{text-decoration:underline;}
-
-/* SIDEBAR */
 .inscripcion-sidebar{position:sticky;top:150px;display:flex;flex-direction:column;gap:1.1rem;}
 .sib-card{background:#0E0E0E;border:1px solid #1A1A1A;border-radius:13px;overflow:hidden;}
 .sib-head{background:linear-gradient(135deg,#8B0000,#CC0000);padding:1.2rem 1.4rem;text-align:center;}
@@ -290,8 +243,6 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .citem .ci{color:#CC0000;font-size:.95rem;width:17px;text-align:center;}
 .citem span,.citem a{font-size:.82rem;color:#444;text-decoration:none;transition:color .2s;}
 .citem a:hover{color:#CC0000;}
-
-/* FOOTER */
 footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid #1A1A1A;}
 .footer-brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#FFF;margin-bottom:.4rem;}
@@ -307,10 +258,8 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 .footer-col ul li a:hover{color:#FFF;}
 .footer-bottom{max-width:1200px;margin:1.3rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-bottom p{font-size:.75rem;color:#333;}
-
 .animate-on-scroll{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease;}
 .animate-on-scroll.visible{opacity:1;transform:translateY(0);}
-
 @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:900px){
   .inscripciones-grid{grid-template-columns:1fr;}
@@ -445,9 +394,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 
       <form id="registro-form" novalidate>
 
-        <!-- 1. DATOS PERSONALES -->
         <div class="fsec"><span class="fsec-label">Datos Personales</span><span class="fsec-line"></span></div>
-
         <div class="form-row">
           <div class="form-group">
             <label>Nombres <span class="req">*</span></label>
@@ -460,7 +407,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             <span class="field-error" id="err-apellidos">Ingresa solo letras y espacios.</span>
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label>Cédula de Identidad <span class="req">*</span></label>
@@ -473,7 +419,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             <span class="field-error" id="err-nacimiento">Selecciona una fecha válida.</span>
           </div>
         </div>
-
         <div class="form-group">
           <label>Género <span class="req">*</span></label>
           <select id="f-genero" class="form-input">
@@ -485,9 +430,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <span class="field-error" id="err-genero">Selecciona una opción.</span>
         </div>
 
-        <!-- 2. CONTACTO -->
         <div class="fsec"><span class="fsec-label">Contacto</span><span class="fsec-line"></span></div>
-
         <div class="form-row">
           <div class="form-group">
             <label>Correo Electrónico <span class="req">*</span></label>
@@ -501,9 +444,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- 3. CONTACTO DE EMERGENCIA -->
         <div class="fsec"><span class="fsec-label">Contacto de Emergencia (Opcional)</span><span class="fsec-line"></span></div>
-
         <div class="form-row">
           <div class="form-group">
             <label>Nombre</label>
@@ -517,9 +458,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- 4. TALLA -->
         <div class="fsec"><span class="fsec-label">Tu talla de camiseta</span><span class="fsec-line"></span></div>
-
         <div class="form-group">
           <label>Talla <span class="req">*</span></label>
           <div class="talla-grid">
@@ -531,9 +470,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <span class="field-error" id="err-talla">Selecciona una talla.</span>
         </div>
 
-        <!-- 5. CARRERA -->
         <div class="fsec"><span class="fsec-label">Carrera</span><span class="fsec-line"></span></div>
-
         <div class="form-group">
           <label>Distancia <span class="req">*</span></label>
           <div class="distancia-grid">
@@ -548,19 +485,13 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
           <span class="field-error" id="err-distancia">Selecciona una distancia.</span>
         </div>
-
         <div class="form-group">
           <label>Categoría <span class="req">*</span></label>
           <div class="categoria-grid">
             <div class="cat-fullbody-wrap">
               <label class="cat-option">
                 <input type="radio" name="categoria" value="Full Body" onchange="toggleFullBody(true);actualizarPrecio()"/>
-                <span class="cat-label fb">
-                  <span>
-                    <span class="cat-name">Full Body — Pareja Mixta</span>
-                    <span class="cat-sub">Hombre + Mujer</span>
-                  </span>
-                </span>
+                <span class="cat-label fb"><span><span class="cat-name">Full Body — Pareja Mixta</span><span class="cat-sub">Hombre + Mujer</span></span></span>
               </label>
             </div>
             <label class="cat-option"><input type="radio" name="categoria" value="Juvenil" onchange="toggleFullBody(false);actualizarPrecio()"/><span class="cat-label"><span class="cat-name">Juvenil</span><span class="cat-sub">14 a 17 años</span></span></label>
@@ -574,7 +505,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
         <!-- ACOMPAÑANTE FULL BODY -->
         <div id="acomp-section" class="acomp-section">
           <div class="acomp-label">Datos del competidor/a acompañante (pareja)</div>
-
           <div class="form-row">
             <div class="form-group">
               <label>Nombres <span class="req">*</span></label>
@@ -587,7 +517,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
               <span class="field-error" id="err-ac-apellidos">Solo letras y espacios.</span>
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-group">
               <label>Cédula de Identidad <span class="req">*</span></label>
@@ -599,7 +528,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
               <input id="ac-nacimiento" type="date" class="form-input"/>
             </div>
           </div>
-
           <div class="form-row">
             <div class="form-group">
               <label>Género <span class="req">*</span></label>
@@ -614,7 +542,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
               <span class="field-error" id="err-ac-telefono">Ingresa un número válido.</span>
             </div>
           </div>
-
           <div class="form-group">
             <label>Talla de camiseta <span class="req">*</span></label>
             <div class="talla-grid">
@@ -625,25 +552,19 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             </div>
             <span class="field-error" id="err-ac-talla">Selecciona una talla.</span>
           </div>
-
           <div class="form-group">
             <label>Condición médica del acompañante (opcional)</label>
             <textarea id="ac-medico" class="form-input" rows="2" placeholder="Alergias, condiciones cardíacas, lesiones..."></textarea>
           </div>
         </div>
 
-        <!-- 6. SALUD -->
         <div class="fsec"><span class="fsec-label">Salud y Seguridad</span><span class="fsec-line"></span></div>
-
         <div class="form-group">
           <label>Condición médica relevante (opcional)</label>
           <textarea id="f-medico" class="form-input" rows="2" placeholder="Alergias, condiciones cardíacas, lesiones recientes..."></textarea>
         </div>
 
-        <!-- 7. PAGO -->
         <div class="fsec"><span class="fsec-label">Pago</span><span class="fsec-line"></span></div>
-
-        <!-- CLUB RUNNING -->
         <div class="form-group">
           <label>¿Perteneces a un club running? <span class="req">*</span></label>
           <div class="club-opciones">
@@ -658,7 +579,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
           <span class="field-error" id="err-club">Selecciona una opción.</span>
 
-          <!-- SECCIÓN CÓDIGO -->
           <div id="codigo-section" class="codigo-section">
             <div style="margin-bottom:.6rem;">
               <label style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:6px;">Código de descuento <span style="color:#444;font-weight:400;letter-spacing:0;text-transform:none;font-size:.68rem;">(opcional)</span></label>
@@ -677,7 +597,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- PREVENTA BANNER -->
         <div class="preventa-banner" id="preventa-banner">
           <div class="preventa-badge">PREVENTA</div>
           <div class="preventa-info">
@@ -695,7 +614,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <!-- PRICE CARDS — se ocultan cuando hay precio dinámico activo -->
         <div class="price-cards" id="price-cards-bloque">
           <div class="price-card">
             <div class="pc-tag">Corredor Individual</div>
@@ -708,14 +626,11 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
             <div class="pc-note">15% de descuento</div>
           </div>
           <div class="price-card full-row">
-            <div>
-              <div class="pc-tag">Full Body — Pareja Mixta</div>
-            </div>
+            <div><div class="pc-tag">Full Body — Pareja Mixta</div></div>
             <div class="pc-amount">$40</div>
           </div>
         </div>
 
-        <!-- PRECIO DINÁMICO — aparece cuando se selecciona categoría -->
         <div class="precio-dinamico" id="precio-dinamico">
           <div class="pd-label">Tu valor a pagar</div>
           <div class="pd-original" id="pd-original" style="display:none;">$25,00</div>
@@ -750,9 +665,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <span class="field-error" id="err-comprobante">Adjunta el comprobante de pago.</span>
         </div>
 
-        <!-- 8. DECLARACIÓN -->
         <div class="fsec"><span class="fsec-label">Declaración de participación</span><span class="fsec-line"></span></div>
-
         <div class="decl-box">
           <ul>
             <li>Me encuentro en óptimas condiciones físicas y de salud para participar en una carrera de montaña.</li>
@@ -762,9 +675,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </ul>
         </div>
 
-        <!-- 9. CONFIRMACIÓN -->
         <div class="fsec"><span class="fsec-label">Confirmación</span><span class="fsec-line"></span></div>
-
         <div class="form-group">
           <label class="checkbox-wrap">
             <input type="checkbox" id="f-terminos"/>
@@ -773,7 +684,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </label>
           <span class="field-error" id="err-terminos">Debes aceptar los términos y condiciones.</span>
         </div>
-
         <div class="form-group">
           <label class="checkbox-wrap">
             <input type="checkbox" id="f-fotos"/>
@@ -786,9 +696,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <span class="spinner"></span>
           <span class="btn-text"><i class="fas fa-running"></i>&nbsp; COMPLETAR INSCRIPCIÓN</span>
         </button>
-
         <div class="error-msg" id="error-msg"></div>
-
       </form>
 
       <div class="success-wrap" id="success-wrap">
@@ -868,7 +776,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 </footer>
 
 <script>
-/* ── CONSTANTES ────────────────────────────────────────────── */
+/* ── CONSTANTES ─────────────────────────────────────────────── */
 const PREVENTA_END  = new Date('2026-04-01T00:00:00');
 const RACE_DATE     = new Date('2026-04-25T07:00:00');
 const CODIGOS_VALIDOS = [
@@ -876,16 +784,15 @@ const CODIGOS_VALIDOS = [
   '593RN2026','SMART2026','ULE4M2026','MZRUN2026','TRAILR202',
   '7L6U1S','E1R0K11SM','ACERO2026'
 ];
-const PRECIO_CLUB   = 20.00;
-const PRECIO_STD    = 25.00;
-const PRECIO_PREV   = 21.25;
-const PRECIO_MIXTA  = 40.00;
-const SCRIPT_URL    = 'https://script.google.com/macros/s/AKfycbyh_U93eHKvxwkTWQICL1IViuXpeYvjSAeuyneIz6sWy4dKHBhmhxITZ7980OPg7_dS/exec';
+const PRECIO_CLUB  = 20.00;
+const PRECIO_STD   = 25.00;
+const PRECIO_PREV  = 21.25;
+const PRECIO_MIXTA = 40.00;
+const SCRIPT_URL   = 'https://script.google.com/macros/s/AKfycbyh_U93eHKvxwkTWQICL1IViuXpeYvjSAeuyneIz6sWy4dKHBhmhxITZ7980OPg7_dS/exec';
 
-/* Estado global */
 let codigoAplicado = false;
 
-/* ── COUNTDOWN CARRERA ─────────────────────────────────────── */
+/* ── COUNTDOWN CARRERA ──────────────────────────────────────── */
 function initCountdown(){
   function upd(){
     const d=RACE_DATE-new Date(),pad=n=>String(Math.floor(n)).padStart(2,'0');
@@ -898,7 +805,7 @@ function initCountdown(){
   upd();setInterval(upd,1000);
 }
 
-/* ── COUNTDOWN PREVENTA ────────────────────────────────────── */
+/* ── COUNTDOWN PREVENTA ─────────────────────────────────────── */
 function initPreventa(){
   const banner=document.getElementById('preventa-banner');
   const card=document.getElementById('pc-preventa');
@@ -917,7 +824,7 @@ function initPreventa(){
   upd();setInterval(upd,1000);
 }
 
-/* ── HELPERS DE PRECIO ─────────────────────────────────────── */
+/* ── PRECIO ─────────────────────────────────────────────────── */
 function esPreventa(){ return new Date() < PREVENTA_END; }
 
 function calcularPrecio(){
@@ -938,96 +845,49 @@ function actualizarPrecio(){
   const orig   = document.getElementById('pd-original');
   const badge  = document.getElementById('pd-badge');
   const note   = document.getElementById('pd-note');
-
-  /* Sin categoría → estado inicial: todo visible */
-  if(!cat){
-    bloque.style.display = '';
-    /* Banner preventa: solo lo mostramos/ocultamos según fecha, no tocamos su estado aquí */
-    din.classList.remove('visible');
-    return;
-  }
-
-  /* Con categoría → siempre ocultar las price-cards */
+  if(!cat){ bloque.style.display=''; din.classList.remove('visible'); return; }
   bloque.style.display = 'none';
-
-  /* Caso Full Body */
   if(cat === 'Full Body'){
-    banner.style.display = 'none';
-    orig.style.display   = 'none';
-    badge.style.display  = 'none';
-    amnt.textContent     = '$40,00';
-    note.innerHTML       = '';
-    din.classList.add('visible');
-    return;
+    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
+    amnt.textContent='$40,00'; note.innerHTML=''; din.classList.add('visible'); return;
   }
-
-  /* Caso código de club aplicado */
   if(codigoAplicado){
-    banner.style.display = 'none';
-    orig.style.display   = 'none';
-    badge.style.display  = 'none';
-    amnt.textContent     = '$20,00';
-    note.innerHTML       = '';
-    din.classList.add('visible');
-    return;
+    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
+    amnt.textContent='$20,00'; note.innerHTML=''; din.classList.add('visible'); return;
   }
-
-  /* Caso individual sin código */
-  /* El banner de preventa lo maneja initPreventa — solo restauramos su visibilidad si no expiró */
   if(esPreventa()){
-    banner.style.display = '';   /* se queda visible como gancho */
-    orig.style.display   = 'block';
-    orig.textContent     = '$25,00';
-    badge.style.display  = 'inline-block';
-    badge.textContent    = '−15% preventa';
-    amnt.textContent     = '$21,25';
-    note.innerHTML       = 'Precio especial de preventa. <strong>Válido solo hasta el 1 de abril — corre antes de que suba.</strong>';
+    banner.style.display=''; orig.style.display='block'; orig.textContent='$25,00';
+    badge.style.display='inline-block'; badge.textContent='−15% preventa';
+    amnt.textContent='$21,25';
+    note.innerHTML='Precio especial de preventa. <strong>Válido solo hasta el 1 de abril — corre antes de que suba.</strong>';
   } else {
-    banner.style.display = 'none';
-    orig.style.display   = 'none';
-    badge.style.display  = 'none';
-    amnt.textContent     = '$25,00';
-    note.innerHTML       = '';
+    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
+    amnt.textContent='$25,00'; note.innerHTML='';
   }
   din.classList.add('visible');
 }
 
-/* ── TOGGLE CLUB ───────────────────────────────────────────── */
+/* ── TOGGLE CLUB ────────────────────────────────────────────── */
 function toggleClub(show){
   const sec = document.getElementById('codigo-section');
-  if(show){
-    sec.classList.add('visible');
-  } else {
-    sec.classList.remove('visible');
-    quitarCodigo();
-  }
+  if(show){ sec.classList.add('visible'); }
+  else { sec.classList.remove('visible'); quitarCodigo(); }
   document.getElementById('err-club').classList.remove('show');
 }
 
-/* ── CÓDIGO DE DESCUENTO ───────────────────────────────────── */
-if(!CODIGOS_VALIDOS.includes(codigo)){
+/* ── CÓDIGO DE DESCUENTO ────────────────────────────────────── */
+function validarCodigo(){
   const input  = document.getElementById('f-codigo');
   const codigo = input.value.trim().toUpperCase();
   const errEl  = document.getElementById('err-codigo');
   const cat    = getRadio('categoria');
-
   errEl.style.display = 'none';
   errEl.classList.remove('show');
-
-  if(!codigo){
-    mostrarErrCodigo('Ingresa un código antes de aplicar.'); return;
-  }
-
-  if(cat === 'Full Body'){
-    /* Full Body seleccionada: ignorar código, continuar normal */
-    input.value = '';
-    return;
-  }
-
-  if(codigo !== CODIGO_VALIDO){
+  if(!codigo){ mostrarErrCodigo('Ingresa un código antes de aplicar.'); return; }
+  if(cat === 'Full Body'){ input.value = ''; return; }
+  if(!CODIGOS_VALIDOS.includes(codigo)){
     mostrarErrCodigo('Código no válido. Verifica e inténtalo de nuevo.'); return;
   }
-
   codigoAplicado = true;
   document.getElementById('codigo-ok-txt').textContent = 'Descuento de club aplicado correctamente';
   document.getElementById('codigo-ok').classList.add('show');
@@ -1035,6 +895,7 @@ if(!CODIGOS_VALIDOS.includes(codigo)){
   input.readOnly = true;
   actualizarPrecio();
 }
+
 function quitarCodigo(){
   codigoAplicado = false;
   const input = document.getElementById('f-codigo');
@@ -1044,24 +905,19 @@ function quitarCodigo(){
   if(btn) btn.disabled = false;
   const errEl = document.getElementById('err-codigo');
   if(errEl){ errEl.style.display='none'; errEl.classList.remove('show'); }
-  /* Restaurar banner preventa si aplica y recalcular */
   const banner = document.getElementById('preventa-banner');
   if(banner && esPreventa()) banner.style.display = '';
   actualizarPrecio();
 }
 
-function resetCodigo(){
-  if(codigoAplicado) quitarCodigo();
-}
+function resetCodigo(){ if(codigoAplicado) quitarCodigo(); }
 
 function mostrarErrCodigo(msg){
   const el = document.getElementById('err-codigo');
-  el.textContent = msg;
-  el.style.display = 'block';
-  el.classList.add('show');
+  el.textContent = msg; el.style.display = 'block'; el.classList.add('show');
 }
 
-/* ── EDAD CALCULADA ────────────────────────────────────────── */
+/* ── EDAD ───────────────────────────────────────────────────── */
 function edadDesdeFecha(fechaStr){
   if(!fechaStr) return '';
   const born=new Date(fechaStr),today=new Date();
@@ -1071,7 +927,7 @@ function edadDesdeFecha(fechaStr){
   return age>0?String(age):'';
 }
 
-/* ── VALIDACIÓN CÉDULA ─────────────────────────────────────── */
+/* ── CÉDULA ─────────────────────────────────────────────────── */
 function validarCedula(ced){
   if(!/^\d{10}$/.test(ced)) return false;
   const prov=parseInt(ced.substring(0,2));
@@ -1084,7 +940,7 @@ function validarCedula(ced){
   return esperado===d[9];
 }
 
-/* ── VALIDACIONES ──────────────────────────────────────────── */
+/* ── VALIDACIONES ───────────────────────────────────────────── */
 function soloLetras(s){return/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(s.trim());}
 function validarEmail(s){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());}
 function validarTelefono(s){const l=s.replace(/[\s\-]/g,'');return/^(\+?593|0)[0-9]{8,9}$/.test(l);}
@@ -1097,7 +953,7 @@ function marcarError(inputId,errId,show){
   else{inp.classList.remove('input-error');err.classList.remove('show');}
 }
 
-/* ── MODAL TÉRMINOS ────────────────────────────────────────── */
+/* ── MODAL ──────────────────────────────────────────────────── */
 function abrirModal(e){
   if(e) e.preventDefault();
   document.getElementById('modal-terminos').classList.add('open');
@@ -1115,7 +971,7 @@ document.getElementById('modal-terminos').addEventListener('click',function(e){
   if(e.target===this) cerrarModal();
 });
 
-/* ── FULL BODY TOGGLE ──────────────────────────────────────── */
+/* ── FULL BODY ──────────────────────────────────────────────── */
 function toggleFullBody(show){
   const sec=document.getElementById('acomp-section');
   const ids=['ac-nombres','ac-apellidos','ac-cedula','ac-nacimiento','ac-genero','ac-telefono'];
@@ -1134,7 +990,7 @@ function toggleFullBody(show){
   }
 }
 
-/* ── FILE UPLOAD ───────────────────────────────────────────── */
+/* ── FILE UPLOAD ────────────────────────────────────────────── */
 function handleFile(input){
   if(!input.files||!input.files[0]) return;
   const file=input.files[0];
@@ -1160,22 +1016,20 @@ if(uz){
   });
 }
 
-/* ── HELPERS ───────────────────────────────────────────────── */
+/* ── HELPERS ────────────────────────────────────────────────── */
 function getRadio(name){const el=document.querySelector(`input[name="${name}"]:checked`);return el?el.value:'';}
 function showErr(msg){const el=document.getElementById('error-msg');el.textContent=msg;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'center'});}
 function hideErr(){document.getElementById('error-msg').classList.remove('show');}
 function toBase64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
 function val(id){const el=document.getElementById(id);return el?el.value.trim():'';}
 
-/* ── SUBMIT ────────────────────────────────────────────────── */
+/* ── SUBMIT ─────────────────────────────────────────────────── */
 async function handleSubmit(){
   hideErr();
   let hayError=false;
   document.querySelectorAll('.input-error').forEach(el=>el.classList.remove('input-error'));
   document.querySelectorAll('.field-error.show').forEach(el=>el.classList.remove('show'));
-
   const isFullBody = getRadio('categoria') === 'Full Body';
-
   if(!val('f-nombres')||!soloLetras(val('f-nombres'))){marcarError('f-nombres','err-nombres',true);hayError=true;}
   if(!val('f-apellidos')||!soloLetras(val('f-apellidos'))){marcarError('f-apellidos','err-apellidos',true);hayError=true;}
   if(!validarCedula(val('f-cedula'))){marcarError('f-cedula','err-cedula',true);hayError=true;}
@@ -1183,17 +1037,13 @@ async function handleSubmit(){
   if(!val('f-genero')){marcarError('f-genero','err-genero',true);hayError=true;}
   if(!validarEmail(val('f-correo'))){marcarError('f-correo','err-correo',true);hayError=true;}
   if(!validarTelefono(val('f-telefono'))){marcarError('f-telefono','err-telefono',true);hayError=true;}
-
   const eNombre=val('f-emerg-nombre'),eTel=val('f-emerg-tel');
   if(eNombre&&!soloLetras(eNombre)){marcarError('f-emerg-nombre','err-emerg-nombre',true);hayError=true;}
   if(eTel&&!validarTelefono(eTel)){marcarError('f-emerg-tel','err-emerg-tel',true);hayError=true;}
-
   if(!getRadio('talla')){document.getElementById('err-talla').classList.add('show');hayError=true;}
   if(!getRadio('distancia')){document.getElementById('err-distancia').classList.add('show');hayError=true;}
   if(!getRadio('categoria')){document.getElementById('err-categoria').classList.add('show');hayError=true;}
-
   if(!getRadio('club')){document.getElementById('err-club').classList.add('show');hayError=true;}
-
   if(isFullBody){
     if(!val('ac-nombres')||!soloLetras(val('ac-nombres'))){marcarError('ac-nombres','err-ac-nombres',true);hayError=true;}
     if(!val('ac-apellidos')||!soloLetras(val('ac-apellidos'))){marcarError('ac-apellidos','err-ac-apellidos',true);hayError=true;}
@@ -1202,24 +1052,18 @@ async function handleSubmit(){
     if(!val('ac-genero')||!val('ac-nacimiento')){hayError=true;}
     if(!getRadio('talla-comp')){document.getElementById('err-ac-talla').classList.add('show');hayError=true;}
   }
-
   if(!document.getElementById('f-terminos').checked){document.getElementById('err-terminos').classList.add('show');hayError=true;}
-
   const fi=document.getElementById('f-comprobante');
   if(!fi.files||!fi.files[0]){document.getElementById('err-comprobante').classList.add('show');hayError=true;}
-
   if(hayError){
     showErr('Por favor corrige los campos marcados en rojo antes de continuar.');
     const primero=document.querySelector('.input-error');
     if(primero) primero.scrollIntoView({behavior:'smooth',block:'center'});
     return;
   }
-
-  /* Calcular precio final para registrar */
   const precioInfo = calcularPrecio();
   const precioFinal = precioInfo ? precioInfo.monto : PRECIO_STD;
   const tipoPrecio  = precioInfo ? precioInfo.tipo  : 'Precio estándar';
-
   const d={
     nombres:       val('f-nombres'),
     apellidos:     val('f-apellidos'),
@@ -1237,7 +1081,7 @@ async function handleSubmit(){
     medico:        val('f-medico'),
     fotoAutoriza:  document.getElementById('f-fotos').checked?'Sí':'No',
     perteneceClub: getRadio('club'),
-    codigoUsado:   codigoAplicado ? CODIGO_VALIDO : '',
+    codigoUsado:   codigoAplicado ? val('f-codigo') : '',
     precioAPagar:  precioFinal.toFixed(2),
     tipoPrecio:    tipoPrecio,
     acNombres:     val('ac-nombres'),
@@ -1251,12 +1095,10 @@ async function handleSubmit(){
     acMedico:      val('ac-medico'),
     fechaRegistro: new Date().toLocaleString('es-EC',{timeZone:'America/Guayaquil'})
   };
-
   const file=fi.files[0];
   const base64=await toBase64(file);
   const btn=document.getElementById('submit-btn');
   btn.disabled=true;btn.classList.add('loading');
-
   try{
     const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({...d,fileName:file.name,fileType:file.type,fileBase64:base64})});
     const json=await res.json();
@@ -1273,7 +1115,7 @@ async function handleSubmit(){
   }
 }
 
-/* ── NAV ───────────────────────────────────────────────────── */
+/* ── NAV ────────────────────────────────────────────────────── */
 function initNav(){
   const hb=document.querySelector('.hamburger'),mm=document.querySelector('.mobile-menu');
   if(!hb)return;
@@ -1281,31 +1123,27 @@ function initNav(){
   mm.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hb.classList.remove('active');mm.classList.remove('open');}));
 }
 
-/* ── SCROLL ANIMATIONS ─────────────────────────────────────── */
+/* ── SCROLL ─────────────────────────────────────────────────── */
 function initScroll(){
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.animate-on-scroll').forEach(el=>obs.observe(el));
 }
 
-/* ── FILTROS EN VIVO ───────────────────────────────────────── */
+/* ── INIT ───────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded',()=>{
   initCountdown();
   initPreventa();
   initNav();
   initScroll();
-
-  /* Solo letras */
   ['f-nombres','f-apellidos','f-emerg-nombre','ac-nombres','ac-apellidos'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     el.addEventListener('input',function(){
       this.value=this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/g,'');
     });
   });
-
-  /* Cédulas — solo dígitos, preservar 0 inicial + validación en vivo */
   ['f-cedula','ac-cedula'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
-    const errId = id==='f-cedula'?'err-cedula':'err-ac-cedula';
+    const errId=id==='f-cedula'?'err-cedula':'err-ac-cedula';
     el.addEventListener('input',function(){
       this.value=this.value.replace(/\D/g,'').substring(0,10);
       if(this.value.length===10){
@@ -1320,15 +1158,12 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   });
-
-  /* Teléfonos — solo dígitos, preservar 0 inicial + validación en vivo */
   ['f-telefono','f-emerg-tel','ac-telefono'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     const errMap={'f-telefono':'err-telefono','f-emerg-tel':'err-emerg-tel','ac-telefono':'err-ac-telefono'};
     const errId=errMap[id];
     el.addEventListener('input',function(){
       this.value=this.value.replace(/[^\d]/g,'').substring(0,13);
-      /* Validar solo si ya tiene longitud mínima para no molestar mientras escribe */
       if(this.value.length>=10){
         const ok=validarTelefono(this.value);
         this.classList.toggle('input-error',!ok);
