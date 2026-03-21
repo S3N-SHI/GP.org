@@ -871,7 +871,11 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 /* ── CONSTANTES ────────────────────────────────────────────── */
 const PREVENTA_END  = new Date('2026-04-01T00:00:00');
 const RACE_DATE     = new Date('2026-04-25T07:00:00');
-const CODIGO_VALIDO = 'ACERO2026';
+const CODIGOS_VALIDOS = [
+  'BESTIES2026','CREWRN2026','RUNPAC2026','MJ2026','RUN2026',
+  '593RN2026','SMART2026','ULE4M2026','MZRUN2026','TRAILR202',
+  '7L6U1S','E1R0K11SM','ACERO2026'
+];
 const PRECIO_CLUB   = 20.00;
 const PRECIO_STD    = 25.00;
 const PRECIO_PREV   = 21.25;
@@ -1001,7 +1005,7 @@ function toggleClub(show){
 }
 
 /* ── CÓDIGO DE DESCUENTO ───────────────────────────────────── */
-function validarCodigo(){
+if(!CODIGOS_VALIDOS.includes(codigo)){
   const input  = document.getElementById('f-codigo');
   const codigo = input.value.trim().toUpperCase();
   const errEl  = document.getElementById('err-codigo');
@@ -1031,7 +1035,6 @@ function validarCodigo(){
   input.readOnly = true;
   actualizarPrecio();
 }
-
 function quitarCodigo(){
   codigoAplicado = false;
   const input = document.getElementById('f-codigo');
