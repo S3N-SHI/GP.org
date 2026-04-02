@@ -44,6 +44,8 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .mobile-menu a{display:block;color:#888;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;padding:12px 16px;border-radius:6px;transition:all .2s;}
 .mobile-menu a:hover{color:#FFF;background:rgba(204,0,0,.15);}
 .mobile-menu .mobile-cta{background:#CC0000;color:#FFF!important;text-align:center;margin-top:.5rem;font-weight:700!important;}
+
+/* Countdown banner — solo se muestra cuando la carrera no ha llegado */
 .countdown-banner{background:linear-gradient(135deg,#8B0000,#CC0000,#8B0000);background-size:200% 200%;animation:gradientShift 4s ease infinite;padding:12px 2rem;text-align:center;position:fixed;top:70px;left:0;right:0;z-index:998;border-bottom:1px solid rgba(255,255,255,.1);}
 @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .countdown-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
@@ -54,7 +56,8 @@ body{font-family:'Barlow',sans-serif;background:#0A0A0A;color:#FFF;overflow-x:hi
 .countdown-txt{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);}
 .countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(255,255,255,.4);animation:blink 1s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.page-content{padding-top:130px;}
+
+.page-content{padding-top:80px;} /* ajustado: sin preventa ya no hay doble banner */
 .page-hero{min-height:38vh;display:flex;align-items:flex-end;padding:130px 2rem 3rem;position:relative;overflow:hidden;}
 .page-hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.5) 0%,rgba(10,10,10,.97) 100%),url('https://drive.google.com/thumbnail?id=1jBeQeK7fG6LVeURKhZkoHHbaSnFZtBhQ&sz=s2000') center/cover;}
 .page-hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;}
@@ -90,6 +93,12 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .talla-label{display:block;text-align:center;padding:9px 0;width:54px;border-radius:6px;border:1px solid #222;background:#111;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;color:#444;cursor:pointer;transition:all .2s;}
 .talla-option input:checked + .talla-label{background:#CC0000;border-color:#CC0000;color:#FFF;}
 .talla-label:hover{border-color:#444;color:#AAA;}
+
+/* Talla de número libre (kids) */
+.talla-kids-wrap{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.talla-kids-input{width:90px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:1px;}
+.talla-kids-hint{font-size:.73rem;color:#3A3A3A;font-family:'Barlow Condensed',sans-serif;}
+
 .distancia-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
 .distancia-option input{display:none;}
 .distancia-label{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;border-radius:9px;border:1px solid #222;background:#111;cursor:pointer;transition:all .2s;text-align:center;}
@@ -99,6 +108,15 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .distancia-option input:checked + .distancia-label .dist-km{color:#CC0000;}
 .distancia-option input:checked + .distancia-label .dist-txt{color:#777;}
 .distancia-label:hover{border-color:#3A3A3A;}
+
+/* Bloque distancia 2K automático para kids */
+.distancia-kids-auto{display:none;background:#130000;border:1px solid rgba(204,0,0,.35);border-radius:9px;padding:14px 18px;align-items:center;gap:14px;}
+.distancia-kids-auto.visible{display:flex;}
+.dka-km{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:#CC0000;line-height:1;}
+.dka-info{display:flex;flex-direction:column;}
+.dka-txt{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;color:#FFF;letter-spacing:1px;}
+.dka-sub{font-size:.72rem;color:#666;margin-top:1px;}
+
 .categoria-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
 .cat-option input{display:none;}
 .cat-label{display:flex;flex-direction:column;padding:10px 13px;border-radius:7px;border:1px solid #1E1E1E;background:#0E0E0E;cursor:pointer;transition:all .18s;}
@@ -111,21 +129,29 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .cat-fullbody-wrap{grid-column:1/-1;}
 .cat-label.fb{flex-direction:row;align-items:center;gap:10px;}
 .cat-label.fb .cat-name{font-size:.9rem;}
+
+/* Badge especial kids */
+.cat-label.kids-style{border-color:rgba(255,165,0,.2);background:#0E0900;}
+.cat-option input:checked + .cat-label.kids-style{border-color:#FF8C00;background:#100A00;}
+.cat-option input:checked + .cat-label.kids-style .cat-name{color:#FF8C00;}
+
+/* Badge especial gran maestro */
+.cat-label.gm-style{border-color:rgba(150,120,255,.2);background:#0A0A12;}
+.cat-option input:checked + .cat-label.gm-style{border-color:#9370DB;background:#0A080F;}
+.cat-option input:checked + .cat-label.gm-style .cat-name{color:#9370DB;}
+
+/* Bloque contacto representante (kids) */
+.representante-section{border-left:2px solid rgba(255,140,0,.25);padding-left:1.2rem;margin-top:.6rem;display:none;animation:slideDown .3s ease;}
+.representante-section.visible{display:block;}
+.representante-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,140,0,.08);border:1px solid rgba(255,140,0,.2);border-radius:6px;padding:7px 12px;margin-bottom:1rem;}
+.representante-badge i{color:#FF8C00;font-size:.85rem;}
+.representante-badge span{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:#FF8C00;font-weight:700;}
+
 .acomp-section{border-left:2px solid #1E1E1E;padding-left:1.2rem;margin-top:.6rem;display:none;animation:slideDown .3s ease;}
 .acomp-section.visible{display:block;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .acomp-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:1rem;}
-.preventa-banner{background:#111;border:1px solid #222;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
-.preventa-banner.expired{display:none;}
-.preventa-badge{background:#CC0000;color:#FFF;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;padding:5px 12px;border-radius:5px;flex-shrink:0;}
-.preventa-info{flex:1;min-width:160px;}
-.preventa-info strong{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;color:#CCC;letter-spacing:.3px;}
-.preventa-info p{font-size:.75rem;color:#444;margin-top:1px;}
-.preventa-timer{display:flex;gap:.5rem;align-items:center;flex-shrink:0;}
-.pt-unit{text-align:center;background:#0A0A0A;border:1px solid #1E1E1E;border-radius:6px;padding:4px 9px;min-width:40px;}
-.pt-num{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#CC0000;display:block;line-height:1;}
-.pt-txt{font-size:.5rem;letter-spacing:1.5px;text-transform:uppercase;color:#3A3A3A;}
-.pt-sep{color:#2A2A2A;font-size:.9rem;font-weight:700;}
+
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:1.3rem;}
 .price-card{background:#0E0E0E;border:1px solid #1E1E1E;border-radius:8px;padding:.9rem 1.1rem;}
 .price-card .pc-tag{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:.25rem;}
@@ -226,7 +252,7 @@ textarea.form-input{resize:vertical;font-family:inherit;min-height:75px;}
 .success-contact p{font-size:.82rem;color:#444;line-height:1.7;}
 .success-contact a{color:#CC0000;text-decoration:none;font-weight:700;}
 .success-contact a:hover{text-decoration:underline;}
-.inscripcion-sidebar{position:sticky;top:150px;display:flex;flex-direction:column;gap:1.1rem;}
+.inscripcion-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:1.1rem;}
 .sib-card{background:#0E0E0E;border:1px solid #1A1A1A;border-radius:13px;overflow:hidden;}
 .sib-head{background:linear-gradient(135deg,#8B0000,#CC0000);padding:1.2rem 1.4rem;text-align:center;}
 .sib-head h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#FFF;}
@@ -278,10 +304,8 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 }
 @media(max-width:480px){
   .navbar{padding:0 1rem;}
-  .countdown-banner{padding:10px 1rem;}
   .countdown-sep{display:none;}
   .distancia-grid{grid-template-columns:1fr 1fr;}
-  .preventa-timer{flex-wrap:wrap;justify-content:center;}
 }
   </style>
 </head>
@@ -299,8 +323,9 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
       <p>La inscripción en Acero Trail Running San Mateo 2026 es completamente voluntaria. Al inscribirse, el participante declara conocer y aceptar las condiciones del evento.</p>
       <h4>2. Requisitos de participación</h4>
       <ul>
+        <li>Categoría Kids: participantes de 6 a 13 años requieren autorización escrita y presencia de su representante legal el día del evento.</li>
         <li>Categoría Juvenil: participantes de 14 a 17 años requieren autorización escrita de su representante legal presentada el día del evento.</li>
-        <li>Todas las categorías requieren que el participante se encuentre en condiciones físicas aptas para correr en terreno de montaña.</li>
+        <li>Todas las categorías requieren que el participante se encuentre en condiciones físicas aptas para la distancia elegida.</li>
         <li>El organizador se reserva el derecho de rechazar inscripciones que no cumplan los requisitos establecidos.</li>
       </ul>
       <h4>3. Exoneración de responsabilidad</h4>
@@ -314,7 +339,6 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
         <li>El pago se realiza mediante transferencia o depósito bancario a los datos indicados en el formulario.</li>
         <li>La inscripción se confirma únicamente una vez que el equipo organizador verifique el comprobante de pago.</li>
         <li>No se realizan devoluciones una vez confirmada la inscripción.</li>
-        <li>La tarifa de preventa ($21,25) aplica hasta el 1 de abril de 2026 y no aplica para la categoría Full Body.</li>
         <li>Corredor Individual: $25,00 — Full Body Pareja Mixta: $40,00 — Descuento club running: $20,00.</li>
       </ul>
       <h4>7. Cancelación del evento</h4>
@@ -357,8 +381,8 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
   </ul>
 </div>
 
-<!-- ══ COUNTDOWN ══ -->
-<div class="countdown-banner">
+<!-- ══ COUNTDOWN — solo visible si la carrera no ha ocurrido ══ -->
+<div class="countdown-banner" id="countdown-banner">
   <div class="countdown-inner">
     <span class="countdown-label">⚡ La carrera comienza en</span>
     <div class="countdown-units">
@@ -390,90 +414,64 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 
     <div class="form-section animate-on-scroll">
       <h2>Formulario de <span>Registro</span></h2>
-      <p class="form-intro">Completa todos los campos. Los marcados con <em>*</em> son obligatorios.</p>
+      <p class="form-intro">Completa todos los campos. Los marcados con <em>*</em> son obligatorios.<br>Empieza seleccionando tu categoría — los campos se adaptarán automáticamente.</p>
 
       <form id="registro-form" novalidate>
 
-        <div class="fsec"><span class="fsec-label">Datos Personales</span><span class="fsec-line"></span></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nombres <span class="req">*</span></label>
-            <input id="f-nombres" type="text" class="form-input" placeholder="Juan Carlos" autocomplete="given-name"/>
-            <span class="field-error" id="err-nombres">Ingresa solo letras y espacios.</span>
-          </div>
-          <div class="form-group">
-            <label>Apellidos <span class="req">*</span></label>
-            <input id="f-apellidos" type="text" class="form-input" placeholder="García López" autocomplete="family-name"/>
-            <span class="field-error" id="err-apellidos">Ingresa solo letras y espacios.</span>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Cédula de Identidad <span class="req">*</span></label>
-            <input id="f-cedula" type="text" class="form-input" placeholder="10 dígitos" maxlength="10" inputmode="numeric"/>
-            <span class="field-error" id="err-cedula">Cédula ecuatoriana inválida.</span>
-          </div>
-          <div class="form-group">
-            <label>Fecha de Nacimiento <span class="req">*</span></label>
-            <input id="f-nacimiento" type="date" class="form-input"/>
-            <span class="field-error" id="err-nacimiento">Selecciona una fecha válida.</span>
-          </div>
-        </div>
+        <!-- ══════════════════════════════════════════════
+             PASO 1 — CATEGORÍA (primero para activar lógica)
+        ══════════════════════════════════════════════ -->
+        <div class="fsec"><span class="fsec-label">Carrera — Categoría</span><span class="fsec-line"></span></div>
         <div class="form-group">
-          <label>Género <span class="req">*</span></label>
-          <select id="f-genero" class="form-input">
-            <option value="">Selecciona...</option>
-            <option>Masculino</option>
-            <option>Femenino</option>
-            <option>Prefiero no decir</option>
-          </select>
-          <span class="field-error" id="err-genero">Selecciona una opción.</span>
+          <label>Categoría <span class="req">*</span></label>
+          <div class="categoria-grid">
+            <!-- Fila completa: Full Body -->
+            <div class="cat-fullbody-wrap">
+              <label class="cat-option">
+                <input type="radio" name="categoria" value="Full Body" onchange="onCategoriaChange()"/>
+                <span class="cat-label fb"><span><span class="cat-name">Full Body — Pareja Mixta</span></span></span>
+              </label>
+            </div>
+            <!-- Kids -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Kids" onchange="onCategoriaChange()"/>
+              <span class="cat-label kids-style"><span class="cat-name">Kids</span><span class="cat-sub">6 a 13 años</span></span>
+            </label>
+            <!-- Juvenil -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Juvenil" onchange="onCategoriaChange()"/>
+              <span class="cat-label"><span class="cat-name">Juvenil</span><span class="cat-sub">14 a 17 años</span></span>
+            </label>
+            <!-- Sénior -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Senior" onchange="onCategoriaChange()"/>
+              <span class="cat-label"><span class="cat-name">Sénior</span><span class="cat-sub">18 a 29 años</span></span>
+            </label>
+            <!-- Máster -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Master" onchange="onCategoriaChange()"/>
+              <span class="cat-label"><span class="cat-name">Máster</span><span class="cat-sub">30 a 39 años</span></span>
+            </label>
+            <!-- Comandante -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Comandante" onchange="onCategoriaChange()"/>
+              <span class="cat-label"><span class="cat-name">Comandante</span><span class="cat-sub">40 a 49 años</span></span>
+            </label>
+            <!-- Gran Maestro -->
+            <label class="cat-option">
+              <input type="radio" name="categoria" value="Gran Maestro" onchange="onCategoriaChange()"/>
+              <span class="cat-label gm-style"><span class="cat-name">Gran Maestro</span><span class="cat-sub">50 años en adelante</span></span>
+            </label>
+          </div>
+          <span class="field-error" id="err-categoria">Selecciona una categoría.</span>
         </div>
 
-        <div class="fsec"><span class="fsec-label">Contacto</span><span class="fsec-line"></span></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Correo Electrónico <span class="req">*</span></label>
-            <input id="f-correo" type="email" class="form-input" placeholder="correo@ejemplo.com" inputmode="email"/>
-            <span class="field-error" id="err-correo">Ingresa un correo electrónico válido.</span>
-          </div>
-          <div class="form-group">
-            <label>Número de Teléfono <span class="req">*</span></label>
-            <input id="f-telefono" type="text" class="form-input" placeholder="0987654321" maxlength="13" inputmode="numeric"/>
-            <span class="field-error" id="err-telefono">Ingresa un número válido (ej: 0987654321).</span>
-          </div>
-        </div>
-
-        <div class="fsec"><span class="fsec-label">Contacto de Emergencia (Opcional)</span><span class="fsec-line"></span></div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input id="f-emerg-nombre" type="text" class="form-input" placeholder="Nombre completo"/>
-            <span class="field-error" id="err-emerg-nombre">Solo letras y espacios.</span>
-          </div>
-          <div class="form-group">
-            <label>Número de Teléfono</label>
-            <input id="f-emerg-tel" type="text" class="form-input" placeholder="0987654321" maxlength="13" inputmode="numeric"/>
-            <span class="field-error" id="err-emerg-tel">Ingresa un número válido.</span>
-          </div>
-        </div>
-
-        <div class="fsec"><span class="fsec-label">Tu talla de camiseta</span><span class="fsec-line"></span></div>
-        <div class="form-group">
-          <label>Talla <span class="req">*</span></label>
-          <div class="talla-grid">
-            <label class="talla-option"><input type="radio" name="talla" value="S"/><span class="talla-label">S</span></label>
-            <label class="talla-option"><input type="radio" name="talla" value="M"/><span class="talla-label">M</span></label>
-            <label class="talla-option"><input type="radio" name="talla" value="L"/><span class="talla-label">L</span></label>
-            <label class="talla-option"><input type="radio" name="talla" value="XL"/><span class="talla-label">XL</span></label>
-          </div>
-          <span class="field-error" id="err-talla">Selecciona una talla.</span>
-        </div>
-
-        <div class="fsec"><span class="fsec-label">Carrera</span><span class="fsec-line"></span></div>
-        <div class="form-group">
+        <!-- ══════════════════════════════════════════════
+             DISTANCIA — se oculta para Kids (auto 2K)
+        ══════════════════════════════════════════════ -->
+        <div class="form-group" id="distancia-bloque">
           <label>Distancia <span class="req">*</span></label>
-          <div class="distancia-grid">
+          <div class="distancia-grid" id="distancia-grid-normal">
             <label class="distancia-option">
               <input type="radio" name="distancia" value="11K" onchange="actualizarPrecio()"/>
               <span class="distancia-label"><span class="dist-km">11K</span><span class="dist-txt">Trail</span></span>
@@ -483,26 +481,19 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
               <span class="distancia-label"><span class="dist-km">6K</span><span class="dist-txt">Trail</span></span>
             </label>
           </div>
+          <!-- Bloque automático 2K para Kids -->
+          <div class="distancia-kids-auto" id="distancia-kids-auto">
+            <span class="dka-km">2K</span>
+            <div class="dka-info">
+              <span class="dka-txt">Trail Kids</span>
+            </div>
+          </div>
           <span class="field-error" id="err-distancia">Selecciona una distancia.</span>
         </div>
-        <div class="form-group">
-          <label>Categoría <span class="req">*</span></label>
-          <div class="categoria-grid">
-            <div class="cat-fullbody-wrap">
-              <label class="cat-option">
-                <input type="radio" name="categoria" value="Full Body" onchange="toggleFullBody(true);actualizarPrecio()"/>
-                <span class="cat-label fb"><span><span class="cat-name">Full Body — Pareja Mixta</span><span class="cat-sub">Hombre + Mujer</span></span></span>
-              </label>
-            </div>
-            <label class="cat-option"><input type="radio" name="categoria" value="Juvenil" onchange="toggleFullBody(false);actualizarPrecio()"/><span class="cat-label"><span class="cat-name">Juvenil</span><span class="cat-sub">14 a 17 años</span></span></label>
-            <label class="cat-option"><input type="radio" name="categoria" value="Senior" onchange="toggleFullBody(false);actualizarPrecio()"/><span class="cat-label"><span class="cat-name">Sénior</span><span class="cat-sub">18 a 29 años</span></span></label>
-            <label class="cat-option"><input type="radio" name="categoria" value="Master" onchange="toggleFullBody(false);actualizarPrecio()"/><span class="cat-label"><span class="cat-name">Máster</span><span class="cat-sub">30 a 39 años</span></span></label>
-            <label class="cat-option"><input type="radio" name="categoria" value="Comandante" onchange="toggleFullBody(false);actualizarPrecio()"/><span class="cat-label"><span class="cat-name">Comandante</span><span class="cat-sub">40 años en adelante</span></span></label>
-          </div>
-          <span class="field-error" id="err-categoria">Selecciona una categoría.</span>
-        </div>
 
-        <!-- ACOMPAÑANTE FULL BODY -->
+        <!-- ══════════════════════════════════════════════
+             ACOMPAÑANTE FULL BODY
+        ══════════════════════════════════════════════ -->
         <div id="acomp-section" class="acomp-section">
           <div class="acomp-label">Datos del competidor/a acompañante (pareja)</div>
           <div class="form-row">
@@ -558,12 +549,129 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
+        <!-- ══════════════════════════════════════════════
+             DATOS PERSONALES
+        ══════════════════════════════════════════════ -->
+        <div class="fsec"><span class="fsec-label">Datos Personales</span><span class="fsec-line"></span></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombres <span class="req">*</span></label>
+            <input id="f-nombres" type="text" class="form-input" placeholder="Juan Carlos" autocomplete="given-name"/>
+            <span class="field-error" id="err-nombres">Ingresa solo letras y espacios.</span>
+          </div>
+          <div class="form-group">
+            <label>Apellidos <span class="req">*</span></label>
+            <input id="f-apellidos" type="text" class="form-input" placeholder="García López" autocomplete="family-name"/>
+            <span class="field-error" id="err-apellidos">Ingresa solo letras y espacios.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cédula de Identidad <span class="req">*</span></label>
+            <input id="f-cedula" type="text" class="form-input" placeholder="10 dígitos" maxlength="10" inputmode="numeric"/>
+            <span class="field-error" id="err-cedula">Cédula ecuatoriana inválida.</span>
+          </div>
+          <div class="form-group">
+            <label>Fecha de Nacimiento <span class="req">*</span></label>
+            <input id="f-nacimiento" type="date" class="form-input"/>
+            <span class="field-error" id="err-nacimiento">Selecciona una fecha válida.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Género <span class="req">*</span></label>
+          <select id="f-genero" class="form-input">
+            <option value="">Selecciona...</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Prefiero no decir</option>
+          </select>
+          <span class="field-error" id="err-genero">Selecciona una opción.</span>
+        </div>
+
+        <!-- ══════════════════════════════════════════════
+             CONTACTO
+        ══════════════════════════════════════════════ -->
+        <div class="fsec"><span class="fsec-label">Contacto</span><span class="fsec-line"></span></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Correo Electrónico <span class="req">*</span></label>
+            <input id="f-correo" type="email" class="form-input" placeholder="correo@ejemplo.com" inputmode="email"/>
+            <span class="field-error" id="err-correo">Ingresa un correo electrónico válido.</span>
+          </div>
+          <div class="form-group">
+            <label>Número de Teléfono <span class="req">*</span></label>
+            <input id="f-telefono" type="text" class="form-input" placeholder="0987654321" maxlength="13" inputmode="numeric"/>
+            <span class="field-error" id="err-telefono">Ingresa un número válido (ej: 0987654321).</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════
+             CONTACTO DE EMERGENCIA / REPRESENTANTE
+             · Normal: opcional
+             · Kids: obligatorio y re-etiquetado
+        ══════════════════════════════════════════════ -->
+        <div class="fsec"><span class="fsec-label" id="emergencia-fsec-label">Contacto de Emergencia (Opcional)</span><span class="fsec-line"></span></div>
+
+        <!-- Badge representante — solo visible en Kids -->
+        <div class="representante-section" id="representante-badge-wrap">
+          <div class="representante-badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Datos del Representante — Obligatorio</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label id="emerg-nombre-label">Nombre <span id="emerg-nombre-req"></span></label>
+            <input id="f-emerg-nombre" type="text" class="form-input" placeholder="Nombre completo"/>
+            <span class="field-error" id="err-emerg-nombre">Solo letras y espacios.</span>
+          </div>
+          <div class="form-group">
+            <label id="emerg-tel-label">Número de Teléfono <span id="emerg-tel-req"></span></label>
+            <input id="f-emerg-tel" type="text" class="form-input" placeholder="0987654321" maxlength="13" inputmode="numeric"/>
+            <span class="field-error" id="err-emerg-tel">Ingresa un número válido.</span>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════
+             TALLA — S/M/L/XL para todos menos Kids;
+             campo numérico libre para Kids
+        ══════════════════════════════════════════════ -->
+        <div class="fsec"><span class="fsec-label">Talla de Camiseta</span><span class="fsec-line"></span></div>
+        <div class="form-group">
+          <label>Talla <span class="req">*</span></label>
+
+          <!-- Tallas estándar -->
+          <div class="talla-grid" id="talla-standard">
+            <label class="talla-option"><input type="radio" name="talla" value="S"/><span class="talla-label">S</span></label>
+            <label class="talla-option"><input type="radio" name="talla" value="M"/><span class="talla-label">M</span></label>
+            <label class="talla-option"><input type="radio" name="talla" value="L"/><span class="talla-label">L</span></label>
+            <label class="talla-option"><input type="radio" name="talla" value="XL"/><span class="talla-label">XL</span></label>
+          </div>
+
+          <!-- Talla libre Kids -->
+          <div class="talla-kids-wrap" id="talla-kids" style="display:none;">
+            <input id="f-talla-kids" type="text" class="form-input talla-kids-input"
+                   placeholder="Ej: 6 o S" maxlength="2"
+                   oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase()"/>
+            <span class="talla-kids-hint">Número de talla o una letra (S / M / L)</span>
+          </div>
+
+          <span class="field-error" id="err-talla">Selecciona o ingresa una talla.</span>
+        </div>
+
+        <!-- ══════════════════════════════════════════════
+             SALUD Y SEGURIDAD
+        ══════════════════════════════════════════════ -->
         <div class="fsec"><span class="fsec-label">Salud y Seguridad</span><span class="fsec-line"></span></div>
         <div class="form-group">
           <label>Condición médica relevante (opcional)</label>
           <textarea id="f-medico" class="form-input" rows="2" placeholder="Alergias, condiciones cardíacas, lesiones recientes..."></textarea>
         </div>
 
+        <!-- ══════════════════════════════════════════════
+             PAGO
+        ══════════════════════════════════════════════ -->
         <div class="fsec"><span class="fsec-label">Pago</span><span class="fsec-line"></span></div>
         <div class="form-group">
           <label>¿Perteneces a un club running? <span class="req">*</span></label>
@@ -597,33 +705,17 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           </div>
         </div>
 
-        <div class="preventa-banner" id="preventa-banner">
-          <div class="preventa-badge">PREVENTA</div>
-          <div class="preventa-info">
-            <strong>15% de descuento — Cierra el 1 de Abril</strong>
-            <p>Aprovecha antes de que expire el descuento</p>
-          </div>
-          <div class="preventa-timer">
-            <div class="pt-unit"><span class="pt-num" id="pt-days">--</span><span class="pt-txt">Días</span></div>
-            <span class="pt-sep">:</span>
-            <div class="pt-unit"><span class="pt-num" id="pt-hours">--</span><span class="pt-txt">Hrs</span></div>
-            <span class="pt-sep">:</span>
-            <div class="pt-unit"><span class="pt-num" id="pt-mins">--</span><span class="pt-txt">Min</span></div>
-            <span class="pt-sep">:</span>
-            <div class="pt-unit"><span class="pt-num" id="pt-secs">--</span><span class="pt-txt">Seg</span></div>
-          </div>
-        </div>
-
+        <!-- Precio dinámico -->
         <div class="price-cards" id="price-cards-bloque">
           <div class="price-card">
             <div class="pc-tag">Corredor Individual</div>
             <div class="pc-amount">$25</div>
             <div class="pc-note">Precio estándar</div>
           </div>
-          <div class="price-card" id="pc-preventa">
-            <div class="pc-tag">Preventa (antes 1 abr.)</div>
-            <div class="pc-amount">$21,25</div>
-            <div class="pc-note">15% de descuento</div>
+          <div class="price-card">
+            <div class="pc-tag">Descuento club running</div>
+            <div class="pc-amount">$20</div>
+            <div class="pc-note">Con código válido</div>
           </div>
           <div class="price-card full-row">
             <div><div class="pc-tag">Full Body — Pareja Mixta</div></div>
@@ -634,7 +726,7 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
         <div class="precio-dinamico" id="precio-dinamico">
           <div class="pd-label">Tu valor a pagar</div>
           <div class="pd-original" id="pd-original" style="display:none;">$25,00</div>
-          <div class="pd-descuento-badge" id="pd-badge" style="display:none;">−15% preventa</div>
+          <div class="pd-descuento-badge" id="pd-badge" style="display:none;"></div>
           <div class="pd-amount" id="pd-amount">$--</div>
           <div class="pd-note" id="pd-note"></div>
         </div>
@@ -649,6 +741,9 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <div class="pay-row"><span class="pk">Correo</span><span class="pv">glocap.center.oficina@gmail.com</span></div>
         </div>
 
+        <!-- ══════════════════════════════════════════════
+             COMPROBANTE
+        ══════════════════════════════════════════════ -->
         <div class="form-group">
           <label>Comprobante de pago <span class="req">*</span></label>
           <div class="upload-zone" id="upload-zone">
@@ -665,13 +760,17 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
           <span class="field-error" id="err-comprobante">Adjunta el comprobante de pago.</span>
         </div>
 
+        <!-- ══════════════════════════════════════════════
+             DECLARACIÓN Y CONFIRMACIÓN
+        ══════════════════════════════════════════════ -->
         <div class="fsec"><span class="fsec-label">Declaración de participación</span><span class="fsec-line"></span></div>
         <div class="decl-box">
           <ul>
-            <li>Me encuentro en óptimas condiciones físicas y de salud para participar en una carrera de montaña.</li>
+            <li>Me encuentro en óptimas condiciones físicas y de salud para participar en la prueba seleccionada.</li>
             <li>Exonero de toda responsabilidad a los organizadores, patrocinadores y autoridades en caso de accidente, lesión o pérdida de objetos durante el evento.</li>
             <li>Autorizo el uso de mi imagen (fotos y videos) para fines promocionales del evento.</li>
             <li>Entiendo que el trail running implica riesgos naturales (terreno irregular, clima, fauna) que acepto voluntariamente.</li>
+            <li>Para la categoría Kids, el representante legal asume la responsabilidad y autoriza la participación del menor.</li>
           </ul>
         </div>
 
@@ -718,13 +817,13 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
     <aside class="inscripcion-sidebar animate-on-scroll" style="transition-delay:.15s">
       <div class="sib-card">
         <div class="sib-head">
-          <h3>11k y 6k Trail</h3>
+          <h3>Trail</h3>
           <p>Edición · San Mateo 2026</p>
         </div>
         <div class="sib-body">
           <div class="sib-row"><span class="sk">Fecha</span><span class="sv">25 Abril 2026</span></div>
           <div class="sib-row"><span class="sk">Hora largada</span><span class="sv">07:00 AM</span></div>
-          <div class="sib-row"><span class="sk">Distancias</span><span class="sv red">11 KM · 6 KM</span></div>
+          <div class="sib-row"><span class="sk">Distancias</span><span class="sv red">11K · 6K · 2K Kids</span></div>
           <div class="sib-row"><span class="sk">Lugar</span><span class="sv">San Mateo, Manabí</span></div>
           <div class="sib-row"><span class="sk">Race Pack</span><span class="sv">Incluido</span></div>
           <div class="sib-row"><span class="sk">Medalla Finisher</span><span class="sv">Incluida</span></div>
@@ -776,8 +875,9 @@ footer{background:#0E0E0E;border-top:2px solid #CC0000;padding:3rem 2rem 1.5rem;
 </footer>
 
 <script>
-/* ── CONSTANTES ─────────────────────────────────────────────── */
-const PREVENTA_END  = new Date('2026-04-01T00:00:00');
+/* ════════════════════════════════════════════════════════════
+   CONSTANTES
+════════════════════════════════════════════════════════════ */
 const RACE_DATE     = new Date('2026-04-25T07:00:00');
 const CODIGOS_VALIDOS = [
   'BESTIES2026','CREWRN2026','RUNPAC2026','MJ2026','RUN2026',
@@ -786,60 +886,126 @@ const CODIGOS_VALIDOS = [
 ];
 const PRECIO_CLUB  = 20.00;
 const PRECIO_STD   = 25.00;
-const PRECIO_PREV  = 21.25;
 const PRECIO_MIXTA = 40.00;
 const SCRIPT_URL   = 'https://script.google.com/macros/s/AKfycbyh_U93eHKvxwkTWQICL1IViuXpeYvjSAeuyneIz6sWy4dKHBhmhxITZ7980OPg7_dS/exec';
 
 let codigoAplicado = false;
 
-/* ── COUNTDOWN CARRERA ──────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   COUNTDOWN CARRERA (se oculta si ya pasó)
+════════════════════════════════════════════════════════════ */
 function initCountdown(){
+  const banner = document.getElementById('countdown-banner');
+  // Si ya pasó la carrera, no mostrar el banner en absoluto
+  if(new Date() >= RACE_DATE){
+    if(banner) banner.style.display = 'none';
+    document.querySelector('.page-content').style.paddingTop = '70px';
+    return;
+  }
   function upd(){
     const d=RACE_DATE-new Date(),pad=n=>String(Math.floor(n)).padStart(2,'0');
-    if(d<=0){document.querySelectorAll('.countdown-num').forEach(e=>e.textContent='00');return;}
+    if(d<=0){ banner.style.display='none'; return; }
     document.getElementById('cd-days').textContent    = pad(d/86400000);
     document.getElementById('cd-hours').textContent   = pad((d%86400000)/3600000);
     document.getElementById('cd-minutes').textContent = pad((d%3600000)/60000);
     document.getElementById('cd-seconds').textContent = pad((d%60000)/1000);
   }
-  upd();setInterval(upd,1000);
+  upd(); setInterval(upd,1000);
 }
 
-/* ── COUNTDOWN PREVENTA ─────────────────────────────────────── */
-function initPreventa(){
-  const banner=document.getElementById('preventa-banner');
-  const card=document.getElementById('pc-preventa');
-  function upd(){
-    const d=PREVENTA_END-new Date(),pad=n=>String(Math.floor(n)).padStart(2,'0');
-    if(d<=0){
-      if(banner)banner.classList.add('expired');
-      if(card)card.style.opacity='.35';
-      return;
-    }
-    document.getElementById('pt-days').textContent  = pad(d/86400000);
-    document.getElementById('pt-hours').textContent = pad((d%86400000)/3600000);
-    document.getElementById('pt-mins').textContent  = pad((d%3600000)/60000);
-    document.getElementById('pt-secs').textContent  = pad((d%60000)/1000);
+/* ════════════════════════════════════════════════════════════
+   ON CATEGORIA CHANGE — núcleo de toda la lógica condicional
+════════════════════════════════════════════════════════════ */
+function onCategoriaChange(){
+  const cat = getRadio('categoria');
+  const esKids     = cat === 'Kids';
+  const esFullBody = cat === 'Full Body';
+
+  /* ── Distancia ──────────────────────────────────────────── */
+  const gridNormal = document.getElementById('distancia-grid-normal');
+  const kidsAuto   = document.getElementById('distancia-kids-auto');
+  const errDist    = document.getElementById('err-distancia');
+  if(esKids){
+    gridNormal.style.display = 'none';
+    kidsAuto.classList.add('visible');
+    // Desmarcar cualquier radio de distancia previamente seleccionado
+    document.querySelectorAll('input[name="distancia"]').forEach(r=>r.checked=false);
+    errDist.classList.remove('show');
+  } else {
+    gridNormal.style.display = '';
+    kidsAuto.classList.remove('visible');
   }
-  upd();setInterval(upd,1000);
+
+  /* ── Talla ──────────────────────────────────────────────── */
+  const tallaStd   = document.getElementById('talla-standard');
+  const tallaKids  = document.getElementById('talla-kids');
+  const tallaKidsI = document.getElementById('f-talla-kids');
+  if(esKids){
+    tallaStd.style.display  = 'none';
+    tallaKids.style.display = 'flex';
+    // Desmarcar radios de talla
+    document.querySelectorAll('input[name="talla"]').forEach(r=>r.checked=false);
+  } else {
+    tallaStd.style.display  = '';
+    tallaKids.style.display = 'none';
+    if(tallaKidsI) tallaKidsI.value = '';
+  }
+
+  /* ── Contacto de emergencia / representante ─────────────── */
+  const fsecLabel    = document.getElementById('emergencia-fsec-label');
+  const repBadge     = document.getElementById('representante-badge-wrap');
+  const nombreLabel  = document.getElementById('emerg-nombre-label');
+  const telLabel     = document.getElementById('emerg-tel-label');
+  const nombreReq    = document.getElementById('emerg-nombre-req');
+  const telReq       = document.getElementById('emerg-tel-req');
+  const eNombre      = document.getElementById('f-emerg-nombre');
+  const eTel         = document.getElementById('f-emerg-tel');
+  if(esKids){
+    fsecLabel.textContent = 'Datos del Representante Legal';
+    repBadge.classList.add('visible');
+    nombreLabel.innerHTML  = 'Nombre del Representante <span style="color:#CC0000">*</span>';
+    telLabel.innerHTML     = 'Teléfono del Representante <span style="color:#CC0000">*</span>';
+    nombreReq.innerHTML    = '';
+    telReq.innerHTML       = '';
+    eNombre.required = true;
+    eTel.required    = true;
+    eNombre.placeholder = 'Nombre completo del representante';
+    eTel.placeholder    = 'Teléfono del representante';
+  } else {
+    fsecLabel.textContent = 'Contacto de Emergencia (Opcional)';
+    repBadge.classList.remove('visible');
+    nombreLabel.innerHTML = 'Nombre <span id="emerg-nombre-req"></span>';
+    telLabel.innerHTML    = 'Número de Teléfono <span id="emerg-tel-req"></span>';
+    eNombre.required = false;
+    eTel.required    = false;
+    eNombre.placeholder = 'Nombre completo';
+    eTel.placeholder    = '0987654321';
+    // Limpiar errores si los había
+    marcarError('f-emerg-nombre','err-emerg-nombre',false);
+    marcarError('f-emerg-tel','err-emerg-tel',false);
+  }
+
+  /* ── Acompañante Full Body ──────────────────────────────── */
+  toggleFullBody(esFullBody);
+
+  /* ── Precio ─────────────────────────────────────────────── */
+  actualizarPrecio();
 }
 
-/* ── PRECIO ─────────────────────────────────────────────────── */
-function esPreventa(){ return new Date() < PREVENTA_END; }
-
+/* ════════════════════════════════════════════════════════════
+   PRECIO
+════════════════════════════════════════════════════════════ */
 function calcularPrecio(){
   const cat = getRadio('categoria');
   if(!cat) return null;
   if(cat === 'Full Body')  return { monto: PRECIO_MIXTA, tipo: 'Pareja Mixta' };
   if(codigoAplicado)       return { monto: PRECIO_CLUB,  tipo: 'Descuento Club Running' };
-  if(esPreventa())         return { monto: PRECIO_PREV,  tipo: 'Preventa' };
-  return { monto: PRECIO_STD, tipo: 'Precio estandar' };
+  return { monto: PRECIO_STD, tipo: 'Precio estándar' };
 }
 
 function actualizarPrecio(){
   const cat    = getRadio('categoria');
   const bloque = document.getElementById('price-cards-bloque');
-  const banner = document.getElementById('preventa-banner');
   const din    = document.getElementById('precio-dinamico');
   const amnt   = document.getElementById('pd-amount');
   const orig   = document.getElementById('pd-original');
@@ -847,27 +1013,24 @@ function actualizarPrecio(){
   const note   = document.getElementById('pd-note');
   if(!cat){ bloque.style.display=''; din.classList.remove('visible'); return; }
   bloque.style.display = 'none';
+  orig.style.display   = 'none';
+  badge.style.display  = 'none';
+  note.innerHTML       = '';
   if(cat === 'Full Body'){
-    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
-    amnt.textContent='$40,00'; note.innerHTML=''; din.classList.add('visible'); return;
+    amnt.textContent='$40,00'; din.classList.add('visible'); return;
   }
   if(codigoAplicado){
-    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
-    amnt.textContent='$20,00'; note.innerHTML=''; din.classList.add('visible'); return;
+    amnt.textContent='$20,00';
+    note.innerHTML='Descuento de club running aplicado.';
+    din.classList.add('visible'); return;
   }
-  if(esPreventa()){
-    banner.style.display=''; orig.style.display='block'; orig.textContent='$25,00';
-    badge.style.display='inline-block'; badge.textContent='−15% preventa';
-    amnt.textContent='$21,25';
-    note.innerHTML='Precio especial de preventa. <strong>Válido solo hasta el 1 de abril — corre antes de que suba.</strong>';
-  } else {
-    banner.style.display='none'; orig.style.display='none'; badge.style.display='none';
-    amnt.textContent='$25,00'; note.innerHTML='';
-  }
+  amnt.textContent='$25,00';
   din.classList.add('visible');
 }
 
-/* ── TOGGLE CLUB ────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   TOGGLE CLUB / CÓDIGO
+════════════════════════════════════════════════════════════ */
 function toggleClub(show){
   const sec = document.getElementById('codigo-section');
   if(show){ sec.classList.add('visible'); }
@@ -875,103 +1038,47 @@ function toggleClub(show){
   document.getElementById('err-club').classList.remove('show');
 }
 
-/* ── CÓDIGO DE DESCUENTO ────────────────────────────────────── */
 function validarCodigo(){
   const input  = document.getElementById('f-codigo');
   const codigo = input.value.trim().toUpperCase();
   const errEl  = document.getElementById('err-codigo');
   const cat    = getRadio('categoria');
-  errEl.style.display = 'none';
-  errEl.classList.remove('show');
+  errEl.style.display='none'; errEl.classList.remove('show');
   if(!codigo){ mostrarErrCodigo('Ingresa un código antes de aplicar.'); return; }
-  if(cat === 'Full Body'){ input.value = ''; return; }
+  if(cat === 'Full Body'){ input.value=''; return; }
   if(!CODIGOS_VALIDOS.includes(codigo)){
     mostrarErrCodigo('Código no válido. Verifica e inténtalo de nuevo.'); return;
   }
-  codigoAplicado = true;
-  document.getElementById('codigo-ok-txt').textContent = 'Descuento de club aplicado correctamente';
+  codigoAplicado=true;
+  document.getElementById('codigo-ok-txt').textContent='Descuento de club aplicado correctamente';
   document.getElementById('codigo-ok').classList.add('show');
-  document.getElementById('btn-codigo').disabled = true;
-  input.readOnly = true;
+  document.getElementById('btn-codigo').disabled=true;
+  input.readOnly=true;
   actualizarPrecio();
 }
 
 function quitarCodigo(){
-  codigoAplicado = false;
-  const input = document.getElementById('f-codigo');
-  if(input){ input.value = ''; input.readOnly = false; }
+  codigoAplicado=false;
+  const input=document.getElementById('f-codigo');
+  if(input){input.value='';input.readOnly=false;}
   document.getElementById('codigo-ok').classList.remove('show');
-  const btn = document.getElementById('btn-codigo');
-  if(btn) btn.disabled = false;
-  const errEl = document.getElementById('err-codigo');
-  if(errEl){ errEl.style.display='none'; errEl.classList.remove('show'); }
-  const banner = document.getElementById('preventa-banner');
-  if(banner && esPreventa()) banner.style.display = '';
+  const btn=document.getElementById('btn-codigo');
+  if(btn) btn.disabled=false;
+  const errEl=document.getElementById('err-codigo');
+  if(errEl){errEl.style.display='none';errEl.classList.remove('show');}
   actualizarPrecio();
 }
 
 function resetCodigo(){ if(codigoAplicado) quitarCodigo(); }
 
 function mostrarErrCodigo(msg){
-  const el = document.getElementById('err-codigo');
-  el.textContent = msg; el.style.display = 'block'; el.classList.add('show');
+  const el=document.getElementById('err-codigo');
+  el.textContent=msg; el.style.display='block'; el.classList.add('show');
 }
 
-/* ── EDAD ───────────────────────────────────────────────────── */
-function edadDesdeFecha(fechaStr){
-  if(!fechaStr) return '';
-  const born=new Date(fechaStr),today=new Date();
-  let age=today.getFullYear()-born.getFullYear();
-  const m=today.getMonth()-born.getMonth();
-  if(m<0||(m===0&&today.getDate()<born.getDate())) age--;
-  return age>0?String(age):'';
-}
-
-/* ── CÉDULA ─────────────────────────────────────────────────── */
-function validarCedula(ced){
-  if(!/^\d{10}$/.test(ced)) return false;
-  const prov=parseInt(ced.substring(0,2));
-  if(prov<1||prov>24) return false;
-  const d=ced.split('').map(Number);
-  const coef=[2,1,2,1,2,1,2,1,2];
-  let suma=0;
-  for(let i=0;i<9;i++){let v=d[i]*coef[i];if(v>=10)v-=9;suma+=v;}
-  const esperado=suma%10===0?0:10-(suma%10);
-  return esperado===d[9];
-}
-
-/* ── VALIDACIONES ───────────────────────────────────────────── */
-function soloLetras(s){return/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(s.trim());}
-function validarEmail(s){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());}
-function validarTelefono(s){const l=s.replace(/[\s\-]/g,'');return/^(\+?593|0)[0-9]{8,9}$/.test(l);}
-
-function marcarError(inputId,errId,show){
-  const inp=document.getElementById(inputId);
-  const err=document.getElementById(errId);
-  if(!inp||!err) return;
-  if(show){inp.classList.add('input-error');err.classList.add('show');}
-  else{inp.classList.remove('input-error');err.classList.remove('show');}
-}
-
-/* ── MODAL ──────────────────────────────────────────────────── */
-function abrirModal(e){
-  if(e) e.preventDefault();
-  document.getElementById('modal-terminos').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function cerrarModal(){
-  document.getElementById('modal-terminos').classList.remove('open');
-  document.body.style.overflow='';
-}
-function aceptarTerminos(){
-  document.getElementById('f-terminos').checked=true;
-  cerrarModal();
-}
-document.getElementById('modal-terminos').addEventListener('click',function(e){
-  if(e.target===this) cerrarModal();
-});
-
-/* ── FULL BODY ──────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   FULL BODY ACOMPAÑANTE
+════════════════════════════════════════════════════════════ */
 function toggleFullBody(show){
   const sec=document.getElementById('acomp-section');
   const ids=['ac-nombres','ac-apellidos','ac-cedula','ac-nacimiento','ac-genero','ac-telefono'];
@@ -990,7 +1097,67 @@ function toggleFullBody(show){
   }
 }
 
-/* ── FILE UPLOAD ────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   EDAD
+════════════════════════════════════════════════════════════ */
+function edadDesdeFecha(fechaStr){
+  if(!fechaStr) return '';
+  const born=new Date(fechaStr),today=new Date();
+  let age=today.getFullYear()-born.getFullYear();
+  const m=today.getMonth()-born.getMonth();
+  if(m<0||(m===0&&today.getDate()<born.getDate())) age--;
+  return age>0?String(age):'';
+}
+
+/* ════════════════════════════════════════════════════════════
+   VALIDACIONES
+════════════════════════════════════════════════════════════ */
+function validarCedula(ced){
+  if(!/^\d{10}$/.test(ced)) return false;
+  const prov=parseInt(ced.substring(0,2));
+  if(prov<1||prov>24) return false;
+  const d=ced.split('').map(Number);
+  const coef=[2,1,2,1,2,1,2,1,2];
+  let suma=0;
+  for(let i=0;i<9;i++){let v=d[i]*coef[i];if(v>=10)v-=9;suma+=v;}
+  const esperado=suma%10===0?0:10-(suma%10);
+  return esperado===d[9];
+}
+function soloLetras(s){return/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/.test(s.trim());}
+function validarEmail(s){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());}
+function validarTelefono(s){const l=s.replace(/[\s\-]/g,'');return/^(\+?593|0)[0-9]{8,9}$/.test(l);}
+
+function marcarError(inputId,errId,show){
+  const inp=document.getElementById(inputId);
+  const err=document.getElementById(errId);
+  if(!inp||!err) return;
+  if(show){inp.classList.add('input-error');err.classList.add('show');}
+  else{inp.classList.remove('input-error');err.classList.remove('show');}
+}
+
+/* ════════════════════════════════════════════════════════════
+   MODAL
+════════════════════════════════════════════════════════════ */
+function abrirModal(e){
+  if(e) e.preventDefault();
+  document.getElementById('modal-terminos').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function cerrarModal(){
+  document.getElementById('modal-terminos').classList.remove('open');
+  document.body.style.overflow='';
+}
+function aceptarTerminos(){
+  document.getElementById('f-terminos').checked=true;
+  cerrarModal();
+}
+document.getElementById('modal-terminos').addEventListener('click',function(e){
+  if(e.target===this) cerrarModal();
+});
+
+/* ════════════════════════════════════════════════════════════
+   FILE UPLOAD
+════════════════════════════════════════════════════════════ */
 function handleFile(input){
   if(!input.files||!input.files[0]) return;
   const file=input.files[0];
@@ -1016,20 +1183,37 @@ if(uz){
   });
 }
 
-/* ── HELPERS ────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════════════════════════ */
 function getRadio(name){const el=document.querySelector(`input[name="${name}"]:checked`);return el?el.value:'';}
 function showErr(msg){const el=document.getElementById('error-msg');el.textContent=msg;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'center'});}
 function hideErr(){document.getElementById('error-msg').classList.remove('show');}
 function toBase64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
 function val(id){const el=document.getElementById(id);return el?el.value.trim():'';}
 
-/* ── SUBMIT ─────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   SUBMIT
+════════════════════════════════════════════════════════════ */
 async function handleSubmit(){
   hideErr();
   let hayError=false;
   document.querySelectorAll('.input-error').forEach(el=>el.classList.remove('input-error'));
   document.querySelectorAll('.field-error.show').forEach(el=>el.classList.remove('show'));
-  const isFullBody = getRadio('categoria') === 'Full Body';
+
+  const cat        = getRadio('categoria');
+  const esKids     = cat === 'Kids';
+  const esFullBody = cat === 'Full Body';
+
+  /* Categoría */
+  if(!cat){document.getElementById('err-categoria').classList.add('show');hayError=true;}
+
+  /* Distancia (no requerida para Kids — es 2K automático) */
+  if(!esKids && !getRadio('distancia')){
+    document.getElementById('err-distancia').classList.add('show');hayError=true;
+  }
+
+  /* Datos personales */
   if(!val('f-nombres')||!soloLetras(val('f-nombres'))){marcarError('f-nombres','err-nombres',true);hayError=true;}
   if(!val('f-apellidos')||!soloLetras(val('f-apellidos'))){marcarError('f-apellidos','err-apellidos',true);hayError=true;}
   if(!validarCedula(val('f-cedula'))){marcarError('f-cedula','err-cedula',true);hayError=true;}
@@ -1037,14 +1221,34 @@ async function handleSubmit(){
   if(!val('f-genero')){marcarError('f-genero','err-genero',true);hayError=true;}
   if(!validarEmail(val('f-correo'))){marcarError('f-correo','err-correo',true);hayError=true;}
   if(!validarTelefono(val('f-telefono'))){marcarError('f-telefono','err-telefono',true);hayError=true;}
-  const eNombre=val('f-emerg-nombre'),eTel=val('f-emerg-tel');
-  if(eNombre&&!soloLetras(eNombre)){marcarError('f-emerg-nombre','err-emerg-nombre',true);hayError=true;}
-  if(eTel&&!validarTelefono(eTel)){marcarError('f-emerg-tel','err-emerg-tel',true);hayError=true;}
-  if(!getRadio('talla')){document.getElementById('err-talla').classList.add('show');hayError=true;}
-  if(!getRadio('distancia')){document.getElementById('err-distancia').classList.add('show');hayError=true;}
-  if(!getRadio('categoria')){document.getElementById('err-categoria').classList.add('show');hayError=true;}
+
+  /* Contacto emergencia / representante */
+  const eNombre=val('f-emerg-nombre'), eTel=val('f-emerg-tel');
+  if(esKids){
+    // Obligatorio
+    if(!eNombre||!soloLetras(eNombre)){marcarError('f-emerg-nombre','err-emerg-nombre',true);hayError=true;}
+    if(!eTel||!validarTelefono(eTel)){marcarError('f-emerg-tel','err-emerg-tel',true);hayError=true;}
+  } else {
+    // Opcional — solo valida si fue llenado
+    if(eNombre&&!soloLetras(eNombre)){marcarError('f-emerg-nombre','err-emerg-nombre',true);hayError=true;}
+    if(eTel&&!validarTelefono(eTel)){marcarError('f-emerg-tel','err-emerg-tel',true);hayError=true;}
+  }
+
+  /* Talla */
+  if(esKids){
+    const tv = val('f-talla-kids');
+    if(!tv || tv.length === 0){
+      document.getElementById('err-talla').classList.add('show');hayError=true;
+    }
+  } else {
+    if(!getRadio('talla')){document.getElementById('err-talla').classList.add('show');hayError=true;}
+  }
+
+  /* Club */
   if(!getRadio('club')){document.getElementById('err-club').classList.add('show');hayError=true;}
-  if(isFullBody){
+
+  /* Acompañante Full Body */
+  if(esFullBody){
     if(!val('ac-nombres')||!soloLetras(val('ac-nombres'))){marcarError('ac-nombres','err-ac-nombres',true);hayError=true;}
     if(!val('ac-apellidos')||!soloLetras(val('ac-apellidos'))){marcarError('ac-apellidos','err-ac-apellidos',true);hayError=true;}
     if(!validarCedula(val('ac-cedula'))){marcarError('ac-cedula','err-ac-cedula',true);hayError=true;}
@@ -1052,18 +1256,30 @@ async function handleSubmit(){
     if(!val('ac-genero')||!val('ac-nacimiento')){hayError=true;}
     if(!getRadio('talla-comp')){document.getElementById('err-ac-talla').classList.add('show');hayError=true;}
   }
-  if(!document.getElementById('f-terminos').checked){document.getElementById('err-terminos').classList.add('show');hayError=true;}
+
+  /* Términos */
+  if(!document.getElementById('f-terminos').checked){
+    document.getElementById('err-terminos').classList.add('show');hayError=true;
+  }
+
+  /* Comprobante */
   const fi=document.getElementById('f-comprobante');
   if(!fi.files||!fi.files[0]){document.getElementById('err-comprobante').classList.add('show');hayError=true;}
+
   if(hayError){
     showErr('Por favor corrige los campos marcados en rojo antes de continuar.');
-    const primero=document.querySelector('.input-error');
+    const primero=document.querySelector('.input-error,.field-error.show');
     if(primero) primero.scrollIntoView({behavior:'smooth',block:'center'});
     return;
   }
-  const precioInfo = calcularPrecio();
-  const precioFinal = precioInfo ? precioInfo.monto : PRECIO_STD;
-  const tipoPrecio  = precioInfo ? precioInfo.tipo  : 'Precio estándar';
+
+  /* Construir datos */
+  const distanciaFinal = esKids ? '2K' : getRadio('distancia');
+  const tallaFinal     = esKids ? val('f-talla-kids') : getRadio('talla');
+  const precioInfo     = calcularPrecio();
+  const precioFinal    = precioInfo ? precioInfo.monto : PRECIO_STD;
+  const tipoPrecio     = precioInfo ? precioInfo.tipo  : 'Precio estándar';
+
   const d={
     nombres:       val('f-nombres'),
     apellidos:     val('f-apellidos'),
@@ -1075,9 +1291,9 @@ async function handleSubmit(){
     telefono:      String(val('f-telefono')),
     emergNombre:   eNombre,
     emergTel:      eTel ? String(eTel) : '',
-    talla:         getRadio('talla'),
-    distancia:     getRadio('distancia'),
-    categoria:     getRadio('categoria'),
+    talla:         tallaFinal,
+    distancia:     distanciaFinal,
+    categoria:     cat,
     medico:        val('f-medico'),
     fotoAutoriza:  document.getElementById('f-fotos').checked?'Sí':'No',
     perteneceClub: getRadio('club'),
@@ -1095,10 +1311,12 @@ async function handleSubmit(){
     acMedico:      val('ac-medico'),
     fechaRegistro: new Date().toLocaleString('es-EC',{timeZone:'America/Guayaquil'})
   };
+
   const file=fi.files[0];
   const base64=await toBase64(file);
   const btn=document.getElementById('submit-btn');
-  btn.disabled=true;btn.classList.add('loading');
+  btn.disabled=true; btn.classList.add('loading');
+
   try{
     const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({...d,fileName:file.name,fileType:file.type,fileBase64:base64})});
     const json=await res.json();
@@ -1111,11 +1329,13 @@ async function handleSubmit(){
     showErr('Hubo un problema al enviar. Inténtalo de nuevo o contáctanos al 0984848383.');
     console.error(err);
   }finally{
-    btn.disabled=false;btn.classList.remove('loading');
+    btn.disabled=false; btn.classList.remove('loading');
   }
 }
 
-/* ── NAV ────────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   NAV
+════════════════════════════════════════════════════════════ */
 function initNav(){
   const hb=document.querySelector('.hamburger'),mm=document.querySelector('.mobile-menu');
   if(!hb)return;
@@ -1123,24 +1343,31 @@ function initNav(){
   mm.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hb.classList.remove('active');mm.classList.remove('open');}));
 }
 
-/* ── SCROLL ─────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   SCROLL ANIMATIONS
+════════════════════════════════════════════════════════════ */
 function initScroll(){
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.animate-on-scroll').forEach(el=>obs.observe(el));
 }
 
-/* ── INIT ───────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded',()=>{
   initCountdown();
-  initPreventa();
   initNav();
   initScroll();
+
+  /* Filtros de entrada: solo letras */
   ['f-nombres','f-apellidos','f-emerg-nombre','ac-nombres','ac-apellidos'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     el.addEventListener('input',function(){
       this.value=this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]/g,'');
     });
   });
+
+  /* Cédula: validación en tiempo real */
   ['f-cedula','ac-cedula'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     const errId=id==='f-cedula'?'err-cedula':'err-ac-cedula';
@@ -1158,6 +1385,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   });
+
+  /* Teléfonos: validación en tiempo real */
   ['f-telefono','f-emerg-tel','ac-telefono'].forEach(id=>{
     const el=document.getElementById(id);if(!el)return;
     const errMap={'f-telefono':'err-telefono','f-emerg-tel':'err-emerg-tel','ac-telefono':'err-ac-telefono'};
@@ -1176,6 +1405,14 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   });
+
+  /* Talla kids: solo alfanumérico, máx 2 chars */
+  const tallaKidsI=document.getElementById('f-talla-kids');
+  if(tallaKidsI){
+    tallaKidsI.addEventListener('input',function(){
+      this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase().substring(0,2);
+    });
+  }
 });
 </script>
 </body>
