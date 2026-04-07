@@ -1,0 +1,414 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.app { padding: 0; background: #0A0A0A; min-height: 100vh; font-family: 'Barlow Condensed', 'Barlow', sans-serif; }
+.app-inner { padding: 16px; }
+
+.master-clock {
+  background: #111; border: 1px solid #CC0000; border-radius: 12px;
+  padding: 20px 24px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.master-label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 4px; }
+.master-time { font-size: 56px; font-weight: 700; letter-spacing: 4px; color: #fff; font-variant-numeric: tabular-nums; transition: color 0.3s; line-height: 1; }
+.master-time.running { color: #CC0000; }
+.master-btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+button {
+  border: 1px solid #2A2A2A; background: #161616; color: #888;
+  border-radius: 6px; padding: 9px 18px; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: all 0.15s; white-space: nowrap;
+}
+button:hover { background: #1E1E1E; color: #fff; border-color: #444; }
+button:active { transform: scale(0.97); }
+button.btn-go { background: #CC0000; color: #fff; border-color: #CC0000; }
+button.btn-go:hover { background: #FF0000; border-color: #FF0000; }
+button.btn-stop { background: #2A0000; color: #CC0000; border-color: #8B0000; }
+button.btn-stop:hover { background: #3A0000; color: #FF0000; }
+button.btn-ghost { padding: 7px 14px; font-size: 11px; }
+button:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+.load-section {
+  background: #111; border: 1px solid #1E1E1E; border-radius: 10px;
+  padding: 14px 18px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.load-section input[type=text] {
+  flex: 1; min-width: 200px; padding: 8px 12px;
+  border: 1px solid #222; border-radius: 6px;
+  background: #0A0A0A; color: #fff; font-size: 12px; outline: none;
+}
+.load-section input:focus { border-color: #CC0000; }
+.load-status { font-size: 11px; color: #444; letter-spacing: 0.5px; }
+.load-status.ok  { color: #2ecc71; }
+.load-status.err { color: #CC0000; }
+
+.stats-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-bottom: 12px; }
+.stat-card { background: #111; border: 1px solid #1A1A1A; border-radius: 8px; padding: 10px 12px; }
+.stat-label { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.stat-val { font-size: 22px; font-weight: 700; color: #fff; }
+
+.section-title {
+  font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 2.5px;
+  margin-bottom: 8px; margin-top: 14px;
+  border-left: 2px solid #CC0000; padding-left: 8px;
+}
+
+.filters { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
+.filter-btn {
+  border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+  white-space: nowrap; border: 1px solid #2A2A2A; background: #111; color: #555;
+}
+.filter-btn:hover { color: #fff; border-color: #555; }
+
+.search-box {
+  margin-left: auto; padding: 7px 12px; border: 1px solid #222; border-radius: 6px;
+  background: #111; color: #fff; font-size: 12px; width: 160px; outline: none;
+}
+.search-box:focus { border-color: #CC0000; }
+.search-box::placeholder { color: #333; }
+
+.runners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+
+.runner-card {
+  border-radius: 10px; border: 1px solid;
+  padding: 0; transition: border-color 0.2s; position: relative; overflow: hidden;
+}
+
+.card-header {
+  padding: 12px 16px 10px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+
+.card-body { padding: 0 16px 14px; }
+
+.runner-id { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.dist-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;
+  background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.15); color: #fff;
+}
+
+.runner-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px; letter-spacing: 0.5px; }
+.runner-meta { font-size: 11px; color: rgba(255,255,255,0.45); margin-bottom: 12px; letter-spacing: 0.5px; }
+
+.runner-time {
+  font-size: 42px; font-weight: 700; letter-spacing: 2px;
+  font-variant-numeric: tabular-nums; margin-bottom: 12px; line-height: 1;
+  color: #fff;
+}
+.runner-time.finished { color: #2ecc71; }
+
+.runner-actions { display: flex; gap: 6px; }
+.runner-actions button { flex: 1; font-size: 11px; padding: 7px 10px; }
+
+.finish-mark {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-top: -4px; margin-bottom: 10px; color: #2ecc71;
+}
+
+.empty-msg { grid-column: 1/-1; text-align: center; padding: 60px 16px; color: #333; font-size: 14px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 5px; }
+
+.running-indicator {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: #fff; margin-right: 6px; vertical-align: middle;
+  animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+
+<div class="app"><div class="app-inner">
+
+  <div class="load-section">
+    <div style="flex:1;min-width:180px">
+      <div class="stat-label" style="color:#CC0000;margin-bottom:4px">Acero Trail Running · Cronómetro Oficial</div>
+      <div class="load-status" id="load-status">Demo activo — pega tu URL de Apps Script para cargar corredores reales</div>
+    </div>
+    <input type="text" id="script-url" placeholder="https://script.google.com/macros/s/.../exec">
+    <button onclick="loadFromSheet()" class="btn-ghost" style="color:#CC0000;border-color:#8B0000">⬇ Cargar corredores</button>
+  </div>
+
+  <div class="master-clock">
+    <div style="flex:1;min-width:200px">
+      <div class="master-label">Cronómetro general · San Mateo 2026</div>
+      <div class="master-time" id="master-display">00:00:00</div>
+    </div>
+    <div class="master-btns">
+      <button class="btn-go" id="btn-start" onclick="masterStart()">▶ Iniciar largada</button>
+      <button id="btn-pause" onclick="masterPause()" style="display:none">⏸ Pausar</button>
+      <button class="btn-stop" id="btn-reset" onclick="masterReset()">↺ Reiniciar</button>
+      <button class="btn-ghost" onclick="finishAll()">✓ Finalizar todos</button>
+    </div>
+    <div style="text-align:right;font-size:11px;letter-spacing:1px">
+      <div id="s-running" style="color:#555">— en carrera</div>
+      <div id="s-finished" style="color:#2ecc71">— finalizados</div>
+    </div>
+  </div>
+
+  <div class="stats-row" id="stats-row"></div>
+
+  <div class="section-title">Filtrar por categoría</div>
+  <div class="filters" id="cat-filters"></div>
+
+  <div class="section-title">Filtrar por distancia</div>
+  <div class="filters" id="dist-filters"></div>
+
+  <div class="filters" style="margin-top:10px;margin-bottom:14px">
+    <span style="font-size:10px;color:#444;letter-spacing:2px;text-transform:uppercase">Buscar</span>
+    <input class="search-box" id="search" placeholder="Nombre o ID..." oninput="renderCards()">
+  </div>
+
+  <div class="runners-grid" id="runners-grid"></div>
+
+</div></div>
+
+<script>
+const CATS = {
+  'Full Body':    { bg:'#6B1A2E', border:'#993556', accent:'#F4C0D1' },
+  'Kids':         { bg:'#0B3D28', border:'#1D9E75', accent:'#9FE1CB' },
+  'Juvenil':      { bg:'#0B2442', border:'#185FA5', accent:'#B5D4F4' },
+  'Sénior':       { bg:'#3D2800', border:'#BA7517', accent:'#FAC775' },
+  'Senior':       { bg:'#3D2800', border:'#BA7517', accent:'#FAC775' },
+  'Máster':       { bg:'#1E1A4A', border:'#534AB7', accent:'#CECBF6' },
+  'Master':       { bg:'#1E1A4A', border:'#534AB7', accent:'#CECBF6' },
+  'Comandante':   { bg:'#162408', border:'#3B6D11', accent:'#C0DD97' },
+  'Gran Maestro': { bg:'#252422', border:'#888780', accent:'#D3D1C7' },
+};
+
+const DISTS = {
+  '2K':  { color:'#1D9E75', border:'#085041', text:'#9FE1CB' },
+  '6K':  { color:'#185FA5', border:'#042C53', text:'#B5D4F4' },
+  '11K': { color:'#CC0000', border:'#8B0000', text:'#F7C1C1' },
+};
+
+const DEMO = [
+  { id:'ATR-0001', nombres:'Carlos',    apellidos:'Vera',      genero:'M', distancia:'11K', categoria:'Sénior' },
+  { id:'ATR-0002', nombres:'María',     apellidos:'Loor',      genero:'F', distancia:'6K',  categoria:'Máster' },
+  { id:'ATR-0003', nombres:'Andrés',    apellidos:'Moreira',   genero:'M', distancia:'11K', categoria:'Gran Maestro' },
+  { id:'ATR-0004', nombres:'Lucía',     apellidos:'Ponce',     genero:'F', distancia:'6K',  categoria:'Juvenil' },
+  { id:'ATR-0005', nombres:'Fernanda',  apellidos:'Ríos',      genero:'F', distancia:'11K', categoria:'Full Body' },
+  { id:'ATR-0006', nombres:'Diego',     apellidos:'Zambrano',  genero:'M', distancia:'11K', categoria:'Full Body' },
+  { id:'ATR-0007', nombres:'Sofía',     apellidos:'Almeida',   genero:'F', distancia:'6K',  categoria:'Sénior' },
+  { id:'ATR-0008', nombres:'Roberto',   apellidos:'Chica',     genero:'M', distancia:'11K', categoria:'Comandante' },
+  { id:'ATR-0009', nombres:'Tomás',     apellidos:'Cevallos',  genero:'M', distancia:'2K',  categoria:'Kids' },
+  { id:'ATR-0010', nombres:'Isabella',  apellidos:'Muñoz',     genero:'F', distancia:'2K',  categoria:'Kids' },
+  { id:'ATR-0011', nombres:'Ana',       apellidos:'Cedeño',    genero:'F', distancia:'11K', categoria:'Gran Maestro' },
+  { id:'ATR-0012', nombres:'Martín',    apellidos:'Baque',     genero:'M', distancia:'6K',  categoria:'Máster' },
+  { id:'ATR-0013', nombres:'Valentina', apellidos:'Loza',      genero:'F', distancia:'6K',  categoria:'Juvenil' },
+  { id:'ATR-0014', nombres:'Emilio',    apellidos:'Vera',      genero:'M', distancia:'11K', categoria:'Comandante' },
+  { id:'ATR-0015', nombres:'Sara',      apellidos:'Pin',       genero:'F', distancia:'2K',  categoria:'Kids' },
+];
+
+let masterRunning=false, masterInterval=null, masterMs=0, masterOffset=0, masterStartTs=null;
+let catFilter='all', distFilter='all', runners=[];
+
+function normalizar(r) {
+  const m={'master':'Máster','máster':'Máster','senior':'Sénior','sénior':'Sénior',
+    'juvenil':'Juvenil','comandante':'Comandante','gran maestro':'Gran Maestro',
+    'kids':'Kids','full body':'Full Body'};
+  r.categoria = m[(r.categoria||'').toLowerCase().trim()] || r.categoria;
+  r.distancia = (r.distancia||'').trim().toUpperCase();
+  return r;
+}
+function initRunners(raw) {
+  runners = raw.map(r=>({...normalizar(r),elapsed:0,running:false,finished:false,finishTime:null,startTs:null,offset:0}));
+}
+initRunners(DEMO);
+
+function fmt(ms) {
+  const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sc).padStart(2,'0')}`;
+}
+
+async function loadFromSheet() {
+  const url=document.getElementById('script-url').value.trim();
+  if(!url){setStatus('Ingresa la URL primero.','err');return;}
+  setStatus('Cargando...','');
+  try {
+    const resp=await fetch(url+'?action=getCorredores');
+    const data=await resp.json();
+    if(data.status!=='ok'||!data.corredores) throw new Error('Respuesta inválida');
+    initRunners(data.corredores);
+    setStatus(`✓ ${runners.length} corredores cargados`,'ok');
+    renderAll();
+  } catch(err){setStatus('Error: '+err.message,'err');}
+}
+function setStatus(msg,cls){const el=document.getElementById('load-status');el.textContent=msg;el.className='load-status '+(cls||'');}
+
+function masterStart() {
+  if(masterRunning)return;
+  masterRunning=true;masterStartTs=Date.now()-masterOffset;
+  masterInterval=setInterval(tick,200);
+  runners.forEach(r=>{if(!r.finished){r.running=true;r.startTs=Date.now()-r.offset;}});
+  document.getElementById('btn-start').style.display='none';
+  document.getElementById('btn-pause').style.display='';
+  document.getElementById('master-display').className='master-time running';
+  renderCards();
+}
+function masterPause() {
+  if(!masterRunning)return;
+  masterRunning=false;clearInterval(masterInterval);masterOffset=masterMs;
+  runners.forEach(r=>{if(r.running){r.offset=Date.now()-r.startTs;r.running=false;}});
+  document.getElementById('btn-start').style.display='';
+  document.getElementById('btn-start').textContent='▶ Reanudar';
+  document.getElementById('btn-pause').style.display='none';
+  document.getElementById('master-display').className='master-time';
+}
+function masterReset() {
+  clearInterval(masterInterval);masterRunning=false;masterMs=0;masterOffset=0;
+  runners.forEach(r=>{r.elapsed=0;r.running=false;r.finished=false;r.finishTime=null;r.startTs=null;r.offset=0;});
+  document.getElementById('master-display').textContent='00:00:00';
+  document.getElementById('master-display').className='master-time';
+  document.getElementById('btn-start').style.display='';
+  document.getElementById('btn-start').textContent='▶ Iniciar largada';
+  document.getElementById('btn-pause').style.display='none';
+  renderAll();
+}
+function tick() {
+  masterMs=Date.now()-masterStartTs;
+  document.getElementById('master-display').textContent=fmt(masterMs);
+  runners.forEach(r=>{
+    if(r.running&&!r.finished){r.elapsed=Date.now()-r.startTs;
+      const el=document.getElementById('rt-'+r.id);if(el)el.textContent=fmt(r.elapsed);}
+  });
+  updateSmallStats();
+}
+function updateSmallStats() {
+  document.getElementById('s-running').textContent=runners.filter(r=>r.running&&!r.finished).length+' en carrera';
+  document.getElementById('s-finished').textContent=runners.filter(r=>r.finished).length+' finalizados';
+}
+function finishRunner(id) {
+  const r=runners.find(x=>x.id===id);if(!r||r.finished)return;
+  if(r.running)r.elapsed=Date.now()-r.startTs;
+  r.running=false;r.finished=true;r.finishTime=fmt(r.elapsed);
+  renderCards();renderStats();updateSmallStats();
+}
+function resetRunner(id) {
+  const r=runners.find(x=>x.id===id);if(!r)return;
+  r.elapsed=0;r.running=false;r.finished=false;r.finishTime=null;r.startTs=null;r.offset=0;
+  if(masterRunning){r.running=true;r.startTs=Date.now();}
+  renderCards();renderStats();updateSmallStats();
+}
+function finishAll() {
+  runners.forEach(r=>{if(!r.finished){if(r.running)r.elapsed=Date.now()-r.startTs;r.running=false;r.finished=true;r.finishTime=fmt(r.elapsed);}});
+  renderCards();renderStats();updateSmallStats();
+}
+
+function setFilter(f,btn) {
+  catFilter=f;
+  document.querySelectorAll('#cat-filters .filter-btn').forEach(b=>{b.classList.remove('active');b.style.cssText='';});
+  btn.classList.add('active');
+  if(f!=='all'&&CATS[f]){btn.style.background=CATS[f].border;btn.style.color='#fff';btn.style.borderColor=CATS[f].border;}
+  else{btn.style.background='#1A1A1A';btn.style.color='#fff';btn.style.borderColor='#444';}
+  renderCards();
+}
+function setDistFilter(f,btn) {
+  distFilter=f;
+  document.querySelectorAll('#dist-filters .filter-btn').forEach(b=>{b.classList.remove('active');b.style.cssText='';});
+  btn.classList.add('active');
+  if(f!=='all'&&DISTS[f]){btn.style.background=DISTS[f].color;btn.style.color='#fff';btn.style.borderColor=DISTS[f].color;}
+  else{btn.style.background='#1A1A1A';btn.style.color='#fff';btn.style.borderColor='#444';}
+  renderCards();
+}
+
+function renderFilters() {
+  const cats=[...new Set(runners.map(r=>r.categoria))].sort();
+  const dists=[...new Set(runners.map(r=>r.distancia))].sort((a,b)=>parseInt(a)-parseInt(b));
+
+  const cf=document.getElementById('cat-filters');
+  cf.innerHTML=`<button class="filter-btn" style="background:#1A1A1A;color:#fff;border-color:#444" onclick="setFilter('all',this)">Todos (${runners.length})</button>`;
+  cats.forEach(cat=>{
+    const c=CATS[cat]||{border:'#888',accent:'#aaa'};
+    const cnt=runners.filter(r=>r.categoria===cat).length;
+    cf.innerHTML+=`<button class="filter-btn" onclick="setFilter('${cat}',this)"
+      style="border-color:${c.border};color:${c.accent};background:${c.bg}">
+      <span class="dot" style="background:${c.border}"></span>${cat} (${cnt})</button>`;
+  });
+
+  const df=document.getElementById('dist-filters');
+  df.innerHTML=`<button class="filter-btn" style="background:#1A1A1A;color:#fff;border-color:#444" onclick="setDistFilter('all',this)">Todas</button>`;
+  dists.forEach(d=>{
+    const c=DISTS[d]||{color:'#888',text:'#aaa',border:'#333'};
+    const cnt=runners.filter(r=>r.distancia===d).length;
+    df.innerHTML+=`<button class="filter-btn" onclick="setDistFilter('${d}',this)"
+      style="border-color:${c.color};color:${c.text};background:rgba(0,0,0,0.4)">
+      <span class="dot" style="background:${c.color}"></span>${d} (${cnt})</button>`;
+  });
+}
+
+function renderStats() {
+  const finished=runners.filter(r=>r.finished).length;
+  const running=runners.filter(r=>r.running&&!r.finished).length;
+  const pending=runners.filter(r=>!r.running&&!r.finished).length;
+  const distStats=['2K','6K','11K'].map(d=>{
+    const total=runners.filter(r=>r.distancia===d).length;
+    const fin=runners.filter(r=>r.distancia===d&&r.finished).length;
+    if(!total)return'';
+    const c=DISTS[d];
+    return `<div class="stat-card" style="border-color:${c.border}">
+      <div class="stat-label" style="color:${c.color}">${d}</div>
+      <div class="stat-val" style="color:${c.text};font-size:18px">${fin}<span style="font-size:13px;color:#444">/${total}</span></div>
+    </div>`;
+  }).join('');
+  document.getElementById('stats-row').innerHTML=`
+    <div class="stat-card"><div class="stat-label">Total</div><div class="stat-val">${runners.length}</div></div>
+    <div class="stat-card" style="border-color:#1a3a1a"><div class="stat-label" style="color:#2ecc71">Meta</div><div class="stat-val" style="color:#2ecc71">${finished}</div></div>
+    <div class="stat-card" style="border-color:#3a0000"><div class="stat-label" style="color:#CC0000">Corriendo</div><div class="stat-val" style="color:#CC0000">${running}</div></div>
+    <div class="stat-card"><div class="stat-label">Pendientes</div><div class="stat-val" style="color:#444">${pending}</div></div>
+    ${distStats}`;
+}
+
+function renderCards() {
+  const grid=document.getElementById('runners-grid');
+  const search=document.getElementById('search').value.toLowerCase();
+  let list=runners;
+  if(catFilter!=='all')list=list.filter(r=>r.categoria===catFilter);
+  if(distFilter!=='all')list=list.filter(r=>r.distancia===distFilter);
+  if(search)list=list.filter(r=>(r.nombres+' '+r.apellidos).toLowerCase().includes(search)||r.id.toLowerCase().includes(search));
+  list=[...list].sort((a,b)=>{
+    if(a.finished!==b.finished)return a.finished?1:-1;
+    if(a.running!==b.running)return a.running?-1:1;
+    return a.elapsed-b.elapsed;
+  });
+  if(!list.length){grid.innerHTML='<div class="empty-msg">Sin corredores con ese filtro.</div>';return;}
+
+  grid.innerHTML=list.map(r=>{
+    const cat = r.finished
+      ? {bg:'#0B2E0B', border:'#2ecc71', accent:'#9FE1CB'}
+      : (CATS[r.categoria]||{bg:'#1A1A1A',border:'#333',accent:'#888'});
+    const dist=DISTS[r.distancia]||{color:'#888',text:'#aaa',border:'#333'};
+    const timeColor = r.finished ? '#2ecc71' : cat.accent;
+    const indicator = r.running&&!r.finished ? `<span class="running-indicator"></span>` : '';
+
+    return `
+    <div class="runner-card" style="border-color:${cat.border}">
+      <div class="card-header" style="background:${cat.bg}">
+        <div>
+          <div class="runner-id" style="color:${cat.accent}">${r.id}</div>
+          <div class="runner-name" style="margin-top:4px">${indicator}${r.nombres} ${r.apellidos}</div>
+          <div class="runner-meta">${r.categoria} · ${r.genero==='F'||r.genero==='Femenino'?'Femenino':'Masculino'}</div>
+        </div>
+        <span class="dist-badge" style="border-color:${dist.color};color:${dist.text}">${r.distancia}</span>
+      </div>
+      <div class="card-body" style="background:#0F0F0F;padding-top:14px">
+        <div class="runner-time ${r.finished?'finished':''}" style="color:${timeColor}" id="rt-${r.id}">${fmt(r.elapsed)}</div>
+        ${r.finished?`<div class="finish-mark">✓ Meta — ${r.finishTime}</div>`:''}
+        <div class="runner-actions">
+          ${!r.finished
+            ?`<button class="btn-go" onclick="finishRunner('${r.id}')" ${!masterRunning&&!r.running?'disabled':''} style="font-size:11px;padding:7px 10px">✓ Meta</button>`
+            :''}
+          <button class="btn-ghost" onclick="resetRunner('${r.id}')" title="Reiniciar">↺</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderAll(){renderFilters();renderStats();renderCards();updateSmallStats();}
+renderAll();
+</script>
